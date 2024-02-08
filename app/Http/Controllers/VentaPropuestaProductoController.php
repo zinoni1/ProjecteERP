@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Venta;
+use App\Models\VentaPropuestaProducto;
 use Illuminate\Http\Request;
 
-class VentaController extends Controller
+class VentaPropuestaProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class VentaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Venta $venta)
+    public function show(VentaPropuestaProducto $ventaPropuestaProducto)
     {
         //
     }
@@ -42,7 +42,7 @@ class VentaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Venta $venta)
+    public function edit(VentaPropuestaProducto $ventaPropuestaProducto)
     {
         //
     }
@@ -50,7 +50,7 @@ class VentaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Venta $venta)
+    public function update(Request $request, VentaPropuestaProducto $ventaPropuestaProducto)
     {
         //
     }
@@ -58,7 +58,7 @@ class VentaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Venta $venta)
+    public function destroy(VentaPropuestaProducto $ventaPropuestaProducto)
     {
         //
     }
