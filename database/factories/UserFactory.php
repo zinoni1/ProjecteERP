@@ -5,7 +5,13 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use App\Models\User;
+use App\Models\VentaDetalle;
+use App\Models\VentaPropuesta;
+use App\Models\Producte;
+use App\Models\VentaPropuestaProducto;
+use App\Models\Cliente;
+use App\Models\TipoCliente;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
