@@ -14,6 +14,15 @@ return new class extends Migration
         Schema::create('venta_propuesta_productos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('VentaPropuestasId')
+            ->  references('id')
+            -> on ('venta_propuestas')
+            -> onDelete('cascade');
+            $table->foreignId('ProductosServiciosId')
+            ->  references('id')
+            -> on ('productes')
+            -> onDelete('cascade');
+
         });
     }
 
