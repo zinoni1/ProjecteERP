@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Email');
             $table->integer('Telefono');
             $table->string('Direccion');
-            $     $table->foreignId('TipoClienteID')
+            $table->foreignId('TipoClienteID')
             ->  references('id')
             -> on ('tipo_clientes')
             -> onDelete('cascade');

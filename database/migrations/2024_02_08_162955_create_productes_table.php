@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('Precio', 8, 2);
             $table->integer('Stock');
             $table->date('FechaEntrada');
-            
+
         });
     }
 

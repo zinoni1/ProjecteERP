@@ -12,6 +12,6 @@ class VentaDetalleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\VentaDetalle::factory(10)->create();
     }
 }
