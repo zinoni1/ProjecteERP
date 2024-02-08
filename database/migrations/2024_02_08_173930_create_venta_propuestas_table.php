@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('venta_propuestas', function (Blueprint $table) {
-            $table->id('PropuestaID');
+            $table->id();
             $table->timestamps();
             $table->date('FechaCreacion');
             $table->enum('Estado', ['Aceptada', 'Pendiente', 'Rechazada']);

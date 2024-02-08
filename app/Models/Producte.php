@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\VentaPropuesta;
 
 class Producte extends Model
 {
     protected $fillable = [
 
-        'ProductoServicioID',
         'Nombre',
         'Descripcion',
         'Precio',

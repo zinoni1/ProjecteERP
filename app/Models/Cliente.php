@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\VentaPropuesta;
+use App\Models\TipoCliente;
 
 class Cliente extends Model
 {
@@ -12,13 +14,11 @@ class Cliente extends Model
 
     protected $fillable = [
 
-        'ClienteID',
         'Nombre',
         'Apellido',
         'Email',
         'Telefon',
         'Direccion',
-        'TipoClienteID'
 
     ];
     public function ventaPropuestas()
