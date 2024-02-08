@@ -12,8 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('venta_propuestas', function (Blueprint $table) {
-            $table->id();
+            $table->id('PropuestaID');
             $table->timestamps();
+            $table->date('FechaCreacion');
+            $table->enum('Estado', ['Aceptada', 'Pendiente', 'Rechazada']);
+            $table->longText('Detalles');
+            $table->foreignId('ClienteID')
+            ->  references('id')
+            -> on ('clientes')
+            -> onDelete('cascade');
         });
     }
 
