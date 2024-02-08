@@ -12,6 +12,7 @@ class VentaPropuestaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //n:m ventrapropuesta y producto
+        \App\Models\VentaPropuesta::factory(10)->has(\App\Models\Producte::factory(10))->create();
     }
 }
