@@ -7,5 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producte extends Model
 {
+    protected $fillable = [
+
+        'ProductoServicioID',
+        'Nombre',
+        'Descripcion',
+        'Precio',
+        'Stock',
+        'FechaEntrada'
+
+    ];
     use HasFactory;
+    public function ventaPropuestas()
+    {
+        return $this->belongsToMany(VentaPropuesta::class);
+    }
 }

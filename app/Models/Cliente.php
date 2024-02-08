@@ -16,7 +16,18 @@ class Cliente extends Model
         'Nombre',
         'Apellido',
         'Email',
-        '   '
+        'Telefon',
+        'Direccion',
+        'TipoClienteID'
 
     ];
+    public function ventaPropuestas()
+    {
+        return $this->belongsToMany(VentaPropuesta::class);
+    }
+    public function tipoclientes()
+    {
+        return $this->hasMany(TipoCliente::class);
+    }
+
 }
