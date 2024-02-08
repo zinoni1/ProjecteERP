@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Cliente;
+use App\Models\Producte;
 
 class VentaPropuesta extends Model
 {
     use HasFactory;
     protected $fillable = [
 
-        'PropuestaID',
-        'ClienteID',
+
         'FechaCreacion',
         'Estado',
         'Detalles',

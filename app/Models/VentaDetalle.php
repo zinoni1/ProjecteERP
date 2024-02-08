@@ -8,10 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class VentaDetalle extends Model
 {
     protected $fillable = [
-
-        'DetalleVentaID',
-        'PropuestaID',
-        'ProductoServicioID',
         'CantidadVendida',
         'PrecioUnitario',
 
