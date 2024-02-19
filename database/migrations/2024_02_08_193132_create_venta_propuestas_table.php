@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('venta_propuestas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('FechaCreacion');
             $table->enum('Estado', ['Aceptada', 'Pendiente', 'Rechazada']);
             $table->longText('Detalles');
-            $table->foreignId('ClienteID')
-            ->  references('id')
-            -> on ('clientes')
-            -> onDelete('cascade');
+            $table->foreignId('cliente_id')->default(1)->references('id')->on('clientes')->onDelete('cascade');
+           
         });
+        
     }
 
     /**

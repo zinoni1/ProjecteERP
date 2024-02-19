@@ -22,11 +22,10 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
-            'ClienteID' => $this->faker->numberBetween(1, 10),
             'Nombre' => $this->faker->name,
             'Apellido' => $this->faker->lastName,
             'Email' => $this->faker->unique()->safeEmail,
-            'Telefono' => $this->faker->phoneNumber,
+            'Telefono' => $this->faker->name,
             'Direccion' => $this->faker->address,
         ];
     }

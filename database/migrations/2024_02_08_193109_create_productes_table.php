@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('productes', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Esto asume que 'id' es tu clave primaria
             $table->timestamps();
             $table->string('nombre');
-            $table->mediumText('Descripción');
+            $table->mediumText('Descripcion');
             $table->decimal('Precio', 8, 2);
             $table->integer('Stock');
             $table->date('FechaEntrada');
-
         });
     }
 

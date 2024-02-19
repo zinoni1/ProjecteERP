@@ -17,12 +17,16 @@ return new class extends Migration
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Email');
-            $table->integer('Telefono');
+            $table->string('Telefono');
             $table->string('Direccion');
             $table->foreignId('TipoClienteID')
-            ->  references('id')
-            -> on ('tipo_clientes')
-            -> onDelete('cascade');
+            ->nullable() // Puedes agregar esta línea si permites que sea nulo
+            ->default(null) // O esta línea si prefieres un valor predeterminado
+            ->references('id')
+            ->on('tipo_clientes')
+            ->onDelete('cascade');
+        
+      
 
         });
     }
