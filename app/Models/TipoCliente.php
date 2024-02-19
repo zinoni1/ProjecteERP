@@ -10,13 +10,14 @@ class TipoCliente extends Model
 {
     protected $fillable = [
 
-        
+
         'Descripcion'
 
     ];
     use HasFactory;
     public function clientes()
     {
-        return $this->belongsToMany(Cliente::class);
+        return $this->hasMany(Cliente::class);
     }
+
 }

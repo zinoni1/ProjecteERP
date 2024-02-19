@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->id();
+            $table->id('cliente_id');
             $table->timestamps();
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Email');
             $table->integer('Telefono');
             $table->string('Direccion');
-            $table->foreignId('TipoClienteID')
-            ->  references('id')
-            -> on ('tipo_clientes')
-            -> onDelete('cascade');
+            $table->foreignId('tipo_cliente_id')->default(1)
+            ->references('tipo_cliente_id')->on('tipo_clientes')
+            ->onDelete('cascade');
+
 
         });
     }

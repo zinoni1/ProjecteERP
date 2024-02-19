@@ -16,13 +16,14 @@ class VentaPropuesta extends Model
         'FechaCreacion',
         'Estado',
         'Detalles',
-        
+
 
     ];
-    public function clientes()
-    {
-        return $this->hasMany(Cliente::class);
-    }
+    public function cliente()
+{
+    return $this->belongsTo(Cliente::class, 'cliente_id');
+}
+
     public function productes()
     {
         return $this->belongsToMany(Producte::class);
