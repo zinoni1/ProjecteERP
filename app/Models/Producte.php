@@ -20,6 +20,8 @@ class Producte extends Model
     use HasFactory;
     public function ventaPropuestas()
     {
-        return $this->belongsToMany(VentaPropuesta::class);
+        return $this->belongsToMany(VentaPropuesta::class, 'venta_propuesta_productes', 'producte_id', 'venta_propuesta_id');
     }
+
+
 }

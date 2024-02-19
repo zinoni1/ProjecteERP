@@ -22,7 +22,8 @@ class VentaPropuestaFactory extends Factory
     public function definition(): array
     {
         return [
-            'Estado' => $this->faker->name,
+            'FechaCreacion' => $this->faker->date(),
+            'Estado' => $this->faker->randomElement(['Pendiente', 'Aceptada', 'Rechazada']),
             'Detalles' => $this->faker->text,
         ];
     }

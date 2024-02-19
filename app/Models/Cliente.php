@@ -25,9 +25,10 @@ class Cliente extends Model
     {
         return $this->belongsToMany(VentaPropuesta::class);
     }
-    public function tipoclientes()
+    public function tipoClientes()
     {
-        return $this->hasMany(TipoCliente::class);
+        return $this->belongsToMany(TipoCliente::class, 'tipo_clientes', 'cliente_id', 'tipo_cliente_id');
     }
+
 
 }

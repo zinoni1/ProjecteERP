@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('venta_propuestas', function (Blueprint $table) {
-            $table->id();
+            $table->id('venta_propuesta_id');
             $table->timestamps();
             $table->date('FechaCreacion');
             $table->enum('Estado', ['Aceptada', 'Pendiente', 'Rechazada']);
             $table->longText('Detalles');
-            $table->foreignId('ClienteID')
-            ->  references('id')
-            -> on ('clientes')
-            -> onDelete('cascade');
+            $table->foreignId('cliente_id')->default(1)
+            ->references('cliente_id')
+            ->on('clientes')
+            ->onDelete('cascade');
+
         });
     }
 

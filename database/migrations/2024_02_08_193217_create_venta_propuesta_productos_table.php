@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('venta_propuesta_productos', function (Blueprint $table) {
-            $table->id();
+            $table->id('venta_propuesta_producto_id');
             $table->timestamps();
-            $table->foreignId('VentaPropuestasId')
-            ->  references('id')
+            $table->foreignId('venta_propuesta_id')
+            ->  references('venta_propuesta_id')
             -> on ('venta_propuestas')
             -> onDelete('cascade');
-            $table->foreignId('ProductosServiciosId')
-            ->  references('id')
+            $table->foreignId('producte_id')
+            ->  references('producte_id')
             -> on ('productes')
             -> onDelete('cascade');
 
