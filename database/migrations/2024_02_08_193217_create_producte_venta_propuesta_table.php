@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('venta_propuesta_productos', function (Blueprint $table) {
-            $table->id('venta_propuesta_producto_id');
+        Schema::create('producte_venta_propuesta', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->foreignId('venta_propuesta_id')
-            ->  references('venta_propuesta_id')
-            -> on ('venta_propuestas')
-            -> onDelete('cascade');
             $table->foreignId('producte_id')
-            ->  references('producte_id')
+            ->  references('id')
             -> on ('productes')
+            -> onDelete('cascade');
+            $table->foreignId('venta_propuesta_id')
+            ->  references('id')
+            -> on ('venta_propuestas')
             -> onDelete('cascade');
 
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('venta_propuesta_productos');
+        Schema::dropIfExists('producte_venta_propuesta');
     }
 };
