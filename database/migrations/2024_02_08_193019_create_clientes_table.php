@@ -19,12 +19,14 @@ return new class extends Migration
             $table->string('Email');
             $table->string('Telefono');
             $table->string('Direccion');
-            $table->foreignId('TipoClienteID')   ->nullable() // Puedes agregar esta línea si permites que sea nulo
+            $table->foreignId('TipoClienteID')
+            ->nullable() // Puedes agregar esta línea si permites que sea nulo
             ->default(null) // O esta línea si prefieres un valor predeterminado
             ->references('id')
             ->on('tipo_clientes')
             ->onDelete('cascade');
-
+        
+      
 
         });
     }

@@ -19,5 +19,5 @@ class TipoCliente extends Model
     {
         return $this->hasMany(Cliente::class, 'TipoClienteID');
     }
-
+    
 }
