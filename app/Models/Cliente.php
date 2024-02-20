@@ -17,7 +17,7 @@ class Cliente extends Model
         'Nombre',
         'Apellido',
         'Email',
-        'Telefon',
+        'Telefono',
         'Direccion',
 
     ];
@@ -25,9 +25,10 @@ class Cliente extends Model
     {
         return $this->belongsToMany(VentaPropuesta::class);
     }
-    public function tipoclientes()
+    public function tipoClientes()
     {
         return $this->belongsToMany(TipoCliente::class);
     }
+
 
 }

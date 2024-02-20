@@ -4,6 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\ClienteSeeder;
+use Database\Seeders\ProducteSeeder;
+use Database\Seeders\TipoClienteSeeder;
+use Database\Seeders\VentaDetalleSeeder;
+use Database\Seeders\VentaPropuestaSeeder;
+use Database\Seeders\VentaPropuestaProductoSeeder;
 
 class DatabaseSeeder extends Seeder
 {

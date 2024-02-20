@@ -10,7 +10,7 @@ class TipoCliente extends Model
 {
     protected $fillable = [
 
-        
+
         'Descripcion'
 
     ];
