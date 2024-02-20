@@ -100,7 +100,8 @@ body {
 </div>
 
 <div class="content">
-  <H1>Hola, Mr. Blai</h1>
+  <H1>Hola Mr. Blai</h1>
+  
 </div>
 
 
