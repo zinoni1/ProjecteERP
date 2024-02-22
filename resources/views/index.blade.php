@@ -32,7 +32,7 @@ body {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #87CEFA;
 }
 
 /* Estilo para el contenido principal */
