@@ -1,12 +1,9 @@
 @extends('master')
-
-@section('content')
-<html>
-<head>
+@section ('body')
 <style>
 body {
   font-family: "Lato", sans-serif;
-  background-color: #F0F8FF;
+  background-color: #115571;
   overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
@@ -53,7 +50,7 @@ body {
 
 /* Estilo para el fondo semi-transparente */
 .overlay {
-  height: 100%;
+
   width: 0;
   position: fixed;
   z-index: 0;
@@ -82,8 +79,10 @@ body {
   color: #818181;
 }
 </style>
-</head>
-<body>
+@endsection
+@section('content')
+
+
 
 <div id="mySidenav" class="sidenav">
   <a href="#">DASHBOARD</a>
@@ -175,5 +174,4 @@ body {
       </div>
 
 
-</body>
 @endsection
