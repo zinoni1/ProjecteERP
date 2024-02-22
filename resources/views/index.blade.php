@@ -15,7 +15,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(255, 127, 80, 0.9); /* Fondo semi-transparente */
+  background-color: #fff; /* Fondo semi-transparente */
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -26,7 +26,7 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #fff; /* Color de texto blanco */
+  color: #000000; /* Color de texto blanco */
   display: block;
   transition: 0.3s;
 }
@@ -78,13 +78,22 @@ body {
   cursor: pointer;
   color: #818181;
 }
+#logoGACELA{
+  display:flex;
+  justify-content:center;
+  margin-right:30px;
+}
 </style>
 @endsection
 @section('content')
 
 
 
+
+
 <div id="mySidenav" class="sidenav">
+  <a id="logoGACELA"><img src="media/gazepa-removebg-preview.png" class="card-img-top" alt="Sol·licituds de personal">
+</a>
   <a href="#">DASHBOARD</a>
   <a href="#">PERSONAL</a>
   <a href="#">CLIENT</a>
@@ -165,7 +174,7 @@ body {
       <div class="col-md-4 col-sm-6 col-12 mb-3">
         <a href="#">
           <div class="card border-warning">
-            <img src="img/solicitudes.svg" class="card-img-top" alt="Sol·licituds de personal">
+            <img src="media/solicitudes.svg" class="card-img-top" alt="Sol·licituds de personal">
             <div class="card-body">
               <h3>Sol·licituds de personal</h3>
             </div>
