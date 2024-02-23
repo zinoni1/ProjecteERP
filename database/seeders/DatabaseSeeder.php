@@ -7,8 +7,8 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\ClienteSeeder;
 use Database\Seeders\ProducteSeeder;
 use Database\Seeders\TipoClienteSeeder;
-use Database\Seeders\VentaDetalleSeeder;
 use Database\Seeders\VentaPropuestaSeeder;
+use Database\Seeders\VentaDetalleSeeder;
 use Database\Seeders\VentaPropuestaProductoSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,10 +26,11 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             ClienteSeeder::class,
-            ProducteSeeder::class,
             TipoClienteSeeder::class,
-            VentaDetalleSeeder::class,
+            ProducteSeeder::class,
             VentaPropuestaSeeder::class,
+            VentaDetalleSeeder::class,
+           
         ]);
     }
 }
