@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('producte_venta_propuesta', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            
             
             // Agrega la columna producte_id
             $table->foreignId('producte_id')

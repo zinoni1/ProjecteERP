@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\VentaPropuesta;
+use App\Models\VentaDetalle;
 
 class VentaDetalleSeeder extends Seeder
 {
@@ -12,6 +13,11 @@ class VentaDetalleSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\VentaDetalle::factory(10)->create();
+        $ventaPropuestas = VentaPropuesta::all();
+
+        // Crear 10 VentaDetalles asignando aleatoriamente una VentaPropuesta existente a cada uno
+        VentaDetalle::factory(10)->create([
+            'VentaPropuestaID' => $ventaPropuestas->random()->id,
+        ]);
     }
 }

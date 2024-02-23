@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Producte;
+use App\Models\VentaPropuesta;
 
 class VentaPropuestaSeeder extends Seeder
 {
