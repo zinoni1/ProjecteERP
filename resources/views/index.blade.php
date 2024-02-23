@@ -181,6 +181,26 @@ body {
           </div>
         </a>
       </div>
-
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Personal total</div>
+  <div class="card-body text-dark">
+    <h4 class="card-title">3</h4>
+    <p class="card-text">Personal total</p>
+  </div>
+</div>
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+<div class="card-header">Productes totals</div>
+  <div class="card-body text-dark">
+    <h4 class="card-title">9</h4>
+    <p class="card-text">Productes totals</p>
+  </div>
+</div>
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+<div class="card-header">Projectes totals</div>
+  <div class="card-body text-dark">
+    <h4 class="card-title">9</h4>
+    <p class="card-text">Projectes totals</p>
+  </div>
+</div>
 
 @endsection
