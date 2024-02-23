@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Cliente;
+use App\Models\TipoCliente;
 
 class TipoClienteSeeder extends Seeder
 {
