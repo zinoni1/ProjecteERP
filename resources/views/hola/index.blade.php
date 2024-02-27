@@ -10,7 +10,7 @@ body {
 /* Estilo para el sidebar */
 .sidenav {
   height: 100%;
-  width: 250px; /* Ancho del sidebar */
+  width: 20%; /* Ancho del sidebar */
   position: fixed;
   z-index: 1;
   top: 0;
@@ -37,7 +37,7 @@ body {
 
 /* Estilo para el contenido principal */
 .content {
-  margin-left: 250px; /* Ancho del sidebar */
+  margin-left: 20%; /* Ancho del sidebar */
   padding: 16px;
   background-color: #115571;
 }
@@ -67,8 +67,22 @@ body {
   text-align: center;
   margin-top: 30px;
 }
+#itemsNav {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
 
-/* Estilo para el botón de cerrar */
+#itemsNav a {
+  font-size: 1.5rem !; /* Tamaño de fuente inicial */
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  transition: 0.3s;
+}
+
+
 .closebtn {
   position: absolute;
   top: 20px;
@@ -90,16 +104,16 @@ body {
   <a id="logoGACELA">
     <img src="media/gazepa-removebg-preview.png" class="card-img-top" alt="Sol·licituds de personal">
   </a>
-  <a href="#">DASHBOARD</a>
-  <a href="#">PERSONAL</a>
-  <a href="#">CLIENT</a>
-  <a href="#">VENTAS</a>
-  <a href="#">PRODUCTES I SERVEIS</a>
-  <a href="#">MANTENIMENT</a>
-  <a href="#">PRESSUPOSTOS</a>
-  <a href="#">STOCK I INVENTARI</a>
-  <a href="#">NOTIFICACION</a>
-  <a href="#">COMPRES</a>
+  <a href="#" id="itemsNav">DASHBOARD</a>
+  <a href="#"  id="itemsNav">PERSONAL</a>
+  <a href="#" id="itemsNav">CLIENT</a>
+  <a href="#" id="itemsNav">VENTAS</a>
+  <a href="#" id="itemsNav">PRODUCTES I SERVEIS</a>
+  <a href="#" id="itemsNav">MANTENIMENT</a>
+  <a href="#" id="itemsNav">PRESSUPOSTOS</a>
+  <a href="#" id="itemsNav">STOCK I INVENTARI</a>
+  <a href="#" id="itemsNav">NOTIFICACION</a>
+  <a href="#" id="itemsNav">COMPRES</a>
 </div>
 
 <div class="content">
