@@ -50,7 +50,6 @@ body {
 
 /* Estilo para el fondo semi-transparente */
 .overlay {
-
   width: 0;
   position: fixed;
   z-index: 0;
@@ -85,15 +84,12 @@ body {
 }
 </style>
 @endsection
+
 @section('content')
-
-
-
-
-
 <div id="mySidenav" class="sidenav">
-  <a id="logoGACELA"><img src="media/gazepa-removebg-preview.png" class="card-img-top" alt="Sol·licituds de personal">
-</a>
+  <a id="logoGACELA">
+    <img src="media/gazepa-removebg-preview.png" class="card-img-top" alt="Sol·licituds de personal">
+  </a>
   <a href="#">DASHBOARD</a>
   <a href="#">PERSONAL</a>
   <a href="#">CLIENT</a>
@@ -107,100 +103,323 @@ body {
 </div>
 
 <div class="content">
-  <H1>Hola Mr. Blai</h1>
-
-</div>
-<div class="content" > <section class="row mb-4">
-      <div class="col-12">
-        <h2>Gazepa</h2>
-        <h3>Sistema ERP</h3>
-      </div>
-    </section>
-    <section class="row mb-4">
-      <div class="col-3 text-center">
-        <div class="card border-secondary">
-          <div class="card-body">
-            <p>3</p>
-            <p>Personal total</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 text-center">
-        <div class="card border-secondary">
-          <div class="card-body">
-            <p>9</p>
-            <p>Productes totals</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 text-center">
-        <div class="card border-secondary">
-          <div class="card-body">
-            <p>5</p>
-            <p>Projectes totals</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 text-center">
-        <div class="card border-secondary">
-          <div class="card-body">
-            <p>10</p>
-            <p>Departaments totals</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-md-4 col-sm-6 col-12 mb-3">
-        <a href="#">
-          <div class="card border-primary">
-            <img src="img/personal.svg" class="card-img-top" alt="Personal">
-            <div class="card-body">
-              <h3>Personal</h3>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 mb-3">
-        <a href="#">
-          <div class="card border-info">
-            <img src="img/nominas.svg" class="card-img-top" alt="Nòmines">
-            <div class="card-body">
-              <h3>Nòmines</h3>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 mb-3">
-        <a href="#">
-          <div class="card border-warning">
-            <img src="media/solicitudes.svg" class="card-img-top" alt="Sol·licituds de personal">
-            <div class="card-body">
-              <h3>Sol·licituds de personal</h3>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="card border-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Personal total</div>
-  <div class="card-body text-dark">
-    <h4 class="card-title">3</h4>
-    <p class="card-text">Personal total</p>
-  </div>
-</div>
-<div class="card border-dark mb-3" style="max-width: 18rem;">
-<div class="card-header">Productes totals</div>
-  <div class="card-body text-dark">
-    <h4 class="card-title">9</h4>
-    <p class="card-text">Productes totals</p>
-  </div>
-</div>
-<div class="card border-dark mb-3" style="max-width: 18rem;">
-<div class="card-header">Projectes totals</div>
-  <div class="card-body text-dark">
-    <h4 class="card-title">9</h4>
-    <p class="card-text">Projectes totals</p>
-  </div>
+  <h1>Hola Mr. Blai</h1>
 </div>
 
+<div class="content">
+  <section class="row mb-4">
+    <div class="col-3 text-center">
+      <div class="card border-secondary">
+        <div class="card-body">
+          <p>3</p>
+          <p>Personal total</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div class="card border-secondary">
+        <div class="card-body">
+          <p>9</p>
+          <p>Productes totals</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div class="card border-secondary">
+        <div class="card-body">
+          <p>5</p>
+          <p>Projectes totals</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div class="card border-secondary">
+        <div class="card-body">
+          <p>10</p>
+          <p>Departaments totals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row mb-4">
+  <div class="col-md-6">
+  <a href="#">
+    <div class="card border-primary">
+      <img src="img/personal.svg" class="card-img-top" alt="Personal">
+      <div class="card-body">
+        <h3>Notes</h3>
+        <div class="overflow-auto" style="max-height: 220px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título de la Nota</th>
+                <th>Enviado por</th>
+                <th>Enviado a</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <!-- Agrega más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+    <div class="col-md-6">
+    <a href="#">
+    <div class="card border-primary">
+      <img src="img/personal.svg" class="card-img-top" alt="Personal">
+      <div class="card-body">
+        <h3>Nomines</h3>
+        <div class="overflow-auto" style="max-height: 220px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título de la Nota</th>
+                <th>Enviado por</th>
+                <th>Enviado a</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <!-- Agrega más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </a>
+    </div>
+  </section>
+
+  <section class="row mb-4">
+    <div class="col-md-6">
+    <a href="#">
+    <div class="card border-primary">
+      <img src="img/personal.svg" class="card-img-top" alt="Personal">
+      <div class="card-body">
+        <h3>Notes</h3>
+        <div class="overflow-auto" style="max-height: 220px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título de la Nota</th>
+                <th>Enviado por</th>
+                <th>Enviado a</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <!-- Agrega más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </a>
+    </div>
+    <div class="col-md-6">
+    <a href="#">
+    <div class="card border-primary">
+      <img src="img/personal.svg" class="card-img-top" alt="Personal">
+      <div class="card-body">
+        <h3>Notes</h3>
+        <div class="overflow-auto" style="max-height: 220px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título de la Nota</th>
+                <th>Enviado por</th>
+                <th>Enviado a</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>Título de la nota</td>
+                <td>Nombre del remitente</td>
+                <td>Nombre del destinatario</td>
+                <td>Pendiente</td>
+              </tr>
+              <!-- Agrega más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </a>
+    </div>
+  </section>
+</div>
 @endsection
