@@ -32,10 +32,11 @@
         }
     </style>
 @section('body')
-<main>
 <div class="navbar">
         <button class="openbtn" onclick="openNav()">☰ Menú</button>
     </div>
+<main>
+
 <main>
 <div class="container-fluid">
 <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
