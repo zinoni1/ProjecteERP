@@ -14,7 +14,7 @@ class Producte extends Model
         'Descripcion',
         'Precio',
         'Stock',
-        'FechaEntrada'
+        'FechaEntrada',
 
     ];
     use HasFactory;

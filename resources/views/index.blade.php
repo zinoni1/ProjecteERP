@@ -94,7 +94,7 @@ body {
   <a href="#">PERSONAL</a>
   <a href="#">CLIENT</a>
   <a href="#">VENTAS</a>
-  <a href="#">PRODUCTES I SERVEIS</a>
+  <a href="products">PRODUCTES I SERVEIS</a>
   <a href="#">MANTENIMENT</a>
   <a href="#">PRESSUPOSTOS</a>
   <a href="#">STOCK I INVENTARI</a>
