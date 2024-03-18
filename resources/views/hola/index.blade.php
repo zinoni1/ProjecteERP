@@ -1,137 +1,101 @@
 @extends('master')
 @section ('body')
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  font-family: "Lato", sans-serif;
-  background-color: #115571;
-  overflow-x: hidden; /* Evita el desplazamiento horizontal */
-}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-/* Estilo para el sidebar */
-.sidenav {
-  height: 100%;
-  width: 20%; /* Ancho del sidebar */
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #fff; /* Fondo semi-transparente */
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+    }
 
-/* Estilo para los enlaces del sidebar */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #000000; /* Color de texto blanco */
-  display: block;
-  transition: 0.3s;
-}
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
 
-.sidenav a:hover {
-  color: #87CEFA;
-}
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #333;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
 
-/* Estilo para el contenido principal */
-.content {
-  margin-left: 20%; /* Ancho del sidebar */
-  padding: 16px;
-  background-color: #115571;
-}
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
 
-/* Estilo para el botón de abrir */
-.openbtn {
-  font-size: 30px;
-  cursor: pointer;
-}
+    .sidenav a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
 
-/* Estilo para el fondo semi-transparente */
-.overlay {
-  width: 0;
-  position: fixed;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-  overflow-x: hidden;
-  transition: 0.5s;
-}
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
 
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-#itemsNav {
-  display: flex;
-  justify-content: center;
-  margin-right: 30px;
-}
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
-#itemsNav a {
-  font-size: 1.5rem !; /* Tamaño de fuente inicial */
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  color: #000000;
-  display: flex;
-  transition: 0.3s;
-}
+    main {
+        margin-left: 250px; /* Agrega un margen izquierdo igual al ancho del sidenav */
+        transition: margin-left 0.5s; /* Agrega una transición suave al abrir/cerrar el sidenav */
+    }
 
-
-.closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  cursor: pointer;
-  color: #818181;
-}
-#logoGACELA{
-  display:flex;
-  justify-content:center;
-  margin-right:30px;
-}
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
 </style>
-@endsection
+</head>
+<body>
 
-@section('content')
-<div id="mySidenav" class="sidenav">
-  <a id="logoGACELA">
-    <img src="media/gazepa-removebg-preview.png" class="card-img-top" alt="Sol·licituds de personal">
-  </a>
-  <a href="#" id="itemsNav">DASHBOARD</a>
-  <a href="#"  id="itemsNav">PERSONAL</a>
-  <a href="#" id="itemsNav">CLIENT</a>
-  <a href="#" id="itemsNav">VENTAS</a>
-  <a href="#" id="itemsNav">PRODUCTES I SERVEIS</a>
-  <a href="#" id="itemsNav">MANTENIMENT</a>
-  <a href="#" id="itemsNav">PRESSUPOSTOS</a>
-  <a href="#" id="itemsNav">STOCK I INVENTARI</a>
-  <a href="#" id="itemsNav">NOTIFICACION</a>
-  <a href="#" id="itemsNav">COMPRES</a>
+<div class="navbar">
+    <button class="openbtn" onclick="openNav()">☰ Menú</button>
 </div>
-
-<div class="content">
-  <h1>Hola Mr. Blai</h1>
-</div>
+<main>
 
 <div class="content">
   <section class="row mb-4">
     <div class="col-3 text-center">
-      <div class="card border-secondary">
-        <div class="card-body">
-          <p>3</p>
+      <div class="card border-secondary "style="margin-top: 10">
+        <div class="card-body" >
+          <h3>3</h3>
           <p>Personal total</p>
         </div>
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>9</p>
           <p>Productes totals</p>
@@ -139,7 +103,7 @@ body {
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>5</p>
           <p>Projectes totals</p>
@@ -147,7 +111,7 @@ body {
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>10</p>
           <p>Departaments totals</p>
@@ -436,4 +400,26 @@ body {
     </div>
   </section>
 </div>
-@endsection
+</main>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Enlace 1</a>
+    <a href="#">Enlace 2</a>
+    <a href="#">Enlace 3</a>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.querySelector("main").style.marginLeft = "250px"; // Agrega un margen izquierdo al abrir el sidenav
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.querySelector("main").style.marginLeft = "0"; // Elimina el margen izquierdo al cerrar el sidenav
+    }
+</script>
+
+</body>
+</html>
+
