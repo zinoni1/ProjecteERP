@@ -47,7 +47,7 @@
         <img src="img/personal.svg" class="card-img-top" alt="Personal">
         <div class="card-body">
           <h3>Llista de Productos</h3>
-          <div class="overflow-auto" style="max-height: 1000px;">
+          <div class="overflow-auto" style="max-height: 400px;">
             <table class="table">
               <thead>
                 <tr>

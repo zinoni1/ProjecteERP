@@ -5,7 +5,42 @@
         .content-container {
             padding: 20px;
         }
-
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 0px;
+            transition: margin-left 0.5s;
+            background-color: white !important;
+            
+        }
+        .menu-container {
+    height: 100%; /* Set height to 100% of the viewport height */
+    background-color: #f8f9fa; /* Set background color as needed */
+    padding: 20px; /* Adjust padding as needed */
+}
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #115571 !important;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #115571 !important;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+        }
+        .navbar {
+            background-color: #115571 !important;
+            overflow: hidden;
+        }
         .product-table {
             width: 100%;
             border-collapse: collapse;
@@ -43,13 +78,19 @@
 
     <div class="row">
         <!-- Menú a la izquierda -->
-        <div class="col-md-2 menu-container">
-            <h3>Menú</h3>
+        <div class="col-md-2 menu-container" >
+            <h3>Categories</h3>
             <!-- Aquí puedes agregar tus elementos de menú -->
-            <ul class="list-group">
-                <li class="list-group-item menu-item"><a href="#">Elemento de menú 1</a></li>
-                <li class="list-group-item menu-item"><a href="#">Elemento de menú 2</a></li>
-                <li class="list-group-item menu-item"><a href="#">Elemento de menú 3</a></li>
+            <ul class="list-group" >
+                <li class="list-group-item menu-item"><a href="#">Element del menú 1</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 2</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 3</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 4</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 5</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 6</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 7</a></li>
+                <li class="list-group-item menu-item"><a href="#">Element del menú 8</a></li>
+
             </ul>
         </div>
         <!-- Contenido principal -->
