@@ -53,8 +53,7 @@ class ProducteController extends Controller
      */
     public function show(Producte $producte)
     {
-        // Puedes implementar esta función si necesitas mostrar detalles específicos del producto.
-        
+        return view('mostrarProducte', compact('producte'));
     }
 
     /**
@@ -62,24 +61,40 @@ class ProducteController extends Controller
      */
     public function edit(Producte $producte)
     {
-        // Puedes implementar esta función si necesitas editar detalles específicos del producto.
-    
+        return view('mostrarProducte', compact('producte'));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Producte $producte)
     {
-        // Puedes implementar esta función si necesitas actualizar detalles específicos del producto.
+        // Validación de los campos del formulario
+        $this->validate($request, [
+            'Nombre' => 'required',
+            'Descripcion' => 'required',
+            'Precio' => 'required',
+            'Stock' => 'required',
+            'FechaEntrada' => 'required',
+        ]);
+    
+        // Actualización de los datos del producto
+        $producte->update($request->all());
+    
+        // Redirección después de la actualización
+        return redirect()->route('mostrarProductes')->with('success', 'Producto actualizado exitosamente');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Producte $producte)
     {
-        // Puedes implementar esta función si necesitas eliminar el producto.
+        $producte->delete();
+    
+        return redirect()->route('mostrarProductes')
+                        ->with('success', 'Producto eliminado exitosamente');
     }
     public function mostrarProductos()
 {

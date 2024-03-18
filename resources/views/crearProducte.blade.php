@@ -1,7 +1,5 @@
 @extends('master')
-
-@section('body')
-    <style>
+<style>
         body {
             font-family: "Lato", sans-serif;
             background-color: #115571;
@@ -77,26 +75,13 @@
             border-radius: 5px;
         }
     </style>
-@endsection
+@section('body')
 
-@section('content')
-    <span class="openbtn" onclick="openNav()">☰</span>
-
-    <div id="mySidenav" class="sidenav">
-        <a id="logoGACELA" href="#">
-            <img src="{{ asset('media/gazepa-removebg-preview.png') }}" class="card-img-top" alt="Sol·licituds de personal">
-        </a>
-        <a href="index">DASHBOARD</a>
-        <a href="#">PERSONAL</a>
-        <a href="#">CLIENT</a>
-        <a href="#">VENTAS</a>
-        <a href="#" style="color: blue;">PRODUCTES I SERVEIS</a>
-        <a href="#">MANTENIMENT</a>
-        <a href="#">PRESSUPOSTOS</a>
-        <a href="#">STOCK I INVENTARI</a>
-        <a href="#">NOTIFICACION</a>
-        <a href="#">COMPRES</a>
+    <div class="navbar">
+        <button class="openbtn" onclick="openNav()">☰ Menú</button>
     </div>
+    <main>
+
 
     <div class="content">
         <div class="form-container">
@@ -155,13 +140,4 @@
         </div>
     </div>
 
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
-@endsection
+ </main>
