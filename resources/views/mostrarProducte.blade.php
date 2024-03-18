@@ -5,7 +5,7 @@
         <h1>Detalles del Producto</h1>
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('productes.update', $producte->id) }}" method="POST">
+            <form action="{{ route('productes.update', $producte->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('PUT')
                     

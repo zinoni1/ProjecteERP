@@ -38,10 +38,11 @@
 
         /* Estilo para el contenido principal */
         .content {
-            margin-left: 250px; /* Ancho del sidebar */
-            padding: 16px;
-            background-color: #115571;
-        }
+    margin: 0 auto; /* This will center the content horizontally */
+    width: 70%; /* You can adjust the width as needed */
+    padding: 16px;
+    background-color: #115571;
+}
 
         /* Estilo para el botón de abrir */
         .openbtn {
@@ -134,8 +135,9 @@
                     <label for="imagen">Imagen del producto:</label>
                     <input type="file" id="imagen" name="imagen" accept="image/jpg, image/jpeg, image/png">
                 </div>
-
+                <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
                 <button type="submit" class="btn btn-primary btn-block">Guardar Producto</button>
+
             </form>
         </div>
     </div>
