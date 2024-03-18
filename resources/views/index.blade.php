@@ -109,15 +109,15 @@ body {
 <div class="content">
   <section class="row mb-4">
     <div class="col-3 text-center">
-      <div class="card border-secondary">
-        <div class="card-body">
-          <p>3</p>
+      <div class="card border-secondary "style="margin-top: 10">
+        <div class="card-body" >
+          <h3>3</h3>
           <p>Personal total</p>
         </div>
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>9</p>
           <p>Productes totals</p>
@@ -125,7 +125,7 @@ body {
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>5</p>
           <p>Projectes totals</p>
@@ -133,7 +133,7 @@ body {
       </div>
     </div>
     <div class="col-3 text-center">
-      <div class="card border-secondary">
+      <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
           <p>10</p>
           <p>Departaments totals</p>
@@ -422,4 +422,8 @@ body {
     </div>
   </section>
 </div>
-@endsection
+</main>
+
+</body>
+</html>
+
