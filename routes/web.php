@@ -45,7 +45,7 @@ Route::get('/index', function () {
 Route::get('/crearProducte', function () {
     return view('crearProducte');
 });
-Route::get('/productes', [ProducteController::class, 'index'])->name('productes.index');
+Route::get('/productes', [ProducteController::class, 'index']);
 
 Route::get('/mostrarProductes', function () {
     $productos = Producte::all(); // Suponiendo que Producto es tu modelo para productos
@@ -56,5 +56,8 @@ Route::post('/productes', [ProducteController::class, 'store'])->name('productes
 Route::resource("producte", ProducteController::class);
 Route::get('/producte', [ProducteController::class, 'index']);
 Route::get('/products', [ProducteController::class, 'mostrarProductos'])->name('products');
+Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
+Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
+Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');
 
 require __DIR__.'/auth.php';
