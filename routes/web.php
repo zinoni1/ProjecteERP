@@ -2,6 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProducteController;
+use App\Http\Controllers\VentaPropuestaController;
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\HomeController;
+use App\Models\Producte;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +33,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
+Route::get('/products', function () {
+    return view('productes');
+});
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/crearProducte', function () {
+    return view('crearProducte');
+});
+Route::get('/productes', [ProducteController::class, 'index'])->name('productes.index');
+
+Route::get('/mostrarProductes', function () {
+    $productos = Producte::all(); // Suponiendo que Producto es tu modelo para productos
+    return view('mostrarProductes', compact('productos'));
+})->name('mostrarProductes');
+Route::get('/productes/create', [ProducteController::class, 'create'])->name('productes.create');
+Route::post('/productes', [ProducteController::class, 'store'])->name('productes.store');
+Route::resource("producte", ProducteController::class);
+Route::get('/producte', [ProducteController::class, 'index']);
+Route::get('/products', [ProducteController::class, 'mostrarProductos'])->name('products');
 
 require __DIR__.'/auth.php';
