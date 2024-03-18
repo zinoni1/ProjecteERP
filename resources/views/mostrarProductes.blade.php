@@ -1,27 +1,5 @@
 @extends('master')
-
-@section('body')
-    <style>
-        /* Estilo para el menú a la izquierda */
-        .menu-container {
-            background-color: #f8f9fa;
-            padding: 10px; /* Reducir el padding para hacer el menú más delgado */
-            height: 100vh;
-        }
-
-        .menu-item {
-            margin-bottom: 5px; /* Reducir el margen entre elementos de menú */
-            font-size: 14px; /* Reducir el tamaño del texto */
-        }
-
-        .menu-item a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .menu-item a:hover {
-            color: #007bff;
-        }
+<style>
 
         /* Estilo para el contenido principal */
         .content-container {
@@ -53,9 +31,12 @@
             background-color: #e2e6ea;
         }
     </style>
-@endsection
-
-@section('content')
+@section('body')
+<main>
+<div class="navbar">
+        <button class="openbtn" onclick="openNav()">☰ Menú</button>
+    </div>
+<main>
 <div class="container-fluid">
 <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
 
@@ -103,4 +84,4 @@
         </div>
     </div>
 </div>
-@endsection
+</main>
