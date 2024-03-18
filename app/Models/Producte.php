@@ -15,6 +15,7 @@ class Producte extends Model
         'Precio',
         'Stock',
         'FechaEntrada',
+        'Imagen',
 
     ];
     use HasFactory;

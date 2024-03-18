@@ -37,6 +37,7 @@ class ProducteController extends Controller
             // No hay validación para la imagen
         ]);
 
+        $dd ( $request->hasFile('featured'));
         $data = $request->all();
 
         Producte::create($data);

@@ -20,7 +20,7 @@ services:
       args:
         NODE_VERSION: 20
     ports:
-      - '8000:8000'
+      - '5000:8000'
     environment:
       - DB_HOST=mariadb
       - DB_PORT=3306
