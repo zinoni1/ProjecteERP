@@ -1,10 +1,10 @@
 @extends('master')
 
 @section('body')
-    <!-- Agrega tu estilo aquí si es necesario -->
-@endsection
-
-@section('content')
+<div class="navbar">
+        <button class="openbtn" onclick="openNav()">☰ Menú</button>
+    </div>
+<main>
     <h1>Listado de Productos</h1>
 
     <div class="overflow-auto" style="max-height: 1000px;">
@@ -34,4 +34,3 @@
             </tbody>
         </table>
     </div>
-@endsection
