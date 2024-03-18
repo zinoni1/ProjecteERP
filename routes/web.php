@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/index', function () {
-    return view('hola.index');
+    return view('index');
 });
 
 require __DIR__.'/auth.php';
