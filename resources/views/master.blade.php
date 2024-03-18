@@ -13,9 +13,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 0;
+            margin-left: 0px;
+            transition: margin-left 0.5s;
+            background-color: #115571;
+            
         }
-
+        main{
+            padding: 20px;
+        }
         .navbar {
             background-color: #FFFFFF;
             overflow: hidden;
@@ -72,13 +77,9 @@
             font-size: 36px;
             margin-left: 50px;
         }
+        
 
-        main {
-            margin-left: 0px;
-            transition: margin-left 0.5s;
-            background-color: #115571;
-            padding: 20px;
-        }
+     
     </style>
 </head>
 <body>
