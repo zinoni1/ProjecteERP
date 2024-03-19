@@ -117,7 +117,7 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
-                <a class="btn btn-primary mt-3">Crear Categoría</a>
+                <a href="{{ route('crear-categoria') }}" class="btn btn-primary mt-3">Crear Categoría</a>
             </div>
             <div style="text-align: right;" class="col-md-6 text-right filter-container">
                 <form action="{{ route('mostrarProductos') }}" method="GET">

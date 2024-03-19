@@ -62,5 +62,8 @@ Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])
 Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
 Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
 Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');
+Route::get('/crear-categoria', [ProducteController::class, 'mostrarFormularioCrearCategoria'])
+    ->name('crear-categoria');
+Route::post('/crear-categoria', [ProducteController::class, 'crearCategoria'])->name('productos.crear-categoria');
 
 require __DIR__.'/auth.php';
