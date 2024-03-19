@@ -108,6 +108,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="Categoria" class="form-label">Categoría:</label>
+                    <input type="text" name="Categoria" id="Categoria" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingresa una categoría.
+                    </div>
+
+
+        
+
+                <div class="mb-3">
                     <label for="Precio" class="form-label">Precio:</label>
                     <input type="number" name="Precio" id="Precio" class="form-control" step="0.01" required>
                     <div class="invalid-feedback">
@@ -135,6 +145,7 @@
                     <label for="imagen">Imagen del producto:</label>
                     <input type="file" id="imagen" name="imagen" accept="image/jpg, image/jpeg, image/png">
                 </div>
+
                 <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
                 <button type="submit" class="btn btn-primary btn-block">Guardar Producto</button>
 
