@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->mediumText('Descripcion');
+            $table->string('Categoria');
             $table->decimal('Precio', 8, 2);
             $table->integer('Stock');
             $table->date('FechaEntrada');
