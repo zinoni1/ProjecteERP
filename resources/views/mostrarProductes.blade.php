@@ -81,6 +81,30 @@
     .stock-medium {
         background-color: #FFFF69 !important;
     }
+
+    /* Estilo para el filtro */
+    .filter-container {
+        margin-top: 20px;
+    }
+
+    .filter-container label,
+    .filter-container select,
+    .filter-container button {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .filter-container button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+
+    .filter-container button:hover {
+        background-color: #0056b3;
+    }
 </style>
 
 @section('body')
@@ -90,9 +114,26 @@
 
 <main>
     <div class="container-fluid">
-        <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
-        <a class="btn btn-primary mt-3">Crear Categoría</a><br>
-
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
+                <a class="btn btn-primary mt-3">Crear Categoría</a>
+            </div>
+            <div style="text-align: right;" class="col-md-6 text-right filter-container">
+                <form action="{{ route('mostrarProductos') }}" method="GET">
+                    <label for="order">Ordenar per:</label>
+                    <select name="order" id="order">
+                    <option value="all">Creació</option>
+                <option value="asc">Stock Asc.</option>
+                <option value="desc">Stock Desc.</option>
+                <option value="less_than_10">10 o menys</option>
+                <option value="between_10_and_50">Entre 10 i 50</option>
+                    </select>
+                    <button type="submit">Ordenar</button>
+                </form>
+            </div>
+        </div>
+        
         <!-- Leyenda -->
         <div class="row mb-3">
             <div class="col-md-2"></div>
@@ -116,6 +157,7 @@
 
             <!-- Contenido principal -->
             <div class="col-md-10 content-container">
+                <!-- Lista de Productos -->
                 <h1>Listado de Productos</h1>
                 <div class="overflow-auto" style="max-height: 600px;">
                     <table class="product-table">
@@ -140,7 +182,8 @@
                                 <td>{{ $producto->Categoria }}</td>
                                 <td>{{ $producto->Precio }}</td>
                                 <!-- Aplicar clases según el stock -->
-                                <td class="{{ $producto->Stock < 10 ? 'stock-low' : ($producto->Stock < 50 ? 'stock-medium' : '') }}">
+                                <td class="{{ $producto->Stock <= 10 ? 'stock-low' : ($producto->Stock <= 50 ? 'stock-medium' : '') }}"
+                                    title="{{ $producto->Stock <= 10 ? 'Alerta: Stock menor a 10' : ($producto->Stock <= 50 ? 'Alerta: Stock menor a 50' : '') }}">
                                     {{ $producto->Stock }}
                                 </td>
                                 <td>{{ $producto->FechaEntrada }}</td>
