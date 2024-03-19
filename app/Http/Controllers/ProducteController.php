@@ -105,11 +105,36 @@ class ProducteController extends Controller
     
         return view('productes', ['productos' => $productos]);
     }
-    public function mostrarProductos()
+    public function mostrarProductos(Request $request)
     {
-        $productos = Producte::all(); // Obtener todos los productos
-        $categorias = Producte::distinct()->pluck('Categoria'); // Obtener todas las categorías únicas
+        $order = $request->input('order');
+    
+        // Verifica el valor del filtro y ajusta la consulta en consecuencia
+        switch ($order) {
+            case 'asc':
+                $productos = Producte::orderBy('Stock', 'asc')->get();
+                break;
+            case 'desc':
+                $productos = Producte::orderBy('Stock', 'desc')->get();
+                break;
+            case 'all':
+                $productos = Producte::all();
+                break;
+            case 'less_than_10':
+                $productos = Producte::where('Stock', '<=', 10)->get();
+                break;
+            case 'between_10_and_50':
+                $productos = Producte::whereBetween('Stock', [11, 50])->get();
+                break;
+            default:
+                $productos = Producte::all();
+        }
+    
+        $categorias = Producte::distinct()->pluck('Categoria');
     
         return view('mostrarProductes', ['productos' => $productos, 'categorias' => $categorias]);
     }
+    
+    
+    
 }
