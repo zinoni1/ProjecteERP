@@ -31,6 +31,7 @@ class ProducteController extends Controller
         $this->validate($request, [
             'Nombre' => 'required',
             'Descripcion' => 'required',
+            'Categoria' => 'required',
             'Precio' => 'required',
             'Stock' => 'required',
             'FechaEntrada' => 'required',
@@ -44,8 +45,10 @@ class ProducteController extends Controller
 
         // Retrieve all products after creating a new one
         $productos = Producte::all();
+        $categorias = Producte::distinct()->pluck('Categoria'); // Obtener todas las categorías únicas
 
-        return view('mostrarProductes', compact('productos'))->with('success', 'Producto creado exitosamente');
+
+        return view('mostrarProductes', compact('productos','categorias'));
     }
 
     /**
@@ -74,6 +77,7 @@ class ProducteController extends Controller
         $this->validate($request, [
             'Nombre' => 'required',
             'Descripcion' => 'required',
+            'Categoria' => 'required',
             'Precio' => 'required',
             'Stock' => 'required',
             'FechaEntrada' => 'required',
@@ -83,7 +87,7 @@ class ProducteController extends Controller
         $producte->update($request->all());
     
         // Redirección después de la actualización
-        return redirect()->route('mostrarProductes')->with('success', 'Producto actualizado exitosamente');
+        return redirect()->route('mostrarProductos')->with('success', 'Producto actualizado exitosamente');
     }
     
     /**
@@ -93,13 +97,45 @@ class ProducteController extends Controller
     {
         $producte->delete();
     
-        return redirect()->route('mostrarProductes')
+        return redirect()->route('mostrarProductos')
                         ->with('success', 'Producto eliminado exitosamente');
     }
-    public function mostrarProductos()
-{
-    $productos = Producte::all(); // Suponiendo que tienes un modelo llamado Producto
-
-    return view('productes', ['productos' => $productos]);
-}
+ public function productos()
+    {
+        $productos = Producte::all(); // Obtener todos los productos
+    
+        return view('productes', ['productos' => $productos]);
+    }
+    public function mostrarProductos(Request $request)
+    {
+        $order = $request->input('order');
+    
+        // Verifica el valor del filtro y ajusta la consulta en consecuencia
+        switch ($order) {
+            case 'asc':
+                $productos = Producte::orderBy('Stock', 'asc')->get();
+                break;
+            case 'desc':
+                $productos = Producte::orderBy('Stock', 'desc')->get();
+                break;
+            case 'all':
+                $productos = Producte::all();
+                break;
+            case 'less_than_10':
+                $productos = Producte::where('Stock', '<=', 10)->get();
+                break;
+            case 'between_10_and_50':
+                $productos = Producte::whereBetween('Stock', [11, 50])->get();
+                break;
+            default:
+                $productos = Producte::all();
+        }
+    
+        $categorias = Producte::distinct()->pluck('Categoria');
+    
+        return view('mostrarProductes', ['productos' => $productos, 'categorias' => $categorias]);
+    }
+    
+    
+    
 }

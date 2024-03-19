@@ -55,7 +55,10 @@ Route::get('/productes/create', [ProducteController::class, 'create'])->name('pr
 Route::post('/productes', [ProducteController::class, 'store'])->name('productes.store');
 Route::resource("producte", ProducteController::class);
 Route::get('/producte', [ProducteController::class, 'index']);
-Route::get('/products', [ProducteController::class, 'mostrarProductos'])->name('products');
+Route::get('/products', [ProducteController::class, 'productos'])->name('products');
+Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])->name('mostrarProductos');
+
+
 Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
 Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
 Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');

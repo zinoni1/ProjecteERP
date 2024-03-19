@@ -47,7 +47,6 @@
   <div class="col-md-6">
   <a href="#">
     <div class="card border-primary">
-      <img src="img/personal.svg" class="card-img-top" alt="Personal">
       <div class="card-body">
         <h3>Notes</h3>
         <div class="overflow-auto" style="max-height: 220px;">
@@ -82,7 +81,6 @@
     <div class="col-md-6">
     <a href="#">
     <div class="card border-primary">
-      <img src="img/personal.svg" class="card-img-top" alt="Personal">
       <div class="card-body">
         <h3>Nomines</h3>
         <div class="overflow-auto" style="max-height: 220px;">
@@ -118,7 +116,6 @@
     <div class="col-md-6">
     <a href="#">
     <div class="card border-primary">
-      <img src="img/personal.svg" class="card-img-top" alt="Personal">
       <div class="card-body">
         <h3>Notes</h3>
         <div class="overflow-auto" style="max-height: 220px;">
@@ -151,7 +148,6 @@
     <div class="col-md-6">
     <a href="#">
     <div class="card border-primary">
-      <img src="img/personal.svg" class="card-img-top" alt="Personal">
       <div class="card-body">
         <h3>Notes</h3>
         <div class="overflow-auto" style="max-height: 220px;">

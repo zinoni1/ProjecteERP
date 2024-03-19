@@ -12,6 +12,7 @@ class Producte extends Model
 
         'Nombre',
         'Descripcion',
+        'Categoria',
         'Precio',
         'Stock',
         'FechaEntrada',
