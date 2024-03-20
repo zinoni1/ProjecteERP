@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producte;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class ProducteController extends Controller
 {
@@ -20,43 +21,40 @@ class ProducteController extends Controller
      */
     public function create()
     {
-        return view("createProducte");
-    }
+        $categorias = Categoria::all(); // Obtener todas las categorías
 
+        return view('crearProducte', compact('categorias'));
+    
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'Nombre' => 'required',
             'Descripcion' => 'required',
-            'Categoria' => 'required',
-            'Precio' => 'required',
-            'Stock' => 'required',
-            'FechaEntrada' => 'required',
-            // No hay validación para la imagen
+            'Precio' => 'required|numeric',
+            'Stock' => 'required|integer',
+            'FechaEntrada' => 'required|date',
+            'categoria_id' => 'required|exists:categorias,id', // Asegúrate de que la categoría exista
         ]);
 
-        $data = $request->all();
+        Producte::create($request->all());
 
-        Producte::create($data);
-
-        // Retrieve all products after creating a new one
-        $productos = Producte::all();
-        $categorias = Producte::distinct()->pluck('Categoria'); // Obtener todas las categorías únicas
-
-
-        return view('mostrarProductes', compact('productos','categorias'));
+        return redirect()->route('mostrarProductos')->with('success', 'Producto creado exitosamente.');
     }
 
+
+    
     /**
      * Display the specified resource.
      */
     public function show(Producte $producte)
-    {
-        return view('mostrarProducte', compact('producte'));
-    }
+{
+    $categorias = Categoria::all(); // Obtener todas las categorías
+    return view('mostrarProducte', compact('producte', 'categorias'));
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -76,7 +74,7 @@ class ProducteController extends Controller
         $this->validate($request, [
             'Nombre' => 'required',
             'Descripcion' => 'required',
-            'Categoria' => 'required',
+            //'Categoria' => 'required',
             'Precio' => 'required',
             'Stock' => 'required',
             'FechaEntrada' => 'required',
@@ -130,11 +128,24 @@ class ProducteController extends Controller
                 $productos = Producte::all();
         }
     
-        $categorias = Producte::distinct()->pluck('Categoria');
+        // Obtener todas las categorías
+        $categorias = Categoria::all();
     
         return view('mostrarProductes', ['productos' => $productos, 'categorias' => $categorias]);
     }
     
+    /*public function mostrarFormularioCrearCategoria()
+    {
+        return view('crearCategoria');
+    }*/
+    public function contarProductos()
+    {
+        // Consulta para contar los productos utilizando el modelo Producte
+        $total_productos = Producte::count();
+    
+        // Pasar el resultado a la vista
+        return view('index', ['total_productos' => $total_productos]);
+    }
     
     
 }
