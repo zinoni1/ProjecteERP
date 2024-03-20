@@ -115,10 +115,11 @@
 <main>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
-                <a href="{{ route('crear-categoria') }}" class="btn btn-primary mt-3">Crear Categoría</a>
-            </div>
+        <div class="col-md-6">
+    <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
+    <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-block mt-3">Crear Categoria</a>
+
+</div>
             <div style="text-align: right;" class="col-md-6 text-right filter-container">
                 <form action="{{ route('mostrarProductos') }}" method="GET">
                     <label for="order">Ordenar per:</label>
@@ -146,49 +147,50 @@
         <div class="row">
             <!-- Menú a la izquierda -->
             <div class="col-md-2 menu-container">
-                <h3>Categories</h3>
-                <!-- Aquí puedes agregar tus elementos de menú -->
-                <ul class="list-group">
-                    @foreach($categorias as $categoria)
-                    <li class="list-group-item menu-item"><a href="#">{{ $categoria }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
+    <h3>Categories</h3>
+    <ul class="list-group">
+        @foreach($categorias as $categoria)
+        <li class="list-group-item menu-item"><a href="{{ route('categorias.show', $categoria->id) }}">{{ $categoria->Categoria }}</a></li>
+        @endforeach
+    </ul>
+</div>
 
-            <!-- Contenido principal -->
+
             <div class="col-md-10 content-container">
-                <!-- Lista de Productos -->
-                <h1>Listado de Productos</h1>
+                <h1>Llista de Productes</h1>
                 <div class="overflow-auto" style="max-height: 600px;">
                     <table class="product-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Categoría</th>
-                                <th>Precio</th>
-                                <th>Stock</th>
-                                <th>Fecha de Entrada</th>
-                            </tr>
+                            <th>Nom</th>
+                            <th>Descripció</th>
+                            <th>Categoria</th>
+                            <th>Preu</th>
+                            <th>Stock</th>
+                            <th>Data d'entrada</th>
                         </thead>
                         <tbody>
-                            @foreach($productos as $producto)
-                            <tr onclick="window.location='{{ route('productes.show', $producto) }}';"
-                                style="cursor:pointer;">
-                                <td>{{ $producto->id }}</td>
-                                <td>{{ $producto->nombre }}</td>
-                                <td>{{ $producto->Descripcion }}</td>
-                                <td>{{ $producto->Categoria }}</td>
-                                <td>{{ $producto->Precio }}</td>
-                                <!-- Aplicar clases según el stock -->
-                                <td class="{{ $producto->Stock <= 10 ? 'stock-low' : ($producto->Stock <= 50 ? 'stock-medium' : '') }}"
-                                    title="{{ $producto->Stock <= 10 ? 'Alerta: Stock menor a 10' : ($producto->Stock <= 50 ? 'Alerta: Stock menor a 50' : '') }}">
-                                    {{ $producto->Stock }}
-                                </td>
-                                <td>{{ $producto->FechaEntrada }}</td>
-                            </tr>
-                            @endforeach
+                        @foreach($productos as $producto)
+<tr onclick="window.location='{{ route('productes.show', $producto) }}';" style="cursor:pointer;">
+    <td>{{ $producto->Nombre }}</td>
+    <td>{{ $producto->Descripcion }}</td>
+    <!-- Itera sobre las categorías y encuentra la correspondiente para este producto -->
+    <td>
+                                         @if($producto->categoria)
+                                         {{ $producto->categoria->Categoria }}
+                                             @else
+                                               Sin categoría
+                                             @endif
+                                        </td>
+    <td>{{ $producto->Precio }}</td>
+    <!-- Aplicar clases según el stock -->
+    <td class="{{ $producto->Stock <= 10 ? 'stock-low' : ($producto->Stock <= 50 ? 'stock-medium' : '') }}"
+        title="{{ $producto->Stock <= 10 ? 'Alerta: Stock menor a 10' : ($producto->Stock <= 50 ? 'Alerta: Stock menor a 50' : '') }}">
+        {{ $producto->Stock }}
+    </td>
+    <td>{{ $producto->FechaEntrada }}</td>
+</tr>
+@endforeach
                         </tbody>
                     </table>
                 </div>
