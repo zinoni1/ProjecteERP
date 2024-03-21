@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProducteController;
 use App\Http\Controllers\VentaPropuestaController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Models\Producte;
 
@@ -62,5 +63,12 @@ Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])
 Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
 Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
 Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');
+
+
+Route::resource('clientes', ClienteController::class);
+Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
+
+Route::get('barchart', 'BarchartController@barchart');
+
 
 require __DIR__.'/auth.php';
