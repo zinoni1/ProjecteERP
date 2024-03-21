@@ -90,7 +90,7 @@
         <a href="javascript:void(0)" style="margin-top: 11px;" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index">DASHBOARD</a>
         <a href="#">PERSONAL</a>
-        <a href="#">CLIENT</a>
+        <a href="clientes">CLIENT</a>
         <a href="#">VENTAS</a>
         <a href="products">PRODUCTES I SERVEIS</a>
         <a href="#">MANTENIMENT</a>

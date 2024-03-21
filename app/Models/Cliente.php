@@ -19,6 +19,7 @@ class Cliente extends Model
         'Email',
         'Telefono',
         'Direccion',
+        'Poblacion',
 
     ];
     public function ventaPropuestas()

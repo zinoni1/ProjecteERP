@@ -12,7 +12,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+        return view('indexCLiente', compact('clientes'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('formCliente');
     }
 
     /**
@@ -28,7 +29,25 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:clientes,email',
+            'telefono' => 'required|string|max:20',
+            'direccion' => 'required|string|max:255',
+            'poblacion' => 'required|string|max:255',
+        ]);
+
+        Cliente::create([
+            'Nombre' => $request->nombre,
+            'Apellido' => $request->apellido,
+            'Email' => $request->email,
+            'Telefono' => $request->telefono,
+            'Direccion' => $request->direccion,
+            'Poblacion' => $request->poblacion,
+        ]);
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente creado exitosamente.');
     }
 
     /**
@@ -36,7 +55,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('showCliente', compact('cliente'));
     }
 
     /**
@@ -52,7 +71,25 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:clientes,email,'.$cliente->id,
+            'telefono' => 'required|string|max:20',
+            'direccion' => 'required|string|max:255',
+            'poblacion' => 'required|string|max:255',
+        ]);
+
+        $cliente->update([
+            'Nombre' => $request->nombre,
+            'Apellido' => $request->apellido,
+            'Email' => $request->email,
+            'Telefono' => $request->telefono,
+            'Direccion' => $request->direccion,
+            'Poblacion' => $request->poblacion,
+        ]);
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado exitosamente.');
     }
 
     /**
@@ -60,6 +97,20 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado exitosamente.');
+    }
+
+    public function mostrarTodos()
+    {
+        $clientes = Cliente::all();
+        return view('indexAllClientes', ['clientes' => $clientes]);
+    }
+
+    public function productos()
+    {
+        $productos = Producte::all(); // Obtener todos los productos
+    
+        return view('productes', ['productos' => $productos]);
     }
 }
