@@ -20,43 +20,43 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
                                 <a href="{{ route('mostrarProductos') }}" class="btn btn-secondary me-2">Volver</a>
-                                <button type="submit" class="btn btn-primary me-2">Guardar canvis</button>
+                                <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
                             </div>
-                            <!-- Botón para eliminar la categoría -->
-                            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar categoría</button>
-                            </form>
                         </div>
+                    </form>
+                    <!-- Formulario para eliminar la categoría -->
+                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar categoría</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <h2 class="mt-4 text-white">Productes de la categoría: {{ $categoria->Categoria }}</h2>
+    <h2 class="mt-4 text-white">Productos de la categoría: {{ $categoria->Categoria }}</h2>
     @if ($categoria->productes->isNotEmpty())
     <div class="table-responsive mt-3">
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Descripció</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($categoria->productes as $producto)
-                <tr>
-                    <td onclick="window.location='{{ route('producte.show', $producto) }}';" style="cursor: pointer;">{{ $producto->Nombre }}</td>
-                    <td onclick="window.location='{{ route('producte.show', $producto) }}';" style="cursor: pointer;">{{ $producto->Descripcion }}</td>
+                <tr onclick="window.location='{{ route('producte.show', $producto) }}';" style="cursor: pointer;">
+                    <td>{{ $producto->Nombre }}</td>
+                    <td>{{ $producto->Descripcion }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
     @else
-    <p class="mt-3 text-white">No hi ha productes en aquesta categoría.</p>
+    <p class="mt-3 text-white">No hay productos en esta categoría.</p>
     @endif
 </div>
 @endsection
