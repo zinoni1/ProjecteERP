@@ -27,6 +27,7 @@ class ClienteFactory extends Factory
             'Email' => $this->faker->unique()->safeEmail,
             'Telefono' => $this->faker->name,
             'Direccion' => $this->faker->address,
+            'Poblacion' => $this->faker->name,
         ];
     }
 }
