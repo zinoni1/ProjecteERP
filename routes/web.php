@@ -7,6 +7,7 @@ use App\Http\Controllers\VentaPropuestaController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
 
 
@@ -63,6 +64,18 @@ Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])
 Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
 Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
 Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');
+Route::get('/crear-categoria', [ProducteController::class, 'mostrarFormularioCrearCategoria'])
+    ->name('crear-categoria');
+Route::post('/crear-categoria', [ProducteController::class, 'crearCategoria'])->name('productos.crear-categoria');
+
+Route::get('/index', [ProducteController::class, 'contarProductos']);
+
+Route::get('/crearCategorias', [CategoriaController::class, 'create'])->name('categorias.create');
+Route::post('/crearCategorias', [CategoriaController::class, 'store'])->name('categorias.store');
+Route::get('/mostrarCategorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show');
+Route::get('/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
+Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
 
 
 Route::resource('clientes', ClienteController::class);

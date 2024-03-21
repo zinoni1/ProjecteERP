@@ -12,11 +12,11 @@ class Producte extends Model
 
         'Nombre',
         'Descripcion',
-        'Categoria',
         'Precio',
         'Stock',
         'FechaEntrada',
-        'Imagen',
+        'categoria_id', // Asegúrate de que la clave foránea esté en fillable si es necesario
+
 
     ];
     use HasFactory;
@@ -24,6 +24,9 @@ class Producte extends Model
     {
         return $this->belongsToMany(VentaPropuesta::class, 'venta_propuesta_productes', 'producte_id', 'venta_propuesta_id');
     }
-
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categoria_id');
+    }
 
 }
