@@ -16,7 +16,7 @@
             margin-left: 0px;
             transition: margin-left 0.5s;
             background-color: #115571;
-            
+
         }
         main{
             padding: 20px;
@@ -77,9 +77,9 @@
             font-size: 36px;
             margin-left: 50px;
         }
-        
 
-     
+
+
     </style>
 </head>
 <body>
@@ -91,7 +91,7 @@
         <a href="index">DASHBOARD</a>
         <a href="#">PERSONAL</a>
         <a href="clientes">CLIENT</a>
-        <a href="#">VENTAS</a>
+        <a href="ventas">VENTAS</a>
         <a href="products">PRODUCTES I SERVEIS</a>
         <a href="#">MANTENIMENT</a>
         <a href="#">PRESSUPOSTOS</a>

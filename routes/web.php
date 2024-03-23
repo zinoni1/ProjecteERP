@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProducteController;
 use App\Http\Controllers\VentaPropuestaController;
-use App\Http\Controllers\VentaController;
+use App\Http\Controllers\VentaDetalleController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
@@ -81,6 +81,11 @@ Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->n
 
 Route::resource('clientes', ClienteController::class);
 Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
+
+
+Route::get('barchart', 'BarchartController@barchart');
+Route::resource('ventas', VentaPropuestaController::class);
+
 Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
 
 
