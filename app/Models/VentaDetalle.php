@@ -11,6 +11,6 @@ class VentaDetalle extends Model
         'CantidadVendida',
         'PrecioUnitario',
 
-    ]; 
+    ];
     use HasFactory;
 }
