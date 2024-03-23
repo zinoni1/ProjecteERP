@@ -1,12 +1,13 @@
 @extends('master')
 
-@section('content')
-
-<div class="container">
+@section('body')
+        <div class="container">
     <div class="row justify-content-center">
+  
         <div class="col-md-8">
+        <br>
             <div class="card">
-                <div class="card-header">{{ __('Crear Cliente') }}</div>
+                <div class="card-header">{{ __('Añadir Cliente') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('clientes.store') }}">
@@ -48,5 +49,3 @@
         </div>
     </div>
 </div>
-
-@endsection
