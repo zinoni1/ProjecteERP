@@ -41,9 +41,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/products', function () {
     return view('productes');
 });
-Route::get('/index', function () {
+Route::get('/indexPrincipal', function () {
     return view('index');
-});
+})->name('indexPrincipal');
+
 Route::get('/crearProducte', function () {
     return view('crearProducte');
 });
@@ -80,8 +81,7 @@ Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->n
 
 Route::resource('clientes', ClienteController::class);
 Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
-
-Route::get('barchart', 'BarchartController@barchart');
+Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
 
 
 require __DIR__.'/auth.php';

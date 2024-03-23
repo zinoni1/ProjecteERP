@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ClienteController extends Controller
 {
@@ -98,7 +100,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado exitosamente.');
+        return redirect()->route('clientes.index');
     }
 
     public function mostrarTodos()
@@ -106,11 +108,19 @@ class ClienteController extends Controller
         $clientes = Cliente::all();
         return view('indexAllClientes', ['clientes' => $clientes]);
     }
-
-    public function productos()
+    public function graficPoblacio()
     {
-        $productos = Producte::all(); // Obtener todos los productos
+        // Obtener la cantidad de clientes por población
+        $poblacionCount = Cliente::select('Poblacion', DB::raw('count(*) as total'))
+            ->groupBy('Poblacion')
+            ->get();
     
-        return view('productes', ['productos' => $productos]);
+        // Preparar los datos para el gráfico
+        $labels = $poblacionCount->pluck('Poblacion')->toArray();
+        $data = $poblacionCount->pluck('total')->toArray();
+    
+        return view('graficPoblacio', compact('labels', 'data'));
     }
+    
+
 }
