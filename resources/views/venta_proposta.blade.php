@@ -42,55 +42,33 @@
             <div class="col md-1">
                 <div class="card border-primary">
                     <div class="card-body">
-                        <h3>Propostes</h3>
+                        <h3>Productes de la proposta {{$venta->id}} del client {{$venta->cliente->Nombre}}</h3>
                         <div class="overflow-auto" style="max-height: 600px;">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Client</th>
-                                        <th>Estat</th>
-                                        <th>Detalls</th>
-                                        <th>Preu Total</th>
+                                        <th>Id</th>
+                                        <th>Producte</th>
+                                        <th>Stock</th>
+                                        <th>Preu</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @php
-$totalPrecio = 0;
-@endphp
+                                        @foreach($venta->productes as $producto)
+                                        <tr id="row_{{ $producto->id }}">
+                                            <td>{{$producto->id}}</td>
+                                                <td>{{ $producto->Nombre }}</td>
 
-@foreach($ventes as $venta)
-@foreach($venta->productes as $producto)
-@php
-        $totalPrecio += $producto->Precio;
-        @endphp
-@endforeach
-    @foreach($venta->productes as $producto)
-    <tr class="tr" id="row_{{ $producto->id }}"
-    onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">
-    <td>{{ $venta->cliente->Nombre }}</td>
-
-    @if($venta->Estado == 'Rechazada')
-        <td class="stock-low">{{ $venta->Estado }}</td>
-    @elseif($venta->Estado == 'Pendiente')
-        <td class="stock-medium">{{ $venta->Estado }}</td>
-    @elseif($venta->Estado == 'Aceptada')
-        <td class="stock-high">{{ $venta->Estado }}</td>
-    @endif
-
-    <td>{{ $venta->Detalles }}</td>
-    <td>{{$totalPrecio}}</td>
-    @break
-</tr>
-
-    @endforeach
-
-@endforeach
-
-<!-- Imprimir el total al final de la tabla -->
-
-     <!-- Mostrar el total del precio -->
-
-
+                                                <td>{{ $producto->Stock }}</td>
+            @if($producto->Precio <= 10)
+                <td class="stock-low">{{ $producto->Precio }}</td>
+            @elseif($producto->Precio >10 && $producto->Precio <= 50)
+                <td class="stock-medium">{{ $producto->Precio }}</td>
+            @elseif($producto->Precio >= 50)
+                <td class="stock-high">{{ $producto->Precio }}</td>
+            @endif
+                                            </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -113,13 +91,4 @@ $totalPrecio = 0;
     .stock-high {
         background-color: #90EE90 !important; /* Verde */
     }
-    .tr:hover {
-        background-color: #f5f5f5 !important;
-    }
 </style>
-
-<script>
-    function redirectToRoute(route) {
-        window.location.href = route;
-    }
-</script>

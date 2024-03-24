@@ -37,9 +37,12 @@ class VentaPropuestaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(VentaPropuesta $ventaPropuesta)
+    public function show($id)
     {
-        //
+        $venta = VentaPropuesta::where('id', $id)->
+        with('productes', 'ventaDetalles', 'cliente')->first();
+
+        return view('venta_proposta', compact('venta'));
     }
 
     /**
