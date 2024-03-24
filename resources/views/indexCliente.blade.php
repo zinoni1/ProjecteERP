@@ -1,7 +1,37 @@
 @extends('master')
 
-@section('content')
-<div class="container">
+@section('body')
+<div class="navbar">
+    <button class="openbtn" onclick="openNav()">☰ Menú</button>
+</div>
+<main>
+<div class="content">
+<section class="row mb-4">
+            <div class="col-3 text-center">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Añadir Cliente</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">Mostrar todos los clientes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">Estadisticas Poblacion</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -22,7 +52,6 @@
                         </thead>
                         <tbody>
                             @foreach($clientes->take(10) as $cliente)
-                            <tr>
                                 <td>{{ $cliente->Nombre }}</td>
                                 <td>{{ $cliente->Apellido }}</td>
                                 <td>{{ $cliente->Email }}</td>
@@ -30,10 +59,13 @@
                                 <td>{{ $cliente->Direccion }}</td>
                                 <td>{{ $cliente->Poblacion }}</td>
                                 <td>
-                                    <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente) }}" method="POST">
+                                    <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-danger" onclick="confirmarEliminar('{{ $cliente->id }}')">Eliminar</button>
+                                    </form>
+                                    <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
+                                        <button type="submit" class="btn btn-primary">Ver</button>
                                     </form>
                                 </td>
                             </tr>
@@ -58,4 +90,4 @@
         }
     }
 </script>
-@endsection
+</main>
