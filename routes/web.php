@@ -57,7 +57,8 @@ Route::get('/mostrarProductes', function () {
 Route::get('/productes/create', [ProducteController::class, 'create'])->name('productes.create');
 Route::post('/productes', [ProducteController::class, 'store'])->name('productes.store');
 Route::resource("producte", ProducteController::class);
-Route::get('/producte', [ProducteController::class, 'index']);
+Route::get('/productes', [ProducteController::class, 'index'])->name('producte.index');
+
 Route::get('/products', [ProducteController::class, 'productos'])->name('products');
 Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])->name('mostrarProductos');
 
@@ -85,6 +86,8 @@ Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name
 
 Route::get('barchart', 'BarchartController@barchart');
 Route::resource('ventas', VentaPropuestaController::class);
+Route::get('/venta-propuesta/{id}', [VentaPropuestaController::class, 'show'])->name('VentaPropuesta.show');
+
 
 Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
 

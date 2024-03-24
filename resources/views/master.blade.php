@@ -91,8 +91,8 @@
         <a href="index">DASHBOARD</a>
         <a href="#">PERSONAL</a>
         <a href="clientes">CLIENT</a>
-        <a href="ventas">VENTAS</a>
-        <a href="products">PRODUCTES I SERVEIS</a>
+        <a href="{{ route('ventas.index') }}">VENTAS</a>
+        <a href="{{ route('producte.index') }}">PRODUCTES I SERVEIS</a>
         <a href="#">MANTENIMENT</a>
         <a href="#">PRESSUPOSTOS</a>
         <a href="#">STOCK I INVENTARI</a>
