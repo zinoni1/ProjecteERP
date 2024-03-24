@@ -47,7 +47,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Producte</th>
                                         <th>Stock</th>
                                         <th>Preu</th>
@@ -56,7 +55,6 @@
                                 <tbody>
                                         @foreach($venta->productes as $producto)
                                         <tr id="row_{{ $producto->id }}">
-                                            <td>{{$producto->id}}</td>
                                                 <td>{{ $producto->Nombre }}</td>
 
                                                 <td>{{ $producto->Stock }}</td>
