@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producte;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use Intervention\Image\Facades\Image;
 
 class ProducteController extends Controller
 {
@@ -37,15 +38,36 @@ class ProducteController extends Controller
             'Precio' => 'required|numeric',
             'Stock' => 'required|integer',
             'FechaEntrada' => 'required|date',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de la imagen
             'categoria_id' => 'required|exists:categorias,id', // Asegúrate de que la categoría exista
         ]);
-
-        Producte::create($request->all());
-
+    
+        // Verifica si se ha cargado un archivo de imagen
+        if ($request->hasFile('imagen')) {
+            // Obtiene el archivo de imagen cargado
+            $imagen = $request->file('imagen');
+            // Genera un nombre único para la imagen
+            $nombreImagen = uniqid('imagen_') . '.' . $imagen->getClientOriginalExtension();
+            // Mueve la imagen a la carpeta pública 'Media'
+            $imagen->move(public_path('Media'), $nombreImagen);
+        } else {
+            // Si no se ha cargado ninguna imagen, establece el nombre de imagen como nulo
+            $nombreImagen = null;
+        }
+    
+        // Crea un nuevo producto con los datos proporcionados y el nombre de la imagen
+        Producte::create([
+            'Nombre' => $request->Nombre,
+            'Descripcion' => $request->Descripcion,
+            'Precio' => $request->Precio,
+            'Stock' => $request->Stock,
+            'FechaEntrada' => $request->FechaEntrada,
+            'ruta' => $nombreImagen, // Utiliza el nombre de la imagen
+            'categoria_id' => $request->categoria_id,
+        ]);
+    
         return redirect()->route('mostrarProductos')->with('success', 'Producto creado exitosamente.');
     }
-
-
     
     /**
      * Display the specified resource.

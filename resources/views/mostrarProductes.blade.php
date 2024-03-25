@@ -168,6 +168,7 @@
                             <th>Preu</th>
                             <th>Stock</th>
                             <th>Data d'entrada</th>
+                            <th>Imagen</th>
                         </thead>
                         <tbody>
                         @foreach($productos as $producto)
@@ -183,12 +184,21 @@
                                              @endif
                                         </td>
     <td>{{ $producto->Precio }}</td>
+
     <!-- Aplicar clases según el stock -->
     <td class="{{ $producto->Stock <= 10 ? 'stock-low' : ($producto->Stock <= 50 ? 'stock-medium' : '') }}"
         title="{{ $producto->Stock <= 10 ? 'Alerta: Stock menor a 10' : ($producto->Stock <= 50 ? 'Alerta: Stock menor a 50' : '') }}">
         {{ $producto->Stock }}
     </td>
     <td>{{ $producto->FechaEntrada }}</td>
+    <td>
+    @if($producto->ruta)
+        <img src="{{ asset('Media/' . $producto->ruta) }}" width="90"/>
+    @else
+        No hay imagen disponible
+    @endif
+</td>
+
 </tr>
 @endforeach
                         </tbody>
