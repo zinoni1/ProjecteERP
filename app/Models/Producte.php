@@ -15,6 +15,7 @@ class Producte extends Model
         'Precio',
         'Stock',
         'FechaEntrada',
+        'ruta',
         'categoria_id', // Asegúrate de que la clave foránea esté en fillable si es necesario
 
 
