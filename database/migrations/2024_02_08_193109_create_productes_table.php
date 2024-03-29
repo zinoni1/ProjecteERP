@@ -20,6 +20,7 @@ class CreateProductesTable extends Migration
             $table->decimal('Precio', 8, 2);
             $table->integer('Stock');
             $table->date('FechaEntrada');
+            $table->string('ruta')->nullable();
             $table->foreignId('categoria_id')->constrained('categorias'); // Asegúrate de que coincida con el nombre de la tabla de categorías
             $table->timestamps();
         });

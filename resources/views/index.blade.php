@@ -20,7 +20,7 @@
     <div class="col-3 text-center">
       <div class="card border-secondary" style="margin-top: 10">
         <div class="card-body">
-          <p><?php echo $total_productos; ?></p>
+          <p></p>
           <p>Productes totals</p>
         </div>
       </div>

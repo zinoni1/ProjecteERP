@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\VentaPropuesta;
 use Illuminate\Http\Request;
+use App\Models\VentaDetalle;
 
 class VentaPropuestaController extends Controller
 {
@@ -12,8 +13,10 @@ class VentaPropuestaController extends Controller
      */
     public function index()
     {
-        //
+        $ventes = VentaPropuesta::with('productes', 'ventaDetalles', 'cliente')->get();
+        return view('ventas', compact('ventes'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,9 +37,12 @@ class VentaPropuestaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(VentaPropuesta $ventaPropuesta)
+    public function show($id)
     {
-        //
+        $venta = VentaPropuesta::where('id', $id)->
+        with('productes', 'ventaDetalles', 'cliente')->first();
+
+        return view('venta_proposta', compact('venta'));
     }
 
     /**

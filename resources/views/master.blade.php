@@ -16,7 +16,7 @@
             margin-left: 0px;
             transition: margin-left 0.5s;
             background-color: #115571;
-            
+
         }
         main{
             padding: 20px;
@@ -77,9 +77,9 @@
             font-size: 36px;
             margin-left: 50px;
         }
-        
 
-     
+
+
     </style>
 </head>
 <body>
@@ -88,11 +88,11 @@
     <div id="mySidenav" class="sidenav">
         <img src="media/gazepa-removebg-preview.png" alt="Logo" style="width: 80px; margin-top: -45;margin-left: 60px;">
         <a href="javascript:void(0)" style="margin-top: 11px;" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index">DASHBOARD</a>
+        <a href="{{ route('indexPrincipal') }}">DASHBOARD</a>
         <a href="#">PERSONAL</a>
-        <a href="clientes">CLIENT</a>
-        <a href="#">VENTAS</a>
-        <a href="products">PRODUCTES I SERVEIS</a>
+        <a href="{{ route('clientes.index') }}">CLIENT</a>
+        <a href="{{ route('ventas.index') }}">VENTAS</a>
+        <a href="{{ route('producte.index') }}">PRODUCTES I SERVEIS</a>
         <a href="#">MANTENIMENT</a>
         <a href="#">PRESSUPOSTOS</a>
         <a href="#">STOCK I INVENTARI</a>

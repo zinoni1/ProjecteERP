@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProducteController;
 use App\Http\Controllers\VentaPropuestaController;
-use App\Http\Controllers\VentaController;
+use App\Http\Controllers\VentaDetalleController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
@@ -41,9 +41,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/products', function () {
     return view('productes');
 });
-Route::get('/index', function () {
+Route::get('/indexPrincipal', function () {
     return view('index');
-});
+})->name('indexPrincipal');
+
 Route::get('/crearProducte', function () {
     return view('crearProducte');
 });
@@ -56,7 +57,8 @@ Route::get('/mostrarProductes', function () {
 Route::get('/productes/create', [ProducteController::class, 'create'])->name('productes.create');
 Route::post('/productes', [ProducteController::class, 'store'])->name('productes.store');
 Route::resource("producte", ProducteController::class);
-Route::get('/producte', [ProducteController::class, 'index']);
+Route::get('/productes', [ProducteController::class, 'index'])->name('producte.index');
+
 Route::get('/products', [ProducteController::class, 'productos'])->name('products');
 Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])->name('mostrarProductos');
 
@@ -81,7 +83,13 @@ Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->n
 Route::resource('clientes', ClienteController::class);
 Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
 
+
 Route::get('barchart', 'BarchartController@barchart');
+Route::resource('ventas', VentaPropuestaController::class);
+Route::get('/venta-propuesta/{id}', [VentaPropuestaController::class, 'show'])->name('VentaPropuesta.show');
+
+
+Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
 
 
 require __DIR__.'/auth.php';
