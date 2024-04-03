@@ -16,9 +16,10 @@ class VentaPropuestaController extends Controller
      */
     public function index()
     {
-        $ventes = VentaPropuesta::with('productes', 'ventaDetalles', 'cliente')->get();
+        $ventes = VentaPropuesta::with('productes', 'cliente')->get();
+        $ventaProductos = VentaPropuestaProducto::whereIn('venta_propuesta_id', $ventes->pluck('id'))->get();
 
-        return view('ventas', compact('ventes'));
+        return view('ventas', compact('ventes', 'ventaProductos'));
     }
 
     public function index_ventas($id)
@@ -28,6 +29,14 @@ class VentaPropuestaController extends Controller
 
         return view('mostrarventas', compact('venta', 'ventaProductos'));
     }
+    public function cambiarEstado(Request $request, $id)
+{
+    $venta = VentaPropuesta::findOrFail($id);
+    $venta->estado = $request->estado;
+    $venta->save();
+
+    return redirect()->route('ventas.index');
+}
 
     /**
      * Show the form for creating a new resource.
@@ -111,8 +120,8 @@ public function storeProductes(Request $request)
     {
         $venta = VentaPropuesta::where('id', $id)->
         with('productes', 'ventaDetalles', 'cliente')->first();
-
-        return view('venta_proposta', compact('venta'));
+        $ventaProductos = VentaPropuestaProducto::where('venta_propuesta_id', $id)->get();
+        return view('venta_proposta', compact('venta', 'ventaProductos'));
     }
 
     /**
