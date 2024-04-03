@@ -17,7 +17,7 @@ class VentaPropuestaProductoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'CantidadVendida' => $this->faker->randomNumber(1),
         ];
     }
 }

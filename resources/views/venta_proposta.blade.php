@@ -69,6 +69,8 @@
                                         @endforeach
                                 </tbody>
                             </table>
+                            <button class="btn btn-primary" onclick="window.location='{{ route('mostrarventas', ['id' => $venta->id]) }}'">Veure venta</button>
+
                         </div>
                     </div>
                 </div>
