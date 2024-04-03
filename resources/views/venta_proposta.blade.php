@@ -48,25 +48,25 @@
                                 <thead>
                                     <tr>
                                         <th>Producte</th>
+                                        <th>Quantitat</th>
                                         <th>Stock</th>
-                                        <th>Preu</th>
+                                        <th>Preu Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        @foreach($venta->productes as $producto)
-                                        <tr id="row_{{ $producto->id }}">
-                                                <td>{{ $producto->Nombre }}</td>
+                                       @foreach($venta->productes as $producto)
+    @php
+        $ventaProducto = $ventaProductos->where('producte_id', $producto->id)->first();
+        $cantidadVendida = $ventaProducto ? $ventaProducto->CantidadVendida : 0;
+    @endphp
+    <tr id="row_{{ $producto->id }}">
+        <td>{{ $producto->Nombre }}</td>
+        <td>{{ $cantidadVendida }}</td>
+        <td>{{ $producto->Stock }}</td>
+        <td>{{ $producto->Precio * $cantidadVendida }}</td>
+    </tr>
+@endforeach
 
-                                                <td>{{ $producto->Stock }}</td>
-            @if($producto->Precio <= 10)
-                <td class="stock-low">{{ $producto->Precio }}</td>
-            @elseif($producto->Precio >10 && $producto->Precio <= 50)
-                <td class="stock-medium">{{ $producto->Precio }}</td>
-            @elseif($producto->Precio >= 50)
-                <td class="stock-high">{{ $producto->Precio }}</td>
-            @endif
-                                            </tr>
-                                        @endforeach
                                 </tbody>
                             </table>
                             <button class="btn btn-primary" onclick="window.location='{{ route('mostrarventas', ['id' => $venta->id]) }}'">Veure venta</button>

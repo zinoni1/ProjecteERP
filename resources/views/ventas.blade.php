@@ -61,9 +61,12 @@
     @endphp
 
     @foreach($venta->productes as $producto)
-        @php
-            $totalPrecio += $producto->Precio;
+    @php
+            $ventaProducto = $ventaProductos->where('producte_id', $producto->id)->first();
+            $cantidadVendida =  $ventaProducto->CantidadVendida;
+        $totalPrecio += $producto->Precio * $cantidadVendida;
         @endphp
+
     @endforeach
 
     <tr class="tr" id="row_{{ $venta->id }}" onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">
@@ -80,6 +83,7 @@
         <td>{{ $venta->Detalles }}</td>
 
         <!-- Mostrar el precio solo si hay productos asociados -->
+
         @if(count($venta->productes) > 0)
             <td>{{ $totalPrecio }}</td>
         @else
@@ -87,6 +91,8 @@
         @endif
     </tr>
 @endforeach
+
+
 
 
 <!-- Imprimir el total al final de la tabla -->
