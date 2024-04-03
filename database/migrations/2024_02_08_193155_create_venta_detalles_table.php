@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('VentaPropuestaID')->nullable()->references('id')->on('venta_propuestas')->onDelete('cascade');
             $table->foreignId('ProductoServicioID')->default(1)->references('id')->on('productes')->onDelete('cascade');
-            $table->integer('CantidadVendida');
             $table->decimal('PrecioUnitario', 10, 2);
         });
     }
