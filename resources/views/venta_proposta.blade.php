@@ -69,7 +69,9 @@
 
                                 </tbody>
                             </table>
-                            <button class="btn btn-primary" onclick="window.location='{{ route('mostrarventas', ['id' => $venta->id]) }}'">Veure venta</button>
+                            @if($venta->Estado == 'Aceptada')
+    <button class="btn btn-primary" onclick="window.location='{{ route('mostrarventas', ['id' => $venta->id]) }}'">Veure venta</button>
+@endif
 
                         </div>
                     </div>

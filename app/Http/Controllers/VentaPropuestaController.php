@@ -29,6 +29,14 @@ class VentaPropuestaController extends Controller
 
         return view('mostrarventas', compact('venta', 'ventaProductos'));
     }
+    public function cambiarEstado(Request $request, $id)
+{
+    $venta = VentaPropuesta::findOrFail($id);
+    $venta->estado = $request->estado;
+    $venta->save();
+
+    return redirect()->route('ventas.index');
+}
 
     /**
      * Show the form for creating a new resource.
