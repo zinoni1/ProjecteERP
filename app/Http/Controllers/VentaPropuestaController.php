@@ -59,7 +59,17 @@ class VentaPropuestaController extends Controller
     return view('posarProductesProposta', compact('venta', 'ventaProductos', 'productos', 'venta_propuesta_id'));
 }
 
+public function graficEstat()
+    {
+        $estatCount = VentaPropuesta::select('estado', DB::raw('count(*) as total'))
+            ->groupBy('estado')
+            ->get();
 
+        $labels = $estatCount->pluck('estado')->toArray();
+        $data = $estatCount->pluck('total')->toArray();
+
+        return view('estadistiquesEstat', compact('labels', 'data'));
+    }
 
     /**
      * Store a newly created resource in storage.

@@ -18,7 +18,7 @@
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <p>prova</p>
+                    <button class="btn"><a href="{{ route('ventas.graficEstat') }}" style="backgroud-color: blue;">Grafica</a></button>
                     </div>
                 </div>
             </div>
