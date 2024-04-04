@@ -1,5 +1,5 @@
 @extends('master')
-
+<!--borrar de linia 3 a 7 + tancament main i tancar section i canviar section body a content-->
 @section('body')
 <div class="navbar">
     <button class="openbtn" onclick="openNav()">☰ Menú</button>
