@@ -89,7 +89,7 @@
         <img src="media/gazepa-removebg-preview.png" alt="Logo" style="width: 80px; margin-top: -45;margin-left: 60px;">
         <a href="javascript:void(0)" style="margin-top: 11px;" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{{ route('indexPrincipal') }}">DASHBOARD</a>
-        <a href="#">PERSONAL</a>
+        <a href="{{ route('personal') }}">PERSONAL</a>
         <a href="{{ route('clientes.index') }}">CLIENT</a>
         <a href="{{ route('ventas.index') }}">VENTAS</a>
         <a href="{{ route('producte.index') }}">PRODUCTES I SERVEIS</a>

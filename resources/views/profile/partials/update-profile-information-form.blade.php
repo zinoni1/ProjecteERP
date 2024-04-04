@@ -22,7 +22,17 @@
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
+        
+        <div>
+    <x-input-label for="role" :value="__('Role')" />
+    <select id="role" name="role" class="block mt-1 w-full">
+        <option value="usuari" @if($user->role == 'usuari') selected @endif>Usuari</option>
+        <option value="admin" @if($user->role == 'admin') selected @endif>Admin</option>
+        <option value="venta" @if($user->role == 'venta') selected @endif>Venta</option>
+    </select>
+</div>
 
+        
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
