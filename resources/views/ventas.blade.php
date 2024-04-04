@@ -1,9 +1,6 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
+@section('content')
 
 <main>
     <div class="content">
@@ -131,7 +128,7 @@
     </div>
 </main>
 
-
+@endsection
 <script>
     function redirectToRoute(route) {
         window.location.href = route;
