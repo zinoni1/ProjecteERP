@@ -9,7 +9,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
-
+use App\Http\Controllers\LanguageController;
 
 
 /*
@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('clientes', ClienteController::class);
     Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
+    Route::match(['get', 'post'], 'change-language/{locale}', [LanguageController::class, 'changeLanguage'])->name('change.locale');
 
 
 
