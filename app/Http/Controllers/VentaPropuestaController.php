@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\VentaPropuesta;
 use Illuminate\Http\Request;
 use App\Models\VentaDetalle;
@@ -60,16 +60,18 @@ class VentaPropuestaController extends Controller
 }
 
 public function graficEstat()
-    {
-        $estatCount = VentaPropuesta::select('estado', DB::raw('count(*) as total'))
-            ->groupBy('estado')
-            ->get();
+{
+    // Obtener la cantidad de clientes por población
+    $estatCount = VentaPropuesta::select('Estado', DB::raw('count(*) as total'))
+        ->groupBy('Estado')
+        ->get();
 
-        $labels = $estatCount->pluck('estado')->toArray();
-        $data = $estatCount->pluck('total')->toArray();
+    // Preparar los datos para el gráfico
+    $labels = $estatCount->pluck('Estado')->toArray();
+    $data = $estatCount->pluck('total')->toArray();
 
-        return view('estadistiquesEstat', compact('labels', 'data'));
-    }
+    return view('estadistiquesEstat', compact('labels', 'data'));
+}
 
     /**
      * Store a newly created resource in storage.
