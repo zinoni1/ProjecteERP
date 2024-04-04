@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
     // Rutas accesibles para todos los usuarios autenticados
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('index');
     });
 
     Route::get('/dashboard', function () {
