@@ -11,7 +11,7 @@
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <button class="btn"><a href="{{ route('productes.create') }}" style="color: blue;"></a></button>
+                    <button class="btn"><a href="{{ route('ventas.create') }}" style="backgroud-color: blue;">Crear proposta</a></button>
                     </div>
                 </div>
             </div>
@@ -54,37 +54,67 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @php
-$totalPrecio = 0;
-@endphp
 
-@foreach($ventes as $venta)
-@foreach($venta->productes as $producto)
-@php
-        $totalPrecio += $producto->Precio;
-        @endphp
-@endforeach
+                                @foreach($ventes as $venta)
+    @php
+        $totalPrecio = 0;
+    @endphp
+
     @foreach($venta->productes as $producto)
-    <tr class="tr" id="row_{{ $producto->id }}"
-    onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">
-    <td>{{ $venta->cliente->Nombre }}</td>
-
-    @if($venta->Estado == 'Rechazada')
-        <td class="stock-low">{{ $venta->Estado }}</td>
-    @elseif($venta->Estado == 'Pendiente')
-        <td class="stock-medium">{{ $venta->Estado }}</td>
-    @elseif($venta->Estado == 'Aceptada')
-        <td class="stock-high">{{ $venta->Estado }}</td>
-    @endif
-
-    <td>{{ $venta->Detalles }}</td>
-    <td>{{$totalPrecio}}</td>
-    @break
-</tr>
+    @php
+            $ventaProducto = $ventaProductos->where('producte_id', $producto->id)->first();
+            $cantidadVendida =  $ventaProducto->CantidadVendida;
+        $totalPrecio += $producto->Precio * $cantidadVendida;
+        @endphp
 
     @endforeach
 
+    <tr class="tr" id="row_{{ $venta->id }}" >
+        <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $venta->cliente->Nombre }}</td>
+        <td>
+   <form id="formCambiarEstado" action="{{ route('ventas.cambiarEstado', $venta->id) }}" method="post">
+    @csrf
+    @method('POST')
+    @if($venta->Estado == 'Aceptada')
+            <select name="estado" class="form-control" style="background-color: #90EE90 !important;"  onchange="this.form.submit()">
+            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
+            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+        </select>
+        @elseif($venta->Estado == 'Pendiente')
+            <select name="estado" class="form-control" style="background-color: #FFFF69 !important;"  onchange="this.form.submit()">
+            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
+            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+        </select>
+        @else
+            <select name="estado" class="form-control" style=" background-color: #FF8080 !important; "  onchange="this.form.submit()">
+            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
+            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+        </select>
+
+        @endif
+    <button hidden="true" type="submit">Cambiar Estado</button>
+</form>
+
+</td>
+
+
+        <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $venta->Detalles }}</td>
+
+        <!-- Mostrar el precio solo si hay productos asociados -->
+
+        @if(count($venta->productes) > 0)
+            <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $totalPrecio }}</td>
+        @else
+            <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">Sense preu</td>
+        @endif
+    </tr>
 @endforeach
+
+
+
 
 <!-- Imprimir el total al final de la tabla -->
 
@@ -101,25 +131,36 @@ $totalPrecio = 0;
     </div>
 </main>
 
-<style>
-    .stock-low {
-        background-color: #FF8080 !important; /* Rojo */
-    }
-
-    .stock-medium {
-        background-color: #FFFF69 !important; /* Amarillo */
-    }
-
-    .stock-high {
-        background-color: #90EE90 !important; /* Verde */
-    }
-    .tr:hover {
-        background-color: #f5f5f5 !important;
-    }
-</style>
 
 <script>
     function redirectToRoute(route) {
         window.location.href = route;
     }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.cambiar-estado').click(function(e) {
+            e.preventDefault();
+            var ventaId = $(this).data('venta-id');
+            var nuevoEstado = $(this).data('nuevo-estado');
+            $.ajax({
+                url: '/ventas/' + ventaId + '/cambiarEstado',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    estado: nuevoEstado
+                },
+                success: function(response) {
+                    // Actualizar la interfaz de usuario según la respuesta del servidor
+                    if (response.estado) {
+                        $('#estado-venta-' + ventaId).text(response.estado);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
 </script>

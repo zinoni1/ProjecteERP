@@ -22,7 +22,6 @@ class VentaDetalleFactory extends Factory
     public function definition(): array
     {
         return [
-            'CantidadVendida' => $this->faker->numberBetween(1, 10),
             'PrecioUnitario' => $this->faker->randomFloat(2, 0, 100),
         ];
     }

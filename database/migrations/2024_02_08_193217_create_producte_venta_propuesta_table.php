@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('producte_venta_propuesta', function (Blueprint $table) {
             $table->id();
-            
-            
+
+
             // Agrega la columna producte_id
             $table->foreignId('producte_id')
                 ->references('id')
@@ -25,6 +25,8 @@ return new class extends Migration
                 ->references('id')
                 ->on('venta_propuestas')
                 ->onDelete('cascade');
+
+            $table->integer('CantidadVendida')->default(1);
         });
     }
 

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->enum('Estado', ['Aceptada', 'Pendiente', 'Rechazada']);
             $table->longText('Detalles');
             $table->foreignId('cliente_id')->default(1)->references('id')->on('clientes')->onDelete('cascade');
-           
+
         });
-        
+
     }
 
     /**
