@@ -2,7 +2,6 @@
 
 @section('content')
 
-<main>
     <div class="content">
         <section class="row mb-4">
             <div class="col-3 text-center">
@@ -126,7 +125,6 @@
             </div>
         </section>
     </div>
-</main>
 
 @endsection
 <script>
