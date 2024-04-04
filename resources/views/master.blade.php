@@ -23,7 +23,6 @@
         }
         .navbar {
             background-color: #FFFFFF;
-            overflow: hidden;
         }
 
         .navbar a {
@@ -82,8 +81,27 @@
 
     </style>
 </head>
-<body>
 
+<body>
+<div class="navbar" style="position: relative; z-index: 1;">
+    <button class="openbtn" onclick="openNav()">☰ Menú</button>
+    <div class="dropdown" style="margin-right: 10px; z-index: 100;">
+
+<button class="btn btn-secondary dropdown-toggle" style="margin-right: 100px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ Auth::user()->name }}
+</button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+<li><a class="dropdown-item" style="color: black;" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+
+    <li>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button class="dropdown-item" style="align-content: center" type="submit">{{ __('Log Out') }}</button>
+        </form>
+    </li>
+</ul>
+</div>
+</div>
 
     <div id="mySidenav" class="sidenav">
         <img src="media/gazepa-removebg-preview.png" alt="Logo" style="width: 80px; margin-top: -45;margin-left: 60px;">
@@ -92,15 +110,13 @@
         <a href="{{ route('personal') }}">PERSONAL</a>
         <a href="{{ route('clientes.index') }}">CLIENT</a>
         <a href="{{ route('ventas.index') }}">VENTAS</a>
-        <a href="{{ route('producte.index') }}">PRODUCTES I SERVEIS</a>
-        <a href="#">MANTENIMENT</a>
+        <a href="{{ route('producte.index') }}">PRODUCTES I CATEGORIES</a>
         <a href="#">PRESSUPOSTOS</a>
-        <a href="#">STOCK I INVENTARI</a>
-        <a href="#">NOTIFICACIÓ</a>
         <a href="#">COMPRES</a>
     </div>
+    <main >
 
-    <main>
+
         @yield('content')
     </main>
 
@@ -123,6 +139,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-</body>
 
+</body>
 </html>

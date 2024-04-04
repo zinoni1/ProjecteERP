@@ -1,11 +1,6 @@
 @extends('master')
-@section ('body')
+@section ('content')
 
-<body>
-<div class="navbar">
-        <button class="openbtn" onclick="openNav()">☰ Menú</button>
-    </div>
-<main>
 
 <div class="content">
   <section class="row mb-4">
@@ -179,6 +174,4 @@
     </div>
   </section>
 </div>
-</main>
-</body>
-</html>
+@endsection

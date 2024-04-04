@@ -1,9 +1,6 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
+@section('content')
 
 <main>
     <div class="content">
@@ -18,7 +15,7 @@
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <p>prova</p>
+                    <button class="btn"><a href="{{ route('ventas.graficEstat') }}" style="backgroud-color: blue;">Grafica</a></button>
                     </div>
                 </div>
             </div>
@@ -131,7 +128,7 @@
     </div>
 </main>
 
-
+@endsection
 <script>
     function redirectToRoute(route) {
         window.location.href = route;
