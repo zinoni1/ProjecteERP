@@ -83,7 +83,7 @@
    // Crear el gráfico
 var ctx = document.getElementById('chartEstat').getContext('2d');
 var chart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'bar',
     size: 1,
    data: {
         labels: labels,
