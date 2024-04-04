@@ -92,11 +92,8 @@
         <a href="{{ route('personal') }}">PERSONAL</a>
         <a href="{{ route('clientes.index') }}">CLIENT</a>
         <a href="{{ route('ventas.index') }}">VENTAS</a>
-        <a href="{{ route('producte.index') }}">PRODUCTES I SERVEIS</a>
-        <a href="#">MANTENIMENT</a>
+        <a href="{{ route('producte.index') }}">PRODUCTES I CATEGORIES</a>
         <a href="#">PRESSUPOSTOS</a>
-        <a href="#">STOCK I INVENTARI</a>
-        <a href="#">NOTIFICACIÓ</a>
         <a href="#">COMPRES</a>
     </div>
 
