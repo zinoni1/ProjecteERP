@@ -85,6 +85,16 @@
 <body>
 <div class="navbar" style="position: relative; z-index: 1;">
     <button class="openbtn" onclick="openNav()">☰ Menú</button>
+    <form id="languageForm" method="POST" action="">
+        @csrf
+        <select id="idioma" name="idioma" onchange="cambiarIdioma()">
+            <option value="es" {{ session('idioma') === 'es' ? 'selected' : '' }}>Español</option>
+            <option value="en" {{ session('idioma') === 'en' ? 'selected' : '' }}>English</option>
+            <option value="ca" {{ session('idioma') === 'ca' ? 'selected' : '' }}>Català</option>
+        </select>
+    </form>
+
+
     <div class="dropdown" style="margin-right: 10px; z-index: 100;">
 
 <button class="btn btn-secondary dropdown-toggle" style="margin-right: 100px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -130,6 +140,13 @@
             document.getElementById("mySidenav").style.width = "0";
             document.querySelector("main").style.marginLeft = "0"; // Elimina el margen izquierdo al cerrar el sidenav
         }
+        function cambiarIdioma() {
+        var select = document.getElementById("idioma");
+        var idioma = select.options[select.selectedIndex].value;
+        document.getElementById("languageForm").action = "{{ route('cambiar-idioma', '') }}/" + idioma;
+        document.getElementById("languageForm").submit();
+    }
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

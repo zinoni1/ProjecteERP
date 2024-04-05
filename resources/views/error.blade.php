@@ -3,8 +3,8 @@
 @section('content')
 <div class="container mt-4">
     <div class="alert alert-danger" role="alert">
-        El teu usuari no té els permisos suficients per accedir aquí. Només pots entrar amb l'usuari admin.
+    {{ __('traduccion.erroradmin') }}
     </div>
-    <a href="{{ route('dashboard') }}" class="btn btn-primary">Anar al Dashboard</a>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">{{ __('traduccion.dashboard') }}</a>
 </div>
 @endsection
