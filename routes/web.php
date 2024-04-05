@@ -9,7 +9,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
-
+use App\Http\Controllers\LanguageController;
 
 
 /*
@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/personal', [ProfileController::class, 'showAllUsers'])->name('personal');
+    Route::get('/personal', [ProfileController::class, 'showAllUsers'])->name('personal');    
     Route::get('/indexPrincipal', function () {
         return view('index');
     })->name('indexPrincipal');
@@ -57,6 +57,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clientes', ClienteController::class);
     Route::get('/mostrarClientes', [ClienteController::class, 'mostrarTodos'])->name('mostrarClientes');
 
+    Route::post('/cambiar-idioma/{idioma}', [LanguageController::class, 'cambiarIdioma'])->name('cambiar-idioma');
+
 
 
     Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
@@ -64,12 +66,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/error', function () {
         return view('error');
     })->name('error');
-
+    
     Route::get('/crearProducte', function () {
         return view('crearProducte');
     });
     Route::get('/productes', [ProducteController::class, 'index']);
-
+    
     Route::get('/mostrarProductes', function () {
         $productos = Producte::all(); // Suponiendo que Producto es tu modelo para productos
         return view('mostrarProductes', compact('productos'));
@@ -78,27 +80,26 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/productes', [ProducteController::class, 'store'])->name('productes.store');
     Route::resource("producte", ProducteController::class);
     Route::get('/productes', [ProducteController::class, 'index'])->name('producte.index');
-
+    
     Route::get('/products', [ProducteController::class, 'productos'])->name('products');
     Route::get('/mostrarProductos', [ProducteController::class, 'mostrarProductos'])->name('mostrarProductos');
-
-
+    
+    
     Route::get('/productes/{producte}', [ProducteController::class,'show'])->name('productes.show');
     Route::put('/productes/{producte}', [ProducteController::class, 'update'])->name('productes.update');
     Route::delete('/productes/{producte}', [ProducteController::class, 'destroy'])->name('productes.destroy');
-
+    
     Route::resource('ventas', VentaPropuestaController::class);
-    Route::get('/graficEstat', [VentaPropuestaController::class, 'graficEstat'])->name('ventas.graficEstat');
     Route::post('/ventas/{id}/cambiarEstado', [VentaPropuestaController::class, 'cambiarEstado'])->name('ventas.cambiarEstado');
     Route::post('ventas/storeProductes',  [VentaPropuestaController::class, 'storeProductes'])->name('ventas.storeProductes');
     Route::get('ventas/posarProductesProposta/{id}', [VentaPropuestaController::class, 'posarProductesProposta'])->name('ventas.posarProductesProposta');
     Route::get('/venta-propuesta/{id}', [VentaPropuestaController::class, 'show'])->name('VentaPropuesta.show');
     Route::get('/mostrarventas/{id}', [VentaPropuestaController::class, 'index_ventas'])->name('mostrarventas');
-
+    
     Route::get('/errorVenta', function () {
         return view('errorVenta');
     })->name('errorVenta');
-
+    
     // Lógica para restringir el acceso según el rol del usuario
     Route::middleware(['role.check'])->group(function () {
         Route::get('/productes/create', [ProducteController::class, 'create'])->name('productes.create');
