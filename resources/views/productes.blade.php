@@ -1,11 +1,6 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
-
-<main>
+@section('content')
     <div class="content">
         <section class="row mb-4">
             <div class="col-3 text-center">
@@ -85,8 +80,7 @@
             </div>
         </section>
     </div>
-</main>
-
+@endsection
 <style>
     /* Estilos para los colores de fondo según el stock */
     .stock-low {
