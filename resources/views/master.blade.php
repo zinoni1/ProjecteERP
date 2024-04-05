@@ -12,7 +12,6 @@
         crossorigin="anonymous" />
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin-left: 0px;
             transition: margin-left 0.5s;
             background-color: #115571;
@@ -75,6 +74,10 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
+        }
+        .dropdown-toggle{
+            color: black !important;
+            background-color: grey !important;
         }
 
 

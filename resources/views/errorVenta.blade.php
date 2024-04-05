@@ -5,6 +5,6 @@
     <div class="alert alert-danger" role="alert">
     {{ __('traduccion.errorventa') }}
     </div>
-    <a href="{{ route('dashboard') }}" class="btn btn-primary"> {{ __('traduccion.dashboard') }}</a>
+    <a href="{{ route('indexPrincipal') }}" class="btn btn-primary">{{ __('traduccion.dashboard') }}</a>
 </div>
 @endsection
