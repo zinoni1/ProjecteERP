@@ -8,9 +8,59 @@ use App\Models\VentaDetalle;
 use App\Models\VentaPropuestaProducto;
 use App\Models\Cliente;
 use App\Models\Producte;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use LaravelDaily\Invoices\Invoice;
+use LaravelDaily\Invoices\Classes\Buyer;
+use LaravelDaily\Invoices\Classes\InvoiceItem;
+use LaravelDaily\Invoices\Classes\Party;
 
 class VentaPropuestaController extends Controller
 {
+
+    public function generateInvoice($id)
+    {
+        $venta = VentaPropuesta::where('id', $id)->with('cliente')->first();
+        $clienteNombre = $venta->cliente->Nombre;
+        $clientemail = $venta->cliente->Email;
+
+
+
+
+        $user = Auth::user();
+
+        $customer = new Buyer([
+            'name'          => $clienteNombre,
+            'custom_fields' => [
+                'email' => $clientemail,
+            ],
+        ]);
+
+        $seller = new Party([
+            'name'          => $user->name,
+            'address'       => 'Escola Pia Mataró',
+            'code'          => '08302',
+            'city'          => 'Mataró',
+            'phone'         => '937 90 00 00',
+
+            'custom_fields' => [
+                'email' => $user->email,
+            ],
+        ]);
+        $ventaProductos = VentaPropuestaProducto::where('venta_propuesta_id', $venta->id)->get();
+
+        foreach ($venta->productes as $producto) {
+            $items[] = (new InvoiceItem())->title($producto->Nombre)->pricePerUnit($producto->Precio)->quantity($ventaProductos->where('producte_id', $producto->id)->first()->CantidadVendida);
+        }
+
+        $invoice = Invoice::make()
+            ->buyer($customer)
+            ->seller($seller)
+            ->taxRate(21)
+            ->addItems($items);
+
+        return $invoice->stream();
+    }
     /**
      * Display a listing of the resource.
      */
