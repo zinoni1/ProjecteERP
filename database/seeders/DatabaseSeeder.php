@@ -11,6 +11,9 @@ use Database\Seeders\VentaPropuestaSeeder;
 use Database\Seeders\VentaDetalleSeeder;
 use Database\Seeders\VentaPropuestaProductoSeeder;
 use Database\Seeders\CategoriaSeeder;
+use Database\Seeders\VendedorSeeder;
+use Database\Seeders\CompraSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,12 +29,17 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
+            UserSeeder::class,
             ClienteSeeder::class,
             TipoClienteSeeder::class,
             CategoriaSeeder::class,
             ProducteSeeder::class,
             VentaPropuestaSeeder::class,
             VentaDetalleSeeder::class,
+            VendedorSeeder::class,
+            CompraSeeder::class,
+            
+
            
         ]);
     }

@@ -97,7 +97,8 @@
         <a href="#">PRESSUPOSTOS</a>
         <a href="#">STOCK I INVENTARI</a>
         <a href="#">NOTIFICACIÓ</a>
-        <a href="#">COMPRES</a>
+        <a href="{{ route('compras.index') }}">COMPRAS</a>
+        
     </div>
 
     <main>

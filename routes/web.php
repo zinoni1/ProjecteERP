@@ -9,6 +9,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
+use App\Http\Controllers\VendedorController;
 
 
 
@@ -90,6 +91,8 @@ Route::get('/venta-propuesta/{id}', [VentaPropuestaController::class, 'show'])->
 
 
 Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
+
+Route::resource('venedors', VendedorController::class);
 
 
 require __DIR__.'/auth.php';
