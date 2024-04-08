@@ -1,30 +1,26 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
-<main>
+@section('content')
 <div class="content">
 <section class="row mb-4">
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Añadir Cliente</a>
+                    <a href="{{ route('clientes.create') }}" class="btn btn-primary">{{ __('traduccion.afegirclient') }}</a>
                     </div>
                 </div>
             </div>
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                        <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">Mostrar todos los clientes</a>
+                        <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">{{ __('traduccion.mostrartotsclient') }}</a>
                     </div>
                 </div>
             </div>
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">Estadisticas Poblacion</a>
+                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">{{ __('traduccion.estadisticaspoblacion') }}</a>
                     </div>
                 </div>
             </div>
@@ -34,19 +30,19 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Todos los Clientes') }}</div>
+                <div class="card-header">{{ __('traduccion.llistaclients') }}</div>
 
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Dirección</th>
-                                <th scope="col">Poblacion</th>
-                                <th scope="col">Acciones</th> <!-- Agregar esta columna para los botones de acción -->
+                            <th scope="col">{{ __('traduccion.nom') }}</th>
+                                <th scope="col">{{ __('traduccion.cognom') }}</th>
+                                <th scope="col">{{ __('traduccion.correu') }}</th>
+                                <th scope="col">{{ __('traduccion.telefon') }}</th>
+                                <th scope="col">{{ __('traduccion.adreca') }}</th>
+                                <th scope="col">{{ __('traduccion.poblacio') }}</th>
+                                <th scope="col">{{ __('traduccion.accions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,10 +55,13 @@
                                 <td>{{ $cliente->Direccion }}</td>
                                 <td>{{ $cliente->Poblacion }}</td>
                                 <td>
-                                <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
+                                    <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger" onclick="confirmarEliminar('{{ $cliente->id }}')">Eliminar</button>
+                                        <button type="button" class="btn btn-danger" onclick="confirmarEliminar('{{ $cliente->id }}')">{{ __('traduccion.eliminar') }}</button>
+                                    </form>
+                                    <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
+                                        <button type="submit" class="btn btn-primary">{{ __('traduccion.editar') }}</button>
                                     </form>
                                 </td>
                             </tr>
@@ -81,4 +80,4 @@
         }
     }
 </script>
-</main>
+@endsection

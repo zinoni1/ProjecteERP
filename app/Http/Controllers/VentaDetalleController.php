@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\VentaDetalle;
 use Illuminate\Http\Request;
-
+use App\Models\VentaPropuesta;
+use App\Models\Cliente;
+use App\Models\VentaPropuestaProducto;
 class VentaDetalleController extends Controller
 {
     /**
@@ -12,8 +14,8 @@ class VentaDetalleController extends Controller
      */
     public function index()
     {
-        //
     }
+
 
     /**
      * Show the form for creating a new resource.

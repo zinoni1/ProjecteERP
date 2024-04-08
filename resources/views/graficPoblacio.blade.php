@@ -1,30 +1,26 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
-<main>
+@section('content')
 <div class="content">
 <section class="row mb-4">
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('clientes.create') }}" class="btn btn-primary">Añadir Cliente</a>
+                    <a href="{{ route('clientes.create') }}" class="btn btn-primary">{{ __('traduccion.afegirclient') }}</a>
                     </div>
                 </div>
             </div>
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                        <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">Mostrar todos los clientes</a>
+                    <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">{{ __('traduccion.mostrartotsclient') }}</a>
                     </div>
                 </div>
             </div>
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">Estadisticas Poblacion</a>
+                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">{{ __('traduccion.estadisticaspoblacion') }}</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +30,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Distribución de Población de Clientes') }}</div>
+                <div class="card-header">{{ __('traduccion.distribucio') }}</div>
 
                 <div class="card-body">
                     <canvas id="chartPoblacion"></canvas>
@@ -58,7 +54,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: 'Cantidad de Clientes por Población',
+                label: '{{ __('traduccion.quantitat') }}',
                 data: data,
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -71,17 +67,11 @@
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Cantidad de Clientes'
+                        text: '{{ __('traduccion.clients') }}'
                     }
                 },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Población'
-                    }
-                }
             }
         }
     });
 </script>
-</main>
+@endsection
