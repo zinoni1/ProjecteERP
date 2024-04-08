@@ -72,7 +72,7 @@
     @csrf
     @method('POST')
     @if($venta->Estado == 'Aceptada')
-            <select name="estado" class="form-control" style="background-color: #90EE90 !important;"  onchange="this.form.submit()">
+            <select name="estado" class="form-control" style="background-color: #90EE90 !important; width: 95px !important"  onchange="this.form.submit()">
             <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
             <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
             <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>

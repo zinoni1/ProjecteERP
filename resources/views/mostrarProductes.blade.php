@@ -107,12 +107,8 @@
     }
 </style>
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
+@section('content')
 
-<main>
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-6">
@@ -134,7 +130,7 @@
                 </form>
             </div>
         </div>
-        
+
         <!-- Leyenda -->
         <div class="row mb-3">
             <div class="col-md-2"></div>
@@ -207,4 +203,4 @@
             </div>
         </div>
     </div>
-</main>
+@endsection
