@@ -119,6 +119,7 @@
     <div id="mySidenav" class="sidenav">
         <img src="media/gazepa-removebg-preview.png" alt="Logo" style="width: 80px; margin-top: -45;margin-left: 60px;">
         <a href="javascript:void(0)" style="margin-top: 11px;" class="closebtn" onclick="closeNav()">&times;</a>
+
         <a href="{{ route('indexPrincipal') }}">{{ __('master.dashboard') }}</a>
         <a href="{{ route('personal') }}">{{ __('master.personal') }}</a>
         <a href="{{ route('clientes.index') }}">{{ __('master.customers') }}</a>
@@ -126,6 +127,7 @@
         <a href="{{ route('producte.index') }}">{{ __('master.products') }}</a>
         <a href="#">{{ __('master.budgets') }}</a>
         <a href="#">{{ __('master.buys') }}</a>
+
     </div>
     <main >
 

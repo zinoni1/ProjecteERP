@@ -9,6 +9,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
+use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\LanguageController;
 
 
@@ -116,6 +117,8 @@ Route::middleware(['auth'])->group(function () {
 
     });
 });
+
+Route::resource('venedors', VendedorController::class);
 
 
 require __DIR__.'/auth.php';
