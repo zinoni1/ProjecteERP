@@ -62,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
-
+    Route::get('/graficEstat', [VentaPropuestaController::class, 'graficEstat'])->name('ventas.graficEstat');
     Route::get('/error', function () {
         return view('error');
     })->name('error');

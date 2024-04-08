@@ -1,33 +1,33 @@
 @extends('master')
-<!--borrar de linia 3 a 7 + tancament main i tancar section i canviar section body a content-->
+
 @section('content')
 
 <div class="content">
-<section class="row mb-4">
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
+    <section class="row mb-4">
+        <div class="col-3 text-center">
+            <div class="card border-secondary">
+                <div class="card-body">
                     <a href="{{ route('clientes.create') }}" class="btn btn-primary">{{ __('traduccion.afegirclient') }}</a>
-                    </div>
                 </div>
             </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                        <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">{{ __('traduccion.mostrartotsclient') }}</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">{{ __('traduccion.estadisticaspoblacion') }}</a>
-                    </div>
-                </div>
-            </div>
-        </section>
         </div>
-        <div class="container">
+        <div class="col-3 text-center">
+            <div class="card border-secondary">
+                <div class="card-body">
+                    <a href="{{ route('mostrarClientes') }}" class="btn btn-primary">{{ __('traduccion.mostrartotsclient') }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 text-center">
+            <div class="card border-secondary">
+                <div class="card-body">
+                    <a href="{{ route('graficPoblacio') }}" class="btn btn-primary">{{ __('traduccion.estadisticaspoblacion') }}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container">
 
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -49,23 +49,24 @@
                         </thead>
                         <tbody>
                             @foreach($clientes->take(10) as $cliente)
-                                <td>{{ $cliente->Nombre }}</td>
-                                <td>{{ $cliente->Apellido }}</td>
-                                <td>{{ $cliente->Email }}</td>
-                                <td>{{ $cliente->Telefono }}</td>
-                                <td>{{ $cliente->Direccion }}</td>
-                                <td>{{ $cliente->Poblacion }}</td>
-                                <td>
-                                    <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" class="btn btn-danger" onclick="confirmarEliminar('{{ $cliente->id }}')">{{ __('traduccion.eliminar') }}</button>
-                                    </form>
-                                    <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
-                                        <button type="submit" class="btn btn-primary">{{ __('traduccion.editar') }}</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $cliente->Nombre }}</td>
+                                    <td>{{ $cliente->Apellido }}</td>
+                                    <td>{{ $cliente->Email }}</td>
+                                    <td>{{ $cliente->Telefono }}</td>
+                                    <td>{{ $cliente->Direccion }}</td>
+                                    <td>{{ $cliente->Poblacion }}</td>
+                                    <td>
+                                        <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-danger" onclick="confirmarEliminar('{{ $cliente->id }}')">{{ __('traduccion.eliminar') }}</button>
+                                        </form>
+                                        <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
+                                            <button type="submit" class="btn btn-primary">{{ __('traduccion.editar') }}</button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
