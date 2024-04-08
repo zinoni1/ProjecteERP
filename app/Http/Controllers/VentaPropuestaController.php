@@ -57,7 +57,8 @@ class VentaPropuestaController extends Controller
             ->buyer($customer)
             ->seller($seller)
             ->taxRate(21)
-            ->addItems($items);
+            ->addItems($items)
+            ->logo(public_path('Media/gazepa-removebg-preview.png'));
 
         return $invoice->stream();
     }
