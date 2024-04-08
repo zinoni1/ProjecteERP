@@ -30,4 +30,12 @@ class Producte extends Model
         return $this->belongsTo(Categoria::class, 'categoria_id');
     }
 
+
+
+    public function compras()
+    {
+        return $this->belongsToMany(Compra::class, 'producte_id');
+    }
+
+
 }
