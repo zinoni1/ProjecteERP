@@ -1,10 +1,6 @@
 @extends('master')
 
-@section('body')
-<div class="navbar">
-    <button class="openbtn" onclick="openNav()">☰ Menú</button>
-</div>
-<main>
+@section('content')
 <div class="content">
 <section class="row mb-4">
             <div class="col-3 text-center">
@@ -130,5 +126,4 @@ chart.data.datasets.forEach(function(dataset, index) {
 
 chart.update();
 </script>
-
-</main>
+@endsection
