@@ -38,7 +38,7 @@
             <div class="col md-1">
                 <div class="card border-primary">
                     <div class="card-body">
-                        <h3>Ventes</h3>
+                        <h3>Ventes {{$venta->cliente->Nombre}}</h3>
                         <div class="overflow-auto" style="max-height: 600px;">
                             <table class="table">
                                 <thead>
@@ -90,7 +90,7 @@
 
                                 </tbody>
                             </table>
-<button class="btn btn-primary">Imprimir factura</button>
+<a href="{{route('orders.generateInvoice', $venta->id)}}" class="btn btn-primary">Imprimir factura</a>
 <button class="btn btn-success">Imprimir albaran</button>
 
                         </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Models\Producte;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -61,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cambiar-idioma/{idioma}', [LanguageController::class, 'cambiarIdioma'])->name('cambiar-idioma');
 
 
-
+Route::get('/orders/{id}', [VentaPropuestaController::class, 'generateInvoice'])->name('orders.generateInvoice');
     Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
     Route::get('/graficEstat', [VentaPropuestaController::class, 'graficEstat'])->name('ventas.graficEstat');
     Route::get('/error', function () {
