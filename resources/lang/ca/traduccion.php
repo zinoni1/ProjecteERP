@@ -7,7 +7,7 @@ return [
     'correu' => 'CORREU',
     'telefon' => 'TELEFON',
     'adreca' => 'ADREÇA',
-    'poblacio' => 'POBLACIO',
+    'poblacio' => 'POBLACIÓ',
     'guardarclient' => 'GUARDAR CLIENT',
     'afegirclient' => 'AFEGIR CLIENT',
     //Index CLient

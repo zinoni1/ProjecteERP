@@ -112,21 +112,20 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-6">
-    <a href="{{ route('products') }}" class="btn btn-secondary mt-3">Volver</a>
-    <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-block mt-3">Crear Categoria</a>
-
+    <a href="{{ route('products') }}" class="btn btn-secondary mt-3">{{ __('productes.tornar') }}</a>
+    <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-block mt-3">{{ __('productes.CrearCategoria') }}</a>
 </div>
             <div style="text-align: right;" class="col-md-6 text-right filter-container">
                 <form action="{{ route('mostrarProductos') }}" method="GET">
-                    <label for="order">Ordenar per:</label>
+                    <label for="order">{{ __('productes.ordenarX') }}</label>
                     <select name="order" id="order">
-                    <option value="all">Creació</option>
-                <option value="asc">Stock Asc.</option>
-                <option value="desc">Stock Desc.</option>
-                <option value="less_than_10">10 o menys</option>
-                <option value="between_10_and_50">Entre 10 i 50</option>
+                    <option value="all">{{ __('productes.Creació') }}</option>
+                <option value="asc">{{ __('productes.StockAsc') }}</option>
+                <option value="desc">{{ __('productes.StockDesc') }}</option>
+                <option value="less_than_10">{{ __('productes.less_than_10') }}</option>
+                <option value="between_10_and_50">{{ __('productes.between_10_and_50') }}</option>
                     </select>
-                    <button type="submit">Ordenar</button>
+                    <button type="submit">{{ __('productes.ordenar') }}</button>
                 </form>
             </div>
         </div>
@@ -135,15 +134,15 @@
         <div class="row mb-3">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-                <span class="badge badge-pill badge-danger">Stock &lt; 10</span>
-                <span class="badge badge-pill badge-warning">10 &le; Stock &lt; 50</span>
+                <span class="badge badge-pill badge-danger" style="background-color: #FF3333;">Stock &lt; 10</span>
+                <span class="badge badge-pill badge-warning" style="background-color: #FFCC00;">10 &le; Stock &lt; 50</span>
             </div>
         </div>
 
         <div class="row">
             <!-- Menú a la izquierda -->
             <div class="col-md-2 menu-container">
-    <h3>Categories</h3>
+    <h3>{{ __('productes.categorias') }}</h3>
     <ul class="list-group">
         @foreach($categorias as $categoria)
         <li class="list-group-item menu-item"><a href="{{ route('categorias.show', $categoria->id) }}">{{ $categoria->Categoria }}</a></li>
@@ -153,18 +152,18 @@
 
 
             <div class="col-md-10 content-container">
-                <h1>Llista de Productes</h1>
+                <h1>{{ __('productes.llistaproductes') }}</h1>
                 <div class="overflow-auto" style="max-height: 600px;">
                     <table class="product-table">
                         <thead>
                             <tr>
-                            <th>Nom</th>
-                            <th>Descripció</th>
-                            <th>Categoria</th>
-                            <th>Preu</th>
-                            <th>Stock</th>
-                            <th>Data d'entrada</th>
-                            <th>Imagen</th>
+                            <th>{{ __('productes.nom') }}</th>
+                            <th>{{ __('productes.descripcio') }}</th>
+                            <th>{{ __('productes.categoria') }}</th>
+                            <th>{{ __('productes.preu') }}</th>
+                            <th>{{ __('productes.stock') }}</th>
+                            <th>{{ __('productes.dataEntrada') }}</th>
+                            <th>{{ __('productes.imatge') }}</th>
                         </thead>
                         <tbody>
                         @foreach($productos as $producto)
@@ -176,7 +175,7 @@
                                          @if($producto->categoria)
                                          {{ $producto->categoria->Categoria }}
                                              @else
-                                               Sin categoría
+                                             {{ __('productes.Nocategoria') }}
                                              @endif
                                         </td>
     <td>{{ $producto->Precio }}</td>
@@ -191,7 +190,7 @@
     @if($producto->ruta)
         <img src="{{ asset('Media/' . $producto->ruta) }}" width="90"/>
     @else
-        No hay imagen disponible
+    {{ __('productes.Noimage') }}
     @endif
 </td>
 
