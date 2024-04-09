@@ -1,33 +1,55 @@
-# Copyright VMware, Inc.
-# SPDX-License-Identifier: APACHE-2.0
-
-version: '2'
+version: '3.8'
 
 services:
-  mariadb:
-    image: docker.io/bitnami/mariadb:10.6
-    environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      - ALLOW_EMPTY_PASSWORD=yes
-      - MARIADB_USER=bn_myapp
-      - MARIADB_DATABASE=bitnami_myapp
-    ports:
-      - '3316:3306'
-  myapp:
+  app:
+    container_name: laravel_app
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        NODE_VERSION: 20
-    ports:
-      - '5000:8000'
-      - "5173:5173"
-    environment:
-      - DB_HOST=mariadb
+      # args:
+        # EXTRA_PHP_LIBRARIES: "php-ctype php-exif"
+    environment: #Override enviroment files
+      - DB_CONNECTION=mysql
+      - DB_HOST=laravel_db
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=
       - DB_PORT=3306
-      - DB_USERNAME=bn_myapp
-      - DB_DATABASE=bitnami_myapp
+      - APP_ENV=local
     volumes:
       - '.:/app'
+    ports:
+      - "5000:8000"
+      - "5173:5173"
+    entrypoint: ./entrypoint-dev.sh
+    # command: ["-p", "8080", "-n", "14"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      retries: 3
+      timeout: 5s
     depends_on:
-      - mariadb
+      - db
+
+  db:
+    image: mariadb:latest
+    hostname: laravel_db
+    container_name: laravel_db
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: app
+      MYSQL_PASSWORD: laravel
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_TCP_PORT: 3306
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "55274:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+        test: ["CMD", "mariadb-admin", "ping"]
+        retries: 3
+        timeout: 5s
+
+volumes:
+  db-data:
