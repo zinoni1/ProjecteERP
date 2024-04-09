@@ -90,7 +90,7 @@
 
                                 </tbody>
                             </table>
-<a href="{{route('orders.generateInvoice', $venta->id)}}" class="btn btn-primary">Imprimir factura</a>
+<a href="{{route('orders.generateInvoice', $venta->id)}}" target="_blank" class="btn btn-primary">Imprimir factura</a>
 <button class="btn btn-success">Imprimir albaran</button>
 
                         </div>
