@@ -8,5 +8,6 @@ return[
     'customers' => 'Customers',
     'budgets' => 'Budgets',
     'buys' => 'Buys',
+    'seller'=>'Seller'
 
 ];
