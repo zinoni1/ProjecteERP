@@ -3,7 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compra;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Vendedor;
+use App\Models\Producte;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon as CarbonCarbon;
+
+
+
 
 class CompraController extends Controller
 {
@@ -12,7 +21,8 @@ class CompraController extends Controller
      */
     public function index()
     {
-        //
+        $compras = Compra::with('user', 'vendedor', 'producte')->get();
+        return view('compres', compact('compras'));
     }
 
     /**
@@ -20,7 +30,14 @@ class CompraController extends Controller
      */
     public function create()
     {
-        //
+        $date = Carbon::now('Europe/Madrid');
+        $user = Auth::user();
+        $vendedores = Vendedor::all();
+        $productos = Producte::all();
+        return view('crearCompres', compact('date', 'user', 'vendedores', 'productos'));
+
+
+
     }
 
     /**
@@ -28,8 +45,32 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        // Obtener el ID del usuario autenticado
+        $userId = Auth::id();
+    
+        // Crear la compra
+        Compra::create([
+            'FechaCompra' => $request->fechaCompra,
+            'Cantidad' => $request->Cantidad,
+            'producte_id' => $request->producte_id,
+            'user_id' => $userId,
+            'vendedor_id' => $request->vendedor_id,
+        ]);
+    
+        // Obtener el producto comprado
+        $producto = Producte::findOrFail($request->producte_id);
+    
+        // Añadir la cantidad comprada al stock del producto
+        $producto->Stock += $request->Cantidad;
+        $producto->save();
+    
+        // Redirigir a la página de índice de compras con un mensaje de éxito
+        return redirect()->route('compras.index')->with('success', 'Compra creada exitosamente.');
     }
+    
+
+    
 
     /**
      * Display the specified resource.

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProducteController;
@@ -120,6 +121,7 @@ Route::get('/orders/{id}', [VentaPropuestaController::class, 'generateInvoice'])
 });
 
 Route::resource('venedors', VendedorController::class);
+Route::resource('compras', CompraController::class);
 
 
 require __DIR__.'/auth.php';

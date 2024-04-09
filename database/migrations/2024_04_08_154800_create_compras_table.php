@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('producte_id')->constrained();
             $table->foreignId('user_id')->constrained(); // Corrected foreign key name
             $table->foreignId('vendedor_id')->constrained();
+            $table->decimal('PrecioTotal', 8, 2)->default(0);
         });
     }
 
