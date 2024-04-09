@@ -13,6 +13,7 @@ class CompraFactory extends Factory
             'producte_id' => \App\Models\Producte::factory(),
             'user_id' => \App\Models\User::factory(), // Corrección aquí
             'vendedor_id' => \App\Models\Vendedor::factory(),
+            
         ];
     }
 }

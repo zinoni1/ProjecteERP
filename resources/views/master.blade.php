@@ -131,7 +131,7 @@
         <a href="{{ route('ventas.index') }}">{{ __('master.sales') }}</a>
         <a href="{{ route('producte.index') }}">{{ __('master.products') }}</a>
         <a href="#">{{ __('master.budgets') }}</a>
-        <a href="#">{{ __('master.buys') }}</a>
+        <a href="{{ route('compras.index') }}">{{ __('master.buys') }}</a>
         <a href="{{ route('venedors.index') }}">{{ __('master.seller') }}</a>
 
     </div>

@@ -12,18 +12,19 @@ class Compra extends Model
         'FechaCompra',
         'Cantidad',
         'producte_id',
-        'usuari_id',
-        'vendedor_id'
+        'user_id',
+        'vendedor_id',
+        'PrecioTotal',
 
     ];
     use HasFactory;
     public function producte()
     {
-        return $this->belongsToMany(Producte::class, 'producte_id');
+        return $this->belongsTo(Producte::class);
     }
     public function user()
     {
-        return $this->belongsTo(User::class, 'usuari_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function vendedor()
     {
