@@ -43,11 +43,11 @@ export NVM_DIR="/root/.nvm"
 # Instala la versión de Node.js especificada en caso de no intoducir una versión usara la versión por defecto
 nvm install ${node_version} && nvm use ${node_version}
 
-# Install Laravel Breeze
+# Install Laravel Breeze 
 #comprobar si existe el archivo de configuración de breeze
 if [ ! -f "composer.json" ] || ! grep -q "\"laravel/breeze\"" "composer.json"; then
   echo "No se ha detectado la instalación de Laravel Breeze. Instalando..."
-
+  
   cp vite.config.js vite.config.js.backup
   php artisan breeze:install blade
   mv vite.config.js.backup vite.config.js
@@ -58,10 +58,11 @@ fi
 # Migrate the database
 php artisan migrate
 
-if [ ! -f "composer.json" ] ||  grep -q "\"laravel/breeze\"" "composer.json"; then
+if [ -f "composer.json" ] && grep -q "\"laravel/breeze\"" "composer.json"; then
   # Install NPM dependencies
   npm install
 fi
+
 # Generate key
 php artisan key:generate
 
