@@ -1,8 +1,10 @@
 @extends('master')
 
 @section('content')
+
     <div class="container">
         <h1>Crear Nueva Compra</h1>
+        <h3>Si necesitas un producto nuevo, primero crea el producto y después la compra</h3>
         <form action="{{ route('compras.store') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -39,6 +41,9 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            
         </form>
+        <a href="{{ route('productes.createCompraProducte') }}"  class="btn btn-primary">Crear Nou Producte</a>
+
     </div>
 @endsection

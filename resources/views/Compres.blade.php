@@ -12,6 +12,7 @@
                     <th>Usuario</th>
                     <th>Vendedor</th>
                     <th>Producto</th>
+                    <th>Precio Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                     </td>
                     <td>{{ $compra->vendedor->NombreVendedor }}</td>
                     <td>{{ $compra->producte->Nombre }}</td>
+                    <td>{{ $compra->Cantidad * $compra->producte->Precio}}€</td> <!-- Cálculo del precio total -->
                 </tr>
                 @endforeach
             </tbody>
