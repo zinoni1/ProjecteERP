@@ -28,4 +28,5 @@ return [
     'delete_confirm' => '¿Estás seguro de que deseas eliminar tu cuenta?',
     'delete_info' => 'Una vez que se elimine tu cuenta, todos sus recursos y datos se eliminarán de forma permanente. Por favor, introduce tu contraseña para confirmar que deseas eliminar tu cuenta de forma permanente.',
     'confirm_pass' => 'Esta es un área segura de la aplicación. Por favor, confirma tu contraseña antes de continuar.',
+    'lastusers' => 'Últimos usuarios registrados',
    ];

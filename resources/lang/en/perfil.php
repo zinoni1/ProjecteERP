@@ -28,4 +28,5 @@ return [
     'delete_confirm' => 'Are you sure you want to delete your account?',
     'delete_info' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
     'confirm_pass' => 'This is a secure area of the application. Please confirm your password before continuing.',
+    'lastusers' => 'Last registered users',
 ];
