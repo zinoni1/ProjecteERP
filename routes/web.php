@@ -123,5 +123,6 @@ Route::get('/orders/{id}', [VentaPropuestaController::class, 'generateInvoice'])
 Route::resource('venedors', VendedorController::class);
 Route::resource('compras', CompraController::class);
 
-
+Route::get('/crearCompraProduct', [ProducteController::class, 'createCompraProducte'])->name('productes.createCompraProducte');
+Route::post('productes/storeProducteCompra', [ProducteController::class, 'storeCompraProducte'])->name('productes.storeCompraProducte');
 require __DIR__.'/auth.php';

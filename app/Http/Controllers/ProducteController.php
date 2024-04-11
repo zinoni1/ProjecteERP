@@ -169,5 +169,50 @@ class ProducteController extends Controller
         return view('index', ['total_productos' => $total_productos]);
     }
     
+    public function createCompraProducte()
+    {
+        $categorias = Categoria::all(); // Obtener todas las categorías
+    
+        return view('crearCompraProduct', compact('categorias'));
+    }
+    
+    public function storeCompraProducte(Request $request)
+    {
+        $request->validate([
+            'Nombre' => 'required',
+            'Descripcion' => 'required',
+            'Precio' => 'required|numeric',
+            'Stock' => 'required|integer',
+            'FechaEntrada' => 'required|date',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de la imagen
+            'categoria_id' => 'required|exists:categorias,id', // Asegúrate de que la categoría exista
+        ]);
+    
+        // Verifica si se ha cargado un archivo de imagen
+        if ($request->hasFile('imagen')) {
+            // Obtiene el archivo de imagen cargado
+            $imagen = $request->file('imagen');
+            // Genera un nombre único para la imagen
+            $nombreImagen = uniqid('imagen_') . '.' . $imagen->getClientOriginalExtension();
+            // Mueve la imagen a la carpeta pública 'Media'
+            $imagen->move(public_path('Media'), $nombreImagen);
+        } else {
+            // Si no se ha cargado ninguna imagen, establece el nombre de imagen como nulo
+            $nombreImagen = null;
+        }
+    
+        // Crea un nuevo producto con los datos proporcionados y el nombre de la imagen
+        Producte::create([
+            'Nombre' => $request->Nombre,
+            'Descripcion' => $request->Descripcion,
+            'Precio' => $request->Precio,
+            'Stock' => $request->Stock,
+            'FechaEntrada' => $request->FechaEntrada,
+            'ruta' => $nombreImagen, // Utiliza el nombre de la imagen
+            'categoria_id' => $request->categoria_id,
+        ]);
+    
+        return redirect()->route('compras.create')->with('success', 'Compra de producto creada exitosamente.');
+    }
     
 }
