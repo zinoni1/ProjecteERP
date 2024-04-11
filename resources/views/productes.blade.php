@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+
     <div class="content">
         <section class="row mb-4">
             <div class="col-3 text-center">

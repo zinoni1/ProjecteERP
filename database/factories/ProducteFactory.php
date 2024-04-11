@@ -21,6 +21,7 @@ class ProducteFactory extends Factory
             'Stock' => $this->faker->numberBetween(0, 100),
             'FechaEntrada' => $this->faker->date(),
             'categoria_id' => \App\Models\Categoria::factory()->create()->id,
+            'ruta' => $this->faker->imageUrl(),
         ];
     }
 }

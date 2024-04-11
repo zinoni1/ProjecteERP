@@ -18,7 +18,7 @@ RUN apt update && apt install -y --no-install-recommends \
     zlib1g
 
 # Instalar extensiones de PHP en caso de que se hayan pasado como argumento
-RUN if [ "${EXTRA_PHP_LIBRARIES}" != "null" ]; then \ 
+RUN if [ "${EXTRA_PHP_LIBRARIES}" != "null" ]; then \
         docker-php-ext-install ${EXTRA_PHP_LIBRARIES}; \
     fi
 
@@ -26,7 +26,7 @@ RUN if [ "${EXTRA_PHP_LIBRARIES}" != "null" ]; then \
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Instalar NVM y Node lastest version(default)
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash && . ~/.bashrc && nvm install node 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash && . ~/.bashrc && nvm install node
 
 # Clean up
 RUN apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

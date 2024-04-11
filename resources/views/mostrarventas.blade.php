@@ -38,15 +38,15 @@
             <div class="col md-1">
                 <div class="card border-primary">
                     <div class="card-body">
-                        <h3>Ventes {{$venta->cliente->Nombre}}</h3>
+                        <h3>{{ __('ventas.sell_of') }} {{$venta->cliente->Nombre}}</h3>
                         <div class="overflow-auto" style="max-height: 600px;">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nom producte</th>
-                                        <th>Cantidad</th>
-                                        <th>Preu unitari</th>
-                                        <th>Preu Total</th>
+                                        <th>{{ __('ventas.product') }}</th>
+                                        <th>{{ __('ventas.quantity') }}</th>
+                                        <th>{{ __('ventas.unit_price') }}</th>
+                                        <th>{{ __('ventas.total_price') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,7 +77,7 @@
     </tr>
 @endforeach
 <tr>
-    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+    <td colspan="3" style="text-align: right;"><strong>{{ __('ventas.total') }}</strong></td>
     <td><strong>{{$total}}</strong></td>
 </tr>
 
@@ -90,8 +90,7 @@
 
                                 </tbody>
                             </table>
-<a href="{{route('orders.generateInvoice', $venta->id)}}" target="_blank" class="btn btn-primary">Imprimir factura</a>
-<button class="btn btn-success">Imprimir albaran</button>
+<a href="{{route('orders.generateInvoice', $venta->id)}}" target="_blank" class="btn btn-primary">{{ __('ventas.print_invoice') }}</a>
 
                         </div>
                     </div>

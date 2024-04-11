@@ -7,14 +7,14 @@
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <button class="btn"><a href="{{ route('ventas.create') }}" style="backgroud-color: blue;">Crear proposta</a></button>
+                    <button class="btn"><a href="{{ route('ventas.create') }}" style="backgroud-color: blue;">{{ __('ventas.create_proposal') }}</a></button>
                     </div>
                 </div>
             </div>
             <div class="col-3 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <button class="btn"><a href="{{ route('ventas.graficEstat') }}" style="backgroud-color: blue;">Grafica</a></button>
+                    <button class="btn"><a href="{{ route('ventas.graficEstat') }}" style="backgroud-color: blue;">{{ __('ventas.graph') }}</a></button>
                     </div>
                 </div>
             </div>
@@ -34,19 +34,41 @@
             </div>
         </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <section class="row md-1">
             <div class="col md-1">
                 <div class="card border-primary">
                     <div class="card-body">
-                        <h3>Propostes</h3>
+                        <h3>{{ __('ventas.proposals') }}</h3>
                         <div class="overflow-auto" style="max-height: 600px;">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Client</th>
-                                        <th>Estat</th>
-                                        <th>Detalls</th>
-                                        <th>Preu Total</th>
+                                        <th>{{ __('ventas.customer') }}</th>
+                                        <th>{{ __('ventas.status') }}</th>
+                                        <th>{{ __('ventas.details') }}</th>
+                                        <th>{{ __('ventas.total_price') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,26 +94,26 @@
     @csrf
     @method('POST')
     @if($venta->Estado == 'Aceptada')
-            <select name="estado" class="form-control" style="background-color: #90EE90 !important; width: 95px !important"  onchange="this.form.submit()">
-            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
-            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
-            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+            <select name="estado" class="form-control" style="background-color: #90EE90 !important; width: 130px !important;"  onchange="this.form.submit()">
+            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>{{ __('ventas.accepted') }}</option>
+            <option style="background-color: #FFFF69 !important; width: 130px !important;" value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>{{ __('ventas.pending') }}</option>
+            <option style=" background-color: #FF8080 !important; width: 130px !important;" value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>{{ __('ventas.rejected') }}</option>
         </select>
         @elseif($venta->Estado == 'Pendiente')
-            <select name="estado" class="form-control" style="background-color: #FFFF69 !important;"  onchange="this.form.submit()">
-            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
-            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
-            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+            <select name="estado" class="form-control" style="background-color: #FFFF69 !important; width: 130px !important;"  onchange="this.form.submit()">
+            <option style="background-color: #90EE90 !important; width: 130px !important;" value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>{{ __('ventas.accepted') }}</option>
+            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>{{ __('ventas.pending') }}</option>
+            <option  style=" background-color: #FF8080 !important; width: 130px !important;" value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>{{ __('ventas.rejected') }}</option>
         </select>
         @else
-            <select name="estado" class="form-control" style=" background-color: #FF8080 !important; "  onchange="this.form.submit()">
-            <option value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>Aceptada</option>
-            <option value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
-            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>Rechazada</option>
+            <select name="estado" class="form-control" style=" background-color: #FF8080 !important; width: 130px !important;"  onchange="this.form.submit()">
+            <option style="background-color: #90EE90 !important; width: 130px !important;" value="Aceptada" {{ $venta->Estado == 'Aceptada' ? 'selected' : '' }}>{{ __('ventas.accepted') }}</option>
+            <option  style="background-color: #FFFF69 !important; width: 130px !important;" value="Pendiente" {{ $venta->Estado == 'Pendiente' ? 'selected' : '' }}>{{ __('ventas.pending') }}</option>
+            <option value="Rechazada" {{ $venta->Estado == 'Rechazada' ? 'selected' : '' }}>{{ __('ventas.rejected') }}</option>
         </select>
 
         @endif
-    <button hidden="true" type="submit">Cambiar Estado</button>
+    <button hidden="true" type="submit"></button>
 </form>
 
 </td>
