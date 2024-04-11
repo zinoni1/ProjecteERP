@@ -1,5 +1,28 @@
 <?php
 
 return[
-
+    "proposals" => "Propuestas",
+    "customer" => "Cliente",
+    "product" => "Producto",
+    "quantity" => "Cantidad",
+    "unit_price" => "Precio unitario",
+    "total_price" => "Precio total",
+    "total" => "Total",
+    "date" => "Fecha",
+    "details" => "Detalle",
+    "add" => "Agregar",
+    "graph" => "Gráfico",
+    "create_proposal" => "Crear propuesta",
+    "back" => "Atrás",
+    "continue" => "Continuar",
+    "status" => "Estado",
+    "accepted" => "Aceptada",
+    "rejected" => "Rechazada",
+    "pending" => "Pendiente",
+    "stock" => "Estoc",
+    "view_sell" => "Ver venta",
+    "prdocuts_of_proposal" => "Productos de la propuesta",
+    "of_customer" => "del cliente",
+    "print_invoice" => "Imprimir factura",
+    "sell_of" => "Venta de",
 ];
