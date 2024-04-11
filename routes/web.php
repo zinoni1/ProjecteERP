@@ -13,6 +13,7 @@ use App\Models\Producte;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\IndexController;
 
 
 /*
@@ -41,14 +42,11 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/personal', [ProfileController::class, 'showAllUsers'])->name('personal');
-    Route::get('/indexPrincipal', function () {
-        return view('index');
-    })->name('indexPrincipal');
+
+    Route::get('/index', [IndexController::class, 'showLastUsers'])->name('indexPrincipal');
 
     Route::get('/crear-categoria', [ProducteController::class, 'mostrarFormularioCrearCategoria'])->name('crear-categoria');
     Route::post('/crear-categoria', [ProducteController::class, 'crearCategoria'])->name('productos.crear-categoria');
-
-    Route::get('/index', [ProducteController::class, 'contarProductos']);
 
     Route::get('/crearCategorias', [CategoriaController::class, 'create'])->name('categorias.create');
     Route::post('/crearCategorias', [CategoriaController::class, 'store'])->name('categorias.store');

@@ -96,8 +96,8 @@
     <form id="languageForm" method="POST" action="">
         @csrf
         <select id="idioma" name="idioma" onchange="cambiarIdioma()" style="margin-left: 1050px !important; margin-top: 10px !important">
-            <option value="es" {{ session('idioma') === 'es' ? 'selected' : '' }}>Español</option>
-            <option value="en" {{ session('idioma') === 'en' ? 'selected' : '' }}>English</option>
+        <option value="en" {{ session('idioma') === 'en' ? 'selected' : '' }}>English</option>
+        <option value="es" {{ session('idioma') === 'es' ? 'selected' : '' }}>Español</option>
             <option value="ca" {{ session('idioma') === 'ca' ? 'selected' : '' }}>Català</option>
         </select>
     </form>
