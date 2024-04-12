@@ -1,177 +1,33 @@
 @extends('master')
-@section ('content')
 
-
-<div class="content">
-  <section class="row mb-4">
-    <div class="col-3 text-center">
-      <div class="card border-secondary "style="margin-top: 10">
-        <div class="card-body" >
-          <h3>3</h3>
-          <p>Personal total</p>
+@section('content')
+<section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
+    <div class="px-4 mx-auto max-w-screen-lg lg:px-8">
+        <div class="overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+            <div class="px-6 py-4 bg-gray-200 dark:bg-gray-700">
+                <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{{ __('perfil.lastusers') }}</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
+                    <thead class="bg-gray-200 dark:bg-gray-700">
+                        <tr>
+                            <th class="px-6 py-3 text-xs font-semibold tracking-wider uppercase">{{ __('perfil.name') }}</th>
+                            <th class="px-6 py-3 text-xs font-semibold tracking-wider uppercase">{{ __('perfil.email') }}</th>
+                            <th class="px-6 py-3 text-xs font-semibold tracking-wider uppercase">{{ __('perfil.role') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach ($users as $user)
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $user->role }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-3 text-center">
-      <div class="card border-secondary" style="margin-top: 10">
-        <div class="card-body">
-          <p></p>
-          <p>Productes totals</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 text-center">
-      <div class="card border-secondary" style="margin-top: 10">
-        <div class="card-body">
-          <p>5</p>
-          <p>Projectes totals</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 text-center">
-      <div class="card border-secondary" style="margin-top: 10">
-        <div class="card-body">
-          <p>10</p>
-          <p>Departaments totals</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="row mb-4">
-  <div class="col-md-6">
-  <a href="#">
-    <div class="card border-primary">
-      <div class="card-body">
-        <h3>Notes</h3>
-        <div class="overflow-auto" style="max-height: 220px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Título de la Nota</th>
-                <th>Enviado por</th>
-                <th>Enviado a</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>123</td>
-                <td>Título de la nota</td>
-                <td>Nombre del remitente</td>
-                <td>Nombre del destinatario</td>
-                <td>Pendiente</td>
-              </tr>
-              <!-- Agrega más filas según sea necesario -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-    <div class="col-md-6">
-    <a href="#">
-    <div class="card border-primary">
-      <div class="card-body">
-        <h3>Nomines</h3>
-        <div class="overflow-auto" style="max-height: 220px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Título de la Nota</th>
-                <th>Enviado por</th>
-                <th>Enviado a</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>123</td>
-                <td>Título de la nota</td>
-                <td>Nombre del remitente</td>
-                <td>Nombre del destinatario</td>
-                <td>Pendiente</td>
-              </tr>
-              <!-- Agrega más filas según sea necesario -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </a>
-    </div>
-  </section>
-
-  <section class="row mb-4">
-    <div class="col-md-6">
-    <a href="#">
-    <div class="card border-primary">
-      <div class="card-body">
-        <h3>Notes</h3>
-        <div class="overflow-auto" style="max-height: 220px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Título de la Nota</th>
-                <th>Enviado por</th>
-                <th>Enviado a</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>123</td>
-                <td>Título de la nota</td>
-                <td>Nombre del remitente</td>
-                <td>Nombre del destinatario</td>
-                <td>Pendiente</td>
-              </tr>
-              <!-- Agrega más filas según sea necesario -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </a>
-    </div>
-    <div class="col-md-6">
-    <a href="#">
-    <div class="card border-primary">
-      <div class="card-body">
-        <h3>Notes</h3>
-        <div class="overflow-auto" style="max-height: 220px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Título de la Nota</th>
-                <th>Enviado por</th>
-                <th>Enviado a</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>123</td>
-                <td>Título de la nota</td>
-                <td>Nombre del remitente</td>
-                <td>Nombre del destinatario</td>
-                <td>Pendiente</td>
-              </tr>
-              <!-- Agrega más filas según sea necesario -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </a>
-    </div>
-  </section>
-</div>
+</section>
 @endsection

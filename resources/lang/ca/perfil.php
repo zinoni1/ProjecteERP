@@ -31,4 +31,6 @@ return [
     'edit' => 'Editar',
     'offline' => 'Desconnectat',
     'online' => 'Connectat',
+    'lastusers' => 'Últims usuaris registrats',
+
 ];

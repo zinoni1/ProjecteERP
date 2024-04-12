@@ -31,4 +31,5 @@ return [
     'edit' => 'Editar',
     'offline' => 'Desconectado',
     'online' => 'Conectado'
+    'lastusers' => 'Últimos usuarios registrados',
    ];

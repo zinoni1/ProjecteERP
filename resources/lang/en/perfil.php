@@ -31,5 +31,6 @@ return [
     'edit' => 'Edit',
     'offline' => 'Offline',
     'online' => 'Online',
+    'lastusers' => 'Last registered users',
 
 ];

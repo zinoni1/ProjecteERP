@@ -9,8 +9,11 @@ use App\Models\User;
 use App\Models\Vendedor;
 use App\Models\Producte;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Categoria;
+ 
 use Carbon\Carbon as CarbonCarbon;
 use App\Models\CompraProducto;
+
 
 
 
@@ -49,19 +52,25 @@ class CompraController extends Controller
 
         // Obtener el ID del usuario autenticado
         $userId = Auth::id();
+    
+        // Obtener el producto comprado
+        $producto = Producte::findOrFail($request->producte_id);
+    
+        // Calcular el precio total
+        $precioTotal = $request->Cantidad * $producto->Precio;
+    
+        // Crear la compra con el precio total calculado
 
-        // Crear la compra
         Compra::create([
             'FechaCompra' => $request->fechaCompra,
             'Cantidad' => $request->Cantidad,
             'producte_id' => $request->producte_id,
             'user_id' => $userId,
             'vendedor_id' => $request->vendedor_id,
+            'PrecioTotal' => $precioTotal, // Almacenar el precio total en la compra
         ]);
 
-        // Obtener el producto comprado
-        $producto = Producte::findOrFail($request->producte_id);
-
+    
         // Añadir la cantidad comprada al stock del producto
         $producto->Stock += $request->Cantidad;
         $producto->save();
@@ -107,4 +116,5 @@ class CompraController extends Controller
     {
         //
     }
+ 
 }

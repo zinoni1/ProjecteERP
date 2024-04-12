@@ -10,6 +10,7 @@
                     <th>Fecha de Compra</th>
                     <th>Usuario</th>
                     <th>Vendedor</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                         @endisset
                     </td>
                     <td>{{ $compra->vendedor->NombreVendedor }}</td>
+
                 </tr>
                 @endforeach
             </tbody>
