@@ -30,9 +30,6 @@ use App\Http\Controllers\IndexController;
 Route::middleware(['auth'])->group(function () {
     // Rutas accesibles para todos los usuarios autenticados
 
-    Route::get('/', function () {
-        return view('index');
-    });
 
     Route::get('/index', function () {
         return view('index');
@@ -43,7 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/personal', [ProfileController::class, 'showAllUsers'])->name('personal');
 
-    Route::get('/index', [IndexController::class, 'showLastUsers'])->name('indexPrincipal');
+    Route::get('/index', [IndexController::class, 'showLastUsersAndGraph'])->name('indexPrincipal');
+    Route::get('/', [IndexController::class, 'showLastUsersAndGraph'])->name('indexPrincipal');
 
     Route::get('/crear-categoria', [ProducteController::class, 'mostrarFormularioCrearCategoria'])->name('crear-categoria');
     Route::post('/crear-categoria', [ProducteController::class, 'crearCategoria'])->name('productos.crear-categoria');
