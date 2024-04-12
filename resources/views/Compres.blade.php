@@ -8,17 +8,14 @@
             <thead>
                 <tr>
                     <th>Fecha de Compra</th>
-                    <th>Cantidad</th>
                     <th>Usuario</th>
                     <th>Vendedor</th>
-                    <th>Producto</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($compras as $compra)
-                <tr>
+                <tr onclick="window.location='{{ route('compras.show', $compra->id) }}';" style="cursor: pointer;">
                     <td>{{ $compra->FechaCompra }}</td>
-                    <td>{{ $compra->Cantidad }}</td>
                     <td>
                         @isset($compra->user)
                             {{ $compra->user->name }}
@@ -27,7 +24,6 @@
                         @endisset
                     </td>
                     <td>{{ $compra->vendedor->NombreVendedor }}</td>
-                    <td>{{ $compra->producte->Nombre }}</td>
                 </tr>
                 @endforeach
             </tbody>

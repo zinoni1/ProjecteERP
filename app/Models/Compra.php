@@ -10,18 +10,10 @@ class Compra extends Model
     protected $fillable = [
 
         'FechaCompra',
-        'Cantidad',
-        'producte_id',
-        'user_id',
-        'vendedor_id',
         'PrecioTotal',
 
     ];
     use HasFactory;
-    public function producte()
-    {
-        return $this->belongsTo(Producte::class);
-    }
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

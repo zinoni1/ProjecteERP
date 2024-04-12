@@ -14,10 +14,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->datetime("FechaCompra");
-            $table->integer("Cantidad");
-            $table->foreignId('producte_id')->constrained();
-            $table->foreignId('user_id')->constrained(); // Corrected foreign key name
-            $table->foreignId('vendedor_id')->constrained();
+            $table->foreignId('user_id')->default(1)->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('vendedor_id')->default(1)->references('id')->on('vendedors')->onDelete('cascade');
             $table->decimal('PrecioTotal', 8, 2)->default(0);
         });
     }

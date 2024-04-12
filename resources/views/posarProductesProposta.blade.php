@@ -88,8 +88,9 @@
         });
     });
 </script>
+@section('content')
 
-<form action="{{ route('ventas.storeProductes') }}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+<form action="{{ route('ventas.storeProductes') }}" method="post" >
     @csrf
 
     <!-- Campos existentes para la venta propuesta -->
@@ -159,3 +160,4 @@
         productosDiv.appendChild(nuevoProducto);
     }
 </script>
+@endsection

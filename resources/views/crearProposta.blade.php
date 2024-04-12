@@ -13,7 +13,7 @@
     });
 </script>
 
-<form action="{{ route('ventas.store') }}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+<form action="{{ route('ventas.store') }}" method="post" >
     @csrf
 
     <div class="mb-3">
