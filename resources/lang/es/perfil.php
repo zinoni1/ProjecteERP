@@ -30,6 +30,6 @@ return [
     'confirm_pass' => 'Esta es un área segura de la aplicación. Por favor, confirma tu contraseña antes de continuar.',
     'edit' => 'Editar',
     'offline' => 'Desconectado',
-    'online' => 'Conectado'
+    'online' => 'Conectado',
     'lastusers' => 'Últimos usuarios registrados',
    ];
