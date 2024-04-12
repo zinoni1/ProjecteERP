@@ -117,7 +117,7 @@ Route::get('/orders/{id}', [VentaPropuestaController::class, 'generateInvoice'])
 
     });
 });
-
+Route::get('/compra/{id}', [VentaPropuestaController::class, 'show'])->name('compra.show');
 Route::resource('venedors', VendedorController::class);
 Route::resource('compras', CompraController::class);
 

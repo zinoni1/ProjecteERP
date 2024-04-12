@@ -28,5 +28,9 @@ return [
     'delete_confirm' => 'Esteu segur que voleu eliminar el vostre compte?',
     'delete_info' => 'Un cop suprimit el vostre compte, tots els seus recursos i dades se suprimiran permanentment. Si us plau, introduïu la vostra contrasenya per confirmar que voleu suprimir permanentment el vostre compte.',
     'confirm_pass' => 'Aquesta és una àrea segura de l\'aplicació. Si us plau, confirmeu la vostra contrasenya abans de continuar.',
+    'edit' => 'Editar',
+    'offline' => 'Desconnectat',
+    'online' => 'Connectat',
     'lastusers' => 'Últims usuaris registrats',
+
 ];
