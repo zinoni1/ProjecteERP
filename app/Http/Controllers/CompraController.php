@@ -10,7 +10,7 @@ use App\Models\Vendedor;
 use App\Models\Producte;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categoria;
- 
+
 use Carbon\Carbon as CarbonCarbon;
 use App\Models\CompraProducto;
 
@@ -49,28 +49,28 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-
-        // Obtener el ID del usuario autenticado
+        // Obtener el ID del usuario autenticado directamente
         $userId = Auth::id();
-    
+
+        // Asegurarse de que se está recibiendo el vendedor_id correctamente
+        $vendedorId = $request->vendedor_id;
+
         // Obtener el producto comprado
         $producto = Producte::findOrFail($request->producte_id);
-    
+
         // Calcular el precio total
         $precioTotal = $request->Cantidad * $producto->Precio;
-    
-        // Crear la compra con el precio total calculado
 
-        Compra::create([
-            'FechaCompra' => $request->fechaCompra,
-            'Cantidad' => $request->Cantidad,
-            'producte_id' => $request->producte_id,
-            'user_id' => $userId,
-            'vendedor_id' => $request->vendedor_id,
-            'PrecioTotal' => $precioTotal, // Almacenar el precio total en la compra
-        ]);
 
-    
+        $compra = new Compra();
+        $compra->FechaCompra = $request->fechaCompra;
+        $compra->user_id = $userId;
+        $compra->vendedor_id = $vendedorId;
+        $compra->PrecioTotal = $precioTotal;
+        $compra->save();
+        // Crear la compra con el precio total calculado y los IDs correctos
+
+
         // Añadir la cantidad comprada al stock del producto
         $producto->Stock += $request->Cantidad;
         $producto->save();
@@ -78,6 +78,7 @@ class CompraController extends Controller
         // Redirigir a la página de índice de compras con un mensaje de éxito
         return redirect()->route('compras.index')->with('success', 'Compra creada exitosamente.');
     }
+
 
 
 
@@ -116,5 +117,5 @@ class CompraController extends Controller
     {
         //
     }
- 
+
 }
