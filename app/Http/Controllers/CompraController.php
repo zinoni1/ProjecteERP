@@ -24,10 +24,10 @@ class CompraController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $compras = Compra::with('user', 'vendedor')->get();
-        return view('compres', compact('compras'));
-    }
+{
+    $compras = Compra::with('user', 'vendedor')->get();
+    return view('compres', compact('compras'));
+}
 
     /**
      * Show the form for creating a new resource.

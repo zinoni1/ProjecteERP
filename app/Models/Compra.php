@@ -18,6 +18,10 @@ class Compra extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function producte()
+    {
+        return $this->belongsToMany(Producte::class);
+    }
     public function vendedor()
     {
         return $this->belongsTo(Vendedor::class, 'vendedor_id');
