@@ -24,10 +24,10 @@ class CompraController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $compras = Compra::with('user', 'vendedor')->get();
-    return view('compres', compact('compras'));
-}
+    {
+        $compras = Compra::with('user', 'vendedor')->latest()->paginate(10); // Ordena las compras de más reciente a menos reciente
+        return view('compres', compact('compras'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,38 +49,45 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        // Obtener el ID del usuario autenticado directamente
+        // Obtain the ID of the authenticated user directly
         $userId = Auth::id();
-
-        // Asegurarse de que se está recibiendo el vendedor_id correctamente
+    
+        // Ensure that the vendedor_id is received correctly
         $vendedorId = $request->vendedor_id;
-
-        // Obtener el producto comprado
-        $producto = Producte::findOrFail($request->producte_id);
-
-        // Calcular el precio total
-        $precioTotal = $request->Cantidad * $producto->Precio;
-
-
+    
+        // Save the purchase in the compras table
         $compra = new Compra();
         $compra->FechaCompra = $request->fechaCompra;
         $compra->user_id = $userId;
         $compra->vendedor_id = $vendedorId;
-        $compra->PrecioTotal = $precioTotal;
         $compra->save();
-        // Crear la compra con el precio total calculado y los IDs correctos
-
-
-        // Añadir la cantidad comprada al stock del producto
-        $producto->Stock += $request->Cantidad;
-        $producto->save();
-
-        // Redirigir a la página de índice de compras con un mensaje de éxito
+    
+        // Verify if products and quantities were sent
+        if ($request->has('producte_id') && $request->has('cantidad')) {
+            // Iterate over the products and quantities received
+            foreach ($request->producte_id as $index => $productoId) {
+                // Obtain the purchased product
+                $producto = Producte::findOrFail($productoId);
+    
+                // Save the relationship in the compra_producte table
+                $compraProducto = new CompraProducto();
+                $compraProducto->compra_id = $compra->id;
+                $compraProducto->producte_id = $productoId;
+                $compraProducto->Cantidad = $request->cantidad[$index];
+                $compraProducto->save();
+    
+                // Add the purchased quantity to the product's stock
+                $producto->Stock += $request->cantidad[$index];
+                $producto->save();
+            }
+        }
+    
+        // Redirect to the index page with a success message
         return redirect()->route('compras.index')->with('success', 'Compra creada exitosamente.');
     }
-
-
-
+    
+    
+    
 
 
     /**

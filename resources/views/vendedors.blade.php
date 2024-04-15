@@ -2,45 +2,44 @@
 
 @section('content')
 <div class="content">
-    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-            <div class="card border-secondary">
-                <div class="card-body">
-                <a href="{{ route('venedors.create') }}" class="btn btn-primary">{{ __('vendedor.create seller') }}</a>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">{{ __('vendedor.seller list') }}</div>
-                <div class="card-body">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col">{{ __('vendedor.name') }}</th>
-                                    <th scope="col">{{ __('vendedor.direction') }}</th>
-                                    <th scope="col">{{ __('vendedor.phone') }}</th>
-                                    <th scope="col">{{ __('traduccion.accions') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($vendedores as $vendedor)
-                                    <tr>
-                                        <td>{{ $vendedor->NombreVendedor }}</td>
-                                        <td>{{ $vendedor->Direccion }}</td>
-                                        <td>{{ $vendedor->Telefono }}</td>
-                                        <!-- Here you may add action buttons or links related to the vendedor -->
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <div class="bg-gray-50 dark:bg-gray-700 dark:text-black flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
+                        <div class="bg-gray-50 dark:bg-gray-700 dark:text-black flex items-center flex-1 space-x-4">
+                        <a href="{{ route('venedors.create') }}" class="btn btn-primary">{{ __('vendedor.create seller') }}</a>
+
+                            <h5>
+                                <span class="dark:text-black">{{ __('vendedor.seller list') }}</span>
+                            </h5>
+                        </div>
                     </div>
-                </div>
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                {{ __('vendedor.name') }}
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                {{ __('vendedor.direction') }}
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                {{ __('vendedor.phone') }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($vendedores as $vendedor)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4">{{ $vendedor->NombreVendedor }}</td>
+                                <td class="px-6 py-4">{{ $vendedor->Direccion }}</td>
+                                <td class="px-6 py-4">{{ $vendedor->Telefono }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

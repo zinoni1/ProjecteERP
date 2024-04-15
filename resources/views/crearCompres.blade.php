@@ -11,10 +11,6 @@
             <input type="datetime-local" class="form-control" id="fechaCompra" name="fechaCompra" value="{{ \Carbon\Carbon::parse($date)->format('Y-m-d\TH:i') }}" readonly>
         </div>
         <div class="form-group">
-            <label for="cantidad">Cantidad:</label>
-            <input type="number" class="form-control" id="cantidad" name="Cantidad" required>
-        </div>
-        <div class="form-group">
             <label for="user">Usuario:</label>
             <input type="text" class="form-control" id="user" name="user" value="{{ $user->name }}" readonly>
         </div>
@@ -27,14 +23,28 @@
                 @endforeach
             </select>
         </div>
-        <div class="form-group">
-            <label for="producto">Producto:</label>
-            <select class="form-control" id="producto" name="producte_id" required>
-                <option value="">Seleccione un producto</option>
-                @foreach($productos as $producto)
-                    <option value="{{ $producto->id }}">{{ $producto->Nombre }}</option>
-                @endforeach
-            </select>
+        <div id="productos">
+            <div class="producto">
+                <div class="form-group">
+                    <label for="producto" class="form-label">Producto:</label>
+                    <select name="producte_id[]" class="form-control" required>
+                        <option value="">Seleccione un producto</option>
+                        @foreach($productos as $producto)
+                            <option value="{{ $producto->id }}">{{ $producto->Nombre }}</option>
+                        @endforeach
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor, seleccione un producto.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad" class="form-label">Cantidad:</label>
+                    <input type="number" name="cantidad[]" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese la cantidad del producto.
+                    </div>
+                </div>
+            </div>
         </div>
         <button type="button" class="btn btn-success" onclick="agregarProducto()">Agregar Producto</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -44,12 +54,13 @@
 
 <script>
     function agregarProducto() {
-        var form = document.getElementById('compraForm');
+        var productosDiv = document.getElementById('productos');
         var divNuevoProducto = document.createElement('div');
+        divNuevoProducto.classList.add('producto');
         divNuevoProducto.innerHTML = `
             <div class="form-group">
-                <label for="nombre_producto" class="form-label">Nombre del Producto:</label>
-                <select name="nombre_producto[]" class="form-control" required>
+                <label for="producto" class="form-label">Producto:</label>
+                <select name="producte_id[]" class="form-control" required>
                     <option value="">Seleccione un producto</option>
                     @foreach($productos as $producto)
                         <option value="{{ $producto->id }}">{{ $producto->Nombre }}</option>
@@ -67,7 +78,7 @@
                 </div>
             </div>
         `;
-        form.insertBefore(divNuevoProducto, form.lastElementChild.previousElementSibling);
+        productosDiv.appendChild(divNuevoProducto);
     }
 </script>
 

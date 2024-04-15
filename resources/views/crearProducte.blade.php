@@ -1,4 +1,5 @@
 @extends('master')
+
 @section('content')
 
     <div class="content">
@@ -25,19 +26,16 @@
                 </div>
 
                 <div class="mb-3">
-    <label for="Categoria" class="form-label">{{ __('productes.categoria') }}</label>
-    <select name="categoria_id" id="Categoria" class="form-control" required>
-        @foreach ($categorias as $categoria)
-            <option value="{{ $categoria->id }}">{{ $categoria->Categoria }}</option>
-        @endforeach
-    </select>
-    <div class="invalid-feedback">
-    {{ __('productes.iCategoria') }}
-    </div>
-</div>
-
-
-
+                    <label for="Categoria" class="form-label">{{ __('productes.categoria') }}</label>
+                    <select name="categoria_id" id="Categoria" class="form-control" required>
+                        @foreach ($categorias as $categoria)
+                            <option value="{{ $categoria->id }}">{{ $categoria->Categoria }}</option>
+                        @endforeach
+                    </select>
+                    <div class="invalid-feedback">
+                        {{ __('productes.iCategoria') }}
+                    </div>
+                </div>
 
                 <div class="mb-3">
                     <label for="Precio" class="form-label">{{ __('productes.preu') }}</label>
