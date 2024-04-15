@@ -5,7 +5,7 @@
     <div class="col-3 text-center">
         <div class="card border-secondary">
             <div class="card-body">
-                <button class="btn"><a href="{{ route('productes.create') }}" style="color: blue;">{{ __('Compras.crear_compra') }}</a></button>
+                <button class="btn"><a href="{{ route('compras.create') }}" style="color: blue;">{{ __('Compras.crear_compra') }}</a></button>
             </div>
         </div>
     </div>
