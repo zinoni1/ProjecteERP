@@ -18,4 +18,18 @@ return [
     'quantity' => 'Quantitat',
     'total_price' => 'Preu total',
     'view_sell' => 'Veure venda',
+    "prdocuts_of_proposal" => "Productes de la proposta",
+    "of_customer" => "del venedor",
+    'new_create_purchase' => 'Crear nova compra',
+    'nuevo_producto_necesario' => 'Si necessites un producte nou, primer crea el producte i després la compra',
+    'agregar_producto' => 'Afegir producte',
+    'guardar' => 'Desar',
+    'crear_nuevo_producto' => 'Crear nou producte',
+    'seleccionar_vendedor' => 'Selecciona un venedor',
+    'seleccionar_producto' => 'Selecciona un producte',
+    'seleccionar_producto_mensaje' => 'Per favor, selecciona un producte.',
+    'ingresar_cantidad_mensaje' => 'Per favor, introdueix la quantitat del producte.',
+
+    
+
 ];
