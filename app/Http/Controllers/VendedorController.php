@@ -55,17 +55,9 @@ class VendedorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vendedor $vendedor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Vendedor $vendedor)
     {
-        //
+        return view('editVendedor', compact('vendedor'));
     }
 
     /**
@@ -73,7 +65,15 @@ class VendedorController extends Controller
      */
     public function update(Request $request, Vendedor $vendedor)
     {
-        //
+        $request->validate([
+            'nombreVendedor' => 'required|string|max:255',
+            'Direccion' => 'required|string|max:255',
+            'Telefono' => 'required|string|max:20',
+        ]);
+
+        $vendedor->update($request->all());
+
+        return redirect()->route('venedors.index')->with('success', 'Vendedor actualizado exitosamente.');
     }
 
     /**
@@ -81,6 +81,11 @@ class VendedorController extends Controller
      */
     public function destroy(Vendedor $vendedor)
     {
-        //
+        dd($vendedor);
+        $vendedor->delete();
+    
+        return redirect()->route('venedors.index')->with('success', 'Vendedor eliminado exitosamente.');
     }
+    
+
 }
