@@ -121,4 +121,7 @@ Route::resource('compras', CompraController::class);
 
 Route::get('/crearCompraProduct', [ProducteController::class, 'createCompraProducte'])->name('productes.createCompraProducte');
 Route::post('productes/storeProducteCompra', [ProducteController::class, 'storeCompraProducte'])->name('productes.storeCompraProducte');
+
+Route::get('/grafico-productos', [ProducteController::class, 'graficoProductos'])->name('productes.graficoProductos');
+
 require __DIR__.'/auth.php';
