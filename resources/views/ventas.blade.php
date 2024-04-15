@@ -87,7 +87,7 @@
 
     @endforeach
 
-    <tr class="tr" id="row_{{ $venta->id }}" >
+    <tr class="tr" id="row_{{ $venta->id }}" style="cursor: pointer;" >
         <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $venta->cliente->Nombre }}</td>
         <td>
    <form id="formCambiarEstado" action="{{ route('ventas.cambiarEstado', $venta->id) }}" method="post">

@@ -92,9 +92,9 @@
                 </table>
             </div>
             <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
-                @if($compra->Estado == 'Aceptada')
-                    <button class="btn btn-primary" onclick="window.location='{{ route('mostrarventas', ['id' => $compra->id]) }}'">{{ __('ventas.view_sell') }}</button>
-                @endif
+
+            <a href="{{route('orders.generateInvoiceBuy', $compra->id)}}" target="_blank" class="btn btn-primary">{{ __('ventas.print_invoice') }}</a>
+
             </nav>
         </div>
     </div>

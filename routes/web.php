@@ -14,6 +14,7 @@ use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CompraProductoController;
 
 
 /*
@@ -60,6 +61,12 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/orders/{id}', [VentaPropuestaController::class, 'generateInvoice'])->name('orders.generateInvoice');
+Route::get('/orders/{id}/generate-invoice-buy', [CompraController::class, 'generateInvoiceBuy'])->name('orders.generateInvoiceBuy');
+
+Route::get('/facturas', [CompraProductoController::class, 'index'])->name('invoices.index');
+
+Route::get('/orders/{id}/all-invoice-sell', [CompraProductoController::class, 'generateInvoiceAllSell'])->name('orders.generateInvoiceAllSell');
+Route::get('/orders/{id}/all-invoice', [CompraProductoController::class, 'generateInvoiceAllBuy'])->name('orders.generateInvoiceAllBuy');
     Route::get('/graficPoblacio', [ClienteController::class, 'graficPoblacio'])->name('graficPoblacio');
     Route::get('/graficEstat', [VentaPropuestaController::class, 'graficEstat'])->name('ventas.graficEstat');
     Route::get('/error', function () {
