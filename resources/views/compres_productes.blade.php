@@ -5,28 +5,28 @@
     <div class="col-3 text-center">
         <div class="card border-secondary">
             <div class="card-body">
-                <button class="btn"><a href="{{ route('productes.create') }}" style="color: blue;">{{ __('create_purchase') }}</a></button>
+                <button class="btn"><a href="{{ route('productes.create') }}" style="color: blue;">{{ __('Compras.crear_compra') }}</a></button>
             </div>
         </div>
     </div>
     <div class="col-3 text-center">
         <div class="card border-secondary">
             <div class="card-body">
-                <p>{{ __('prova') }}</p>
+                <p>{{ __('Compras.prova') }}</p>
             </div>
         </div>
     </div>
     <div class="col-3 text-center">
         <div class="card border-secondary">
             <div class="card-body">
-                <p>{{ __('analisi_data_entrada') }}</p>
+                <p>{{ __('Compras.analisi_data_entrada') }}</p>
             </div>
         </div>
     </div>
     <div class="col-3 text-center">
         <div class="card border-secondary">
             <div class="card-body">
-                <p>{{ __('detalls_productes') }}</p>
+                <p>{{ __('Compras.detalls_productes') }}</p>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <div class="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
                 <div class="flex items-center flex-1 space-x-4">
                     <h5>
-                        <span class="dark:text-black">{{ __('ventas.prdocuts_of_proposal') }} {{$compra->id}} {{ __('ventas.of_customer') }} {{$compra->user->name}}</span>
+                        <span class="dark:text-black">{{ __('Compras.prdocuts_of_proposal') }} {{$compra->id}} {{ __('Compras.of_customer') }} {{$compra->user->name}}</span>
                     </h5>
                 </div>
             </div>
