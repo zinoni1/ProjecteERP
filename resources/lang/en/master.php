@@ -8,7 +8,7 @@ return[
     'customers' => 'Customers',
     'budgets' => 'Invoices',
     'buys' => 'Buys',
-    'seller'=>'Seller',
+    'seller'=>'Sellers',
     'close' => 'Close Menu',
 
 ];

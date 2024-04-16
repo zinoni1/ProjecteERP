@@ -63,7 +63,7 @@
                         <tr>
                             <th colspan="3" class="px-6 py-3">
                                 <div class="bg-gray-50 dark:bg-gray-700 dark:text-black px-4 py-3">
-                                    <h5 class="dark:text-black">{{ __('vendedor.seller list') }}</h5>
+                                    <h5 class="dark:text-black">{{ __('invoice.list_buyer') }}</h5>
                                 </div>
                             </th>
                         </tr>

@@ -37,4 +37,5 @@ return [
      'paid' => 'Pagat',
      'due' => 'Programat',
      'page' => 'Pàgina',
+     'list_buyer' => 'Llista compradors',
 ];
