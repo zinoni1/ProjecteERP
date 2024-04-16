@@ -1,36 +1,6 @@
 @extends('master')
 
 @section('content')
-<section class="row mb-4">
-    <div class="col-3 text-center">
-        <div class="card border-secondary">
-            <div class="card-body">
-                <button class="btn"><a href="{{ route('compras.create') }}" style="color: blue;">{{ __('Compras.crear_compra') }}</a></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-3 text-center">
-        <div class="card border-secondary">
-            <div class="card-body">
-                <p>{{ __('Compras.prova') }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-3 text-center">
-        <div class="card border-secondary">
-            <div class="card-body">
-                <p>{{ __('Compras.analisi_data_entrada') }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-3 text-center">
-        <div class="card border-secondary">
-            <div class="card-body">
-                <p>{{ __('Compras.detalls_productes') }}</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
     <div class="px-4 mx-auto max-w-screen-2xl lg:px-12">
