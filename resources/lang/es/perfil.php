@@ -35,5 +35,7 @@ return [
     'lastBuy' => 'Últimas 5 compras',
     'lastSell' => 'Últimas 5 ventas',
     'registerNewUser' => 'Registrar nuevo usuario',
+    'welcome' => 'Bienvenido a Gazepa',
+
 
    ];

@@ -35,4 +35,6 @@ return [
     'lastBuy' => 'Last 5 purchases',
     'lastSell' => 'Last 5 sales',
      'registerNewUser' => 'Register new user',
+     'welcome' => 'Welcome to Gazepa',
+
 ];

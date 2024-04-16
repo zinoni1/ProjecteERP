@@ -67,11 +67,12 @@ class VentaPropuestaController extends Controller
      */
     public function index()
     {
-        $ventes = VentaPropuesta::with('productes', 'cliente')->get();
+        $ventes = VentaPropuesta::with('productes', 'cliente')->orderByDesc('created_at')->paginate(10);
         $ventaProductos = VentaPropuestaProducto::whereIn('venta_propuesta_id', $ventes->pluck('id'))->get();
-
+    
         return view('ventas', compact('ventes', 'ventaProductos'));
     }
+    
 
     public function index_ventas($id)
     {
