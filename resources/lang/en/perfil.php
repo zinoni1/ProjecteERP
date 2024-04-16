@@ -32,5 +32,7 @@ return [
     'offline' => 'Offline',
     'online' => 'Online',
     'lastusers' => 'Last registered users',
-    'registerNewUser' => 'Register new user',
+    'lastBuy' => 'Last 5 purchases',
+    'lastSell' => 'Last 5 sales',
+     'registerNewUser' => 'Register new user',
 ];

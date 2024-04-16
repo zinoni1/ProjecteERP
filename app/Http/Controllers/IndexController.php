@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\VentaPropuesta;
 use Illuminate\Http\RedirectResponse;
 use App\Models\VentaDetalle;
 use App\Models\Compra;
@@ -12,11 +13,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+
 class IndexController extends Controller
 {
     public function showLastUsersAndGraph(): View
     {
-        $users = User::latest()->take(5)->get();
+        // Obtener los datos de las últimas 5 compras
+        $user = Auth::user(); // O cualquier otra forma de obtener el usuario actual
+
+        $ultimasCompras = Compra::latest()->take(5)->get();
+
+        $ultimasVentas = VentaPropuesta::latest()->take(5)->get();
+        $users = User::latest()->take(6)->get();
 
         // Obtener datos de ventas
         $totalVentas = VentaDetalle::sum('PrecioUnitario');
@@ -34,9 +42,7 @@ class IndexController extends Controller
         $porcentajeVentas = ($totalVentas / $total) * 100;
         $porcentajeCompras = ($totalCompras / $total) * 100;
 
-        // Puedes pasar estos valores a tu vista para renderizar la gráfica
-        return view('index', compact('users', 'porcentajeVentas', 'porcentajeCompras', 'totalVentas', 'totalCompras', 'balance'));
+        // Puedes pasar estos valores a tu vista para renderizar la gráfica y las últimas compras
+        return view('index', compact('user','ultimasVentas','ultimasCompras', 'users', 'porcentajeVentas', 'porcentajeCompras', 'totalVentas', 'totalCompras', 'balance'));
     }
-    
-    
 }
