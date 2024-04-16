@@ -6,7 +6,7 @@ return[
     'sales' => 'Ventas',
     'products' => 'Productos y categorías',
     'customers' => 'Clientes',
-    'budgets' => 'Presupuestos',
+    'budgets' => 'Facturas',
     'buys' => 'Compras',
     'seller'=>'Vendedor'
 ];

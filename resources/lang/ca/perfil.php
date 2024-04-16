@@ -34,6 +34,6 @@ return [
     'lastusers' => 'Últims usuaris registrats',
     'lastBuy' => 'Últimes 5 compres',
     'lastSell' => 'Últimes 5 vendes',
-
+    'registerNewUser' => 'Registrar nou usuari',
 
 ];

@@ -34,6 +34,5 @@ return [
     'lastusers' => 'Last registered users',
     'lastBuy' => 'Last 5 purchases',
     'lastSell' => 'Last 5 sales',
-    
-
+     'registerNewUser' => 'Register new user',
 ];

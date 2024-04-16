@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS v5.2.1 -->
-    
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
 
@@ -96,9 +96,9 @@
     <form id="languageForm" method="POST" action="">
         @csrf
         <select id="idioma" name="idioma" onchange="cambiarIdioma()" style="margin-left: 1050px !important; margin-top: 10px !important">
-        <option value="es" {{ session('idioma') === 'es' ? 'selected' : '' }}>Español</option>
-        <option value="en" {{ session('idioma') === 'en' ? 'selected' : '' }}>English</option>
-            <option value="ca" {{ session('idioma') === 'ca' ? 'selected' : '' }}>Català</option>
+        <option value="es" {{ session('idioma') === 'es' ? 'selected' : '' }}>🇪🇦 Español</option>
+        <option value="en" {{ session('idioma') === 'en' ? 'selected' : '' }}>🇬🇧 English</option>
+            <option value="ca" {{ session('idioma') === 'ca' ? 'selected' : '' }}>🇨🇴 Català</option>
         </select>
     </form>
 
@@ -130,7 +130,7 @@
         <a href="{{ route('clientes.index') }}">{{ __('master.customers') }}</a>
         <a href="{{ route('ventas.index') }}">{{ __('master.sales') }}</a>
         <a href="{{ route('producte.index') }}">{{ __('master.products') }}</a>
-        <a href="#">{{ __('master.budgets') }}</a>
+        <a href="{{ route('invoices.index') }}">{{ __('master.budgets') }}</a>
         <a href="{{ route('compras.index') }}">{{ __('master.buys') }}</a>
         <a href="{{ route('venedors.index') }}">{{ __('master.seller') }}</a>
 
