@@ -14,10 +14,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('indexCLiente', compact('clientes'));
+        $clientes = Cliente::orderBy('created_at', 'desc')->paginate(4);
+        return view('indexAllCLientes', compact('clientes'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */

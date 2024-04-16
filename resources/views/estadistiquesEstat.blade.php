@@ -1,29 +1,7 @@
 @extends('master')
 
 @section('content')
-<div class="content">
-<section class="row mb-4">
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div>
         <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
