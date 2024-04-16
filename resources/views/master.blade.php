@@ -111,7 +111,7 @@
 <button class="btn btn-secondary dropdown-toggle" style="margin-right: 80px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <div style="display: inline-flex; align-items: center;">
         @if($user->ruta)
-            <img src="{{ asset('Media/' . $user->ruta) }}" width="26" height="26" style="margin-right: 5px;"/>
+        <img src="{{ asset('Media/' . $user->ruta) }}" width="26" height="26" style="margin-right: 5px;"/>
         @else
             <span>{{ __('productes.Noimage') }}</span>
         @endif
