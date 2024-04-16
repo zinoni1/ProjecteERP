@@ -32,4 +32,5 @@ return [
     'offline' => 'Desconectado',
     'online' => 'Conectado',
     'lastusers' => 'Últimos usuarios registrados',
+    'registerNewUser' => 'Registrar nuevo usuario',
    ];

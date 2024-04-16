@@ -32,5 +32,6 @@ return [
     'offline' => 'Desconnectat',
     'online' => 'Connectat',
     'lastusers' => 'Últims usuaris registrats',
+    'registerNewUser' => 'Registrar nou usuari',
 
 ];
