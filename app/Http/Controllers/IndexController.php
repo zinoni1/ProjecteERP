@@ -34,13 +34,16 @@ class IndexController extends Controller
 
         // Calcular total
         $total = $totalVentas + $totalCompras;
-
+        if ($total == 0) {
+            $porcentajeVentas = 0;
+            $porcentajeCompras = 0;
+        } else {
+            // Calcular porcentajes
+            $porcentajeVentas = ($totalVentas / $total) * 100;
+            $porcentajeCompras = ($totalCompras / $total) * 100;
+        }
         // Calcular balance
         $balance = $totalVentas - $totalCompras;
-
-        // Calcular porcentajes
-        $porcentajeVentas = ($totalVentas / $total) * 100;
-        $porcentajeCompras = ($totalCompras / $total) * 100;
 
         // Puedes pasar estos valores a tu vista para renderizar la gráfica y las últimas compras
         return view('index', compact('user','ultimasVentas','ultimasCompras', 'users', 'porcentajeVentas', 'porcentajeCompras', 'totalVentas', 'totalCompras', 'balance'));
