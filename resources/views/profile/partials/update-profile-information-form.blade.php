@@ -30,6 +30,13 @@
         <option value="admin" @if($user->role == 'admin') selected @endif>Admin</option>
         <option value="venta" @if($user->role == 'venta') selected @endif>Venta</option>
     </select>
+    <td>
+    @if($user->ruta)
+        <img src="{{ asset('Media/' . $user->ruta) }}" width="90"/>
+    @else
+    {{ __('productes.Noimage') }}
+    @endif
+</td>
 </div>
 
 
