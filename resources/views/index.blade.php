@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="px-4 mx-auto max-w-screen-xl lg:px-8 mt-8">
-<h2 class="text-3xl font-semibold text-white dark:text-gray-200">Benvingut a Gazepa, {{$user->name}}👋</h1> <!-- Cambio de color de texto a blanco y centrado -->
+<h2 class="text-3xl font-semibold text-white dark:text-gray-200">{{ __('perfil.welcome') }}, {{$user->name}}👋</h1> <!-- Cambio de color de texto a blanco y centrado -->
     <div class="grid grid-cols-2 gap-8">
         <div class="bg-white p-6 shadow-md rounded-lg"style="max-height: 300px; overflow-y: auto; max-width: 800px;">
         <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{{ __('perfil.lastBuy') }}</h2>

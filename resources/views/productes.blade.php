@@ -4,31 +4,24 @@
 
     <div class="content">
         <section class="row mb-4">
-            <div class="col-3 text-center">
+            <div class="col-4 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('productes.create') }}" style="color: blue;">{{ __('productes.Crear Productes/Serveis') }}</a>
+                    <a href="{{ route('productes.create') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('productes.Crear Productes/Serveis') }}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-4 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                        <a href="{{ route('mostrarProductos') }}" class="btn btn-primary">{{ __('productes.Mostrar Productos/Serveis') }}</a>
+                        <a href="{{ route('mostrarProductos') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('productes.Mostrar Productos/Serveis') }}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-4 text-center">
                 <div class="card border-secondary">
                     <div class="card-body">
-                    <a href="{{ route('productes.graficoProductos') }}" class="btn btn-primary">{{ __('productes.GraficaProductos/Serveis') }}</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                        <p>{{ __('productes.detalls_productes') }}</p>
+                    <a href="{{ route('productes.graficoProductos') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('productes.GraficaProductos/Serveis') }}</a>
                     </div>
                 </div>
             </div>
