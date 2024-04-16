@@ -104,10 +104,22 @@
 
 
     <div class="dropdown" style="margin-right: 10px; z-index: 100;">
+    @php
+    $user = Auth::user();
+@endphp
 
-<button class="btn btn-secondary dropdown-toggle" style="margin-right: 100px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    {{ Auth::user()->name }}
+<button class="btn btn-secondary dropdown-toggle" style="margin-right: 80px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <div style="display: inline-flex; align-items: center;">
+        @if($user->ruta)
+            <img src="{{ asset('Media/' . $user->ruta) }}" width="26" height="26" style="margin-right: 5px;"/>
+        @else
+            <span>{{ __('productes.Noimage') }}</span>
+        @endif
+        <span style="margin-left: 5px">{{ $user->name }}</span>
+    </div>
 </button>
+
+
 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 <li><a class="dropdown-item" style="color: black;" href="{{ route('profile.edit') }}">{{ __('perfil.profile') }}</a></li>
 

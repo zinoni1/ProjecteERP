@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
             $nombreImagen = uniqid('imagen_') . '.' . $imagen->getClientOriginalExtension();
-            
+
             // Intenta guardar la imagen en el almacenamiento
             try {
                 $rutaImagen = Storage::putFileAs('public/Media', $imagen, $nombreImagen);
