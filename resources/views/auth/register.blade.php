@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -25,6 +25,14 @@
                 <option value="venta">venta</option>
             </select>
         </div>
+        <div class="mb-3">
+        <label for="imagen">{{ __('perfil.imagen') }}</label>
+        <input type="file" id="imagen" name="imagen" accept="image/jpg, image/jpeg, image/png">
+        @error('imagen')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
 
         <!-- Password -->
         <div class="mt-4">
