@@ -36,4 +36,5 @@ return [
     'paid'                   => 'Pagado',
     'due'                    => 'Programado',
     'page'                   => 'Página',
+    'list_buyer'             => 'Lista compradores',
 ];

@@ -36,4 +36,5 @@ return [
     'paid'                   => 'Paid',
     'due'                    => 'Due',
     'page'                   => 'Page',
+    'list_buyer'             => 'List buyers',
 ];
