@@ -1,22 +1,15 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-800">
-        {{ __('perfil.profile_information') }}
+            {{ __('perfil.profile_information') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-800 dark:text-gray-800">
-        {{ __('perfil.update_info') }}
+            {{ __('perfil.update_info') }}
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
-
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
-        @csrf
-        @method('patch')
-
+    <div class="grid grid-cols-2 gap-4">
         <div>
             <x-input-label for="name" :value="__('perfil.name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
@@ -24,25 +17,15 @@
         </div>
 
         <div>
-    <x-input-label for="role" :value="__('perfil.role')" />
-    <select id="role" name="role" class="block mt-1 w-full">
-        <option value="usuari" @if($user->role == 'usuari') selected @endif>Usuari</option>
-        <option value="admin" @if($user->role == 'admin') selected @endif>Admin</option>
-        <option value="venta" @if($user->role == 'venta') selected @endif>Venta</option>
-    </select>
-    <td>
-        <br>
-    @if($user->ruta)
+            <x-input-label for="role" :value="__('perfil.role')" />
+            <select id="role" name="role" class="block mt-1 w-full">
+                <option value="usuari" @if($user->role == 'usuari') selected @endif>Usuari</option>
+                <option value="admin" @if($user->role == 'admin') selected @endif>Admin</option>
+                <option value="venta" @if($user->role == 'venta') selected @endif>Venta</option>
+            </select>
+        </div>
 
-    <img src="{{ asset('Media/' . $user->ruta) }}" width="90"/>
-    @else
-    {{ __('productes.Noimage') }}
-    @endif
-</td>
-</div>
-
-
-        <div>
+        <div class="col-span-2">
             <x-input-label for="email" :value="__('perfil.email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -66,18 +49,28 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('perfil.save') }}</x-primary-button>
+        <div class="col-span-2">
 
-            @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-800"
-                >{{ __('Saved.') }}</p>
-            @endif
-        </div>
-    </form>
+    @if($user->ruta)
+
+    <img src="{{ asset('Media/' . $user->ruta) }}" width="90"/>
+    @else
+    {{ __('productes.Noimage') }}
+    @endif
+  </div>
+    </div>
+
+    <div class="flex items-center gap-4 mt-6">
+        <x-primary-button>{{ __('perfil.save') }}</x-primary-button>
+
+        @if (session('status') === 'profile-updated')
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600 dark:text-gray-800"
+            >{{ __('Saved.') }}</p>
+        @endif
+    </div>
 </section>
