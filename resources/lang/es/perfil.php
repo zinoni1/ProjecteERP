@@ -32,4 +32,6 @@ return [
     'offline' => 'Desconectado',
     'online' => 'Conectado',
     'lastusers' => 'Últimos usuarios registrados',
+    'lastBuy' => 'Últimas 5 compras',
+    'lastSell' => 'Últimas 5 ventas',
    ];
