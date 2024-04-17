@@ -112,8 +112,8 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-6">
-    <a href="{{ route('products') }}" class="btn btn-secondary mt-3">{{ __('productes.tornar') }}</a>
-    <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-block mt-3">{{ __('productes.CrearCategoria') }}</a>
+    <a style="text-decoration: none;" href="{{ route('products') }}" class="btn btn-secondary mt-3">{{ __('productes.tornar') }}</a>
+    <a style="text-decoration: none;" href="{{ route('categorias.create') }}" class="btn btn-primary btn-block mt-3">{{ __('productes.CrearCategoria') }}</a>
 </div>
             <div style="text-align: right;" class="col-md-6 text-right filter-container">
                 <form action="{{ route('mostrarProductos') }}" method="GET">
