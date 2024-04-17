@@ -11,8 +11,8 @@
                 <div class="flex justify-between items-center">
     <h3>{{ __('ventas.proposals') }}</h3>
     <div class="space-x-2">
-        <button class="btn"><a href="{{ route('ventas.create') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('ventas.create_proposal') }}</a></button>
-        <button class="btn"><a href="{{ route('ventas.graficEstat') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('ventas.graph') }}</a></button>
+        <button class="btn"><a style="text-decoration: none;" href="{{ route('ventas.create') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('ventas.create_proposal') }}</a></button>
+        <button class="btn"><a style="text-decoration: none;" href="{{ route('ventas.graficEstat') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('ventas.graph') }}</a></button>
     </div>
 </div><br>
                     <div class="overflow-auto" style="max-height: 600px;">
@@ -78,7 +78,7 @@
                                     <!-- Mostrar el precio solo si hay productos asociados -->
 
                                     @if(count($venta->productes) > 0)
-                                    <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $totalPrecio }}</td>
+                                    <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">{{ $totalPrecio }}€</td>
                                     @else
                                     <td onclick="redirectToRoute('{{ route('VentaPropuesta.show', $venta->id) }}')">Sense preu</td>
                                     @endif

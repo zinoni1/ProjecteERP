@@ -1,36 +1,7 @@
 @extends('master')
 
 @section('content')
-<section class="row mb-4">
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                    <button class="btn"><a href="{{ route('productes.create') }}" style="color: blue;"></a></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                    <p>prova</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                        <p>Anàlisi data d'entrada</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 text-center">
-                <div class="card border-secondary">
-                    <div class="card-body">
-                        <p>Detalls dels productes</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
 
 
