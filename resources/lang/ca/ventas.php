@@ -25,5 +25,7 @@ return[
     "of_customer" => "del client",
     "print_invoice" => "Imprimir factura",
     "sell_of" => "Venda de",
+    "estadistiques" => "Estadistíques de l'estat de propostes",
+    "quantity" => "Quantitat de propostes",
 
 ];

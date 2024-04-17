@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Estadistíques de l'estat de propostes</div>
+                <div class="card-header">{{ __('ventas.estadistiques') }}</div>
 
                 <div class="card-body">
                     <canvas id="chartEstat" width="1000" height="500"></canvas>
@@ -65,14 +65,14 @@
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Quantitat de propostes',
+                        text: '{{ __('ventas.quantity') }}',
                         fontSize: 18 // Tamaño de fuente personalizado para el título del eje y
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Estat',
+                        text: '{{ __('ventas.status') }}',
                         fontSize: 18 // Tamaño de fuente personalizado para el título del eje x
                     }
                 }

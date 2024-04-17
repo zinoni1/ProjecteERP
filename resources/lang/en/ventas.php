@@ -25,4 +25,6 @@ return[
     "of_customer" => "of the customer",
     "print_invoice" => "Print invoice",
     "sell_of" => "Sale of",
+    "estadistiques" => "Statistics of the status of proposals",
+    "quantity" => "Quantity of proposals",
 ];

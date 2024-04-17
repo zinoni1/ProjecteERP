@@ -50,4 +50,6 @@ return [
     'No hi ha productes' => 'No hay productos',
     'Sin categoría'=>'Sin categoría',
     'GraficaProductos/Serveis' => 'Gráfica Productos/Servicios',
+    'quantitat' => 'Cantidad de Productos',
+    'above_50' => 'Más de 50',
 ];
