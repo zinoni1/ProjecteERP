@@ -33,7 +33,9 @@
                             <th scope="col" class="px-6 py-4 text-left">{{ __('traduccion.telefon') }}</th>
                             <th scope="col" class="px-6 py-4 text-left">{{ __('traduccion.adreca') }}</th>
                             <th scope="col" class="px-6 py-4 text-left">{{ __('traduccion.poblacio') }}</th>
-                            <th scope="col" class="px-6 py-4 text-left">{{ __('traduccion.accions') }}</th>
+                            @if(auth()->user()->role === 'admin')
+                                <th scope="col" class="px-6 py-4 text-left">{{ __('traduccion.accions') }}</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -45,16 +47,18 @@
                             <td class="px-6 py-4">{{ $cliente->Telefono }}</td>
                             <td class="px-6 py-4">{{ $cliente->Direccion }}</td>
                             <td class="px-6 py-4">{{ $cliente->Poblacion }}</td>
-                            <td class="px-6 py-4">
-                                <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="confirmarEliminar('{{ $cliente->id }}')">{{ __('traduccion.eliminar') }}</button>
-                                </form>
-                                <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
-                                    <button type="submit" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('traduccion.editar') }}</button>
-                                </form>
-                            </td>
+                            @if(auth()->user()->role === 'admin')
+                                <td class="px-6 py-4">
+                                    <form id="delete-form-{{ $cliente->id }}" action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="confirmarEliminar('{{ $cliente->id }}')">{{ __('traduccion.eliminar') }}</button>
+                                    </form>
+                                    <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" style="display: inline;">
+                                        <button type="submit" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('traduccion.editar') }}</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr><tr class="border-t border-gray-200 dark:border-gray-600"></tr>
                         @endforeach
                     </tbody>
