@@ -30,6 +30,13 @@
         <section class="row md-1">
             <div class="col md-1">
                 <div class="card border-primary">
+                <div class="row mb-3">
+            <div class="col-md-10">
+                <span class="badge badge-pill badge-danger" style="background-color: #FF3333;">Stock &lt; 10</span>
+                <span class="badge badge-pill badge-warning" style="background-color: #FFCC00;">10 &le; Stock &lt; 50</span>
+            </div>
+        </div>
+
                     <div class="card-body">
                         <h3>{{ __('productes.lista_compras') }}</h3>
                         <div class="overflow-x-auto">
