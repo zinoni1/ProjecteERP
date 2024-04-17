@@ -11,7 +11,7 @@ return[
     "date" => "Date",
     "details" => "Detail",
     "add" => "Add",
-    "graph" => "Graph",
+    "graph" => "Graph of the status of proposals",
     "create_proposal" => "Create proposal",
     "back" => "Back",
     "continue" => "Continue",

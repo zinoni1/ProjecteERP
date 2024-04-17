@@ -11,7 +11,7 @@ return[
     "date" => "Data",
     "details" => "Detalls",
     "add" => "Afegir",
-    "graph" => "Gràfic",
+    "graph" => "Gràfic estat de les propostes",
     "create_proposal" => "Crear proposta",
     "back" => "Tornar",
     "continue" => "Continuar",
