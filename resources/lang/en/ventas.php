@@ -11,7 +11,7 @@ return[
     "date" => "Date",
     "details" => "Detail",
     "add" => "Add",
-    "graph" => "Graph",
+    "graph" => "Graph of the status of proposals",
     "create_proposal" => "Create proposal",
     "back" => "Back",
     "continue" => "Continue",
@@ -25,4 +25,6 @@ return[
     "of_customer" => "of the customer",
     "print_invoice" => "Print invoice",
     "sell_of" => "Sale of",
+    "estadistiques" => "Statistics of the status of proposals",
+    "quantity" => "Quantity of proposals",
 ];

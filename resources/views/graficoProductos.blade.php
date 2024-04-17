@@ -17,7 +17,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Cantidad de Productos',
+                    label: '{{ __('productes.quantitat') }}',
                     data: data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)', // Rojo para "Menos de 10"
