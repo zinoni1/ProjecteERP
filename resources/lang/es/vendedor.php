@@ -13,5 +13,10 @@ return [
         'direction' => 'Dirección',
         'phone' => 'Teléfono',
         'create seller' => 'Crear Vendedor',
+        'nombreVendedor' => 'Nombre del Vendedor',
+        'Direccion' => 'Dirección',
+        'telefono' => 'Teléfono',
+        'enviar' => 'Enviar',
+        'cuestionario' => 'Cuestionario',
         
 ];
