@@ -38,7 +38,7 @@
         </div>
 
                     <div class="card-body">
-                        <h3>{{ __('productes.lista_compras') }}</h3>
+                        <h3>{{ __('productes.llistaproductes') }}</h3>
                         <div class="overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-900 dark:text-gray-400 border border-gray-300 bg-gray-200"> <!-- Agregué border y bg-gray-200 -->
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

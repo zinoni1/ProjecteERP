@@ -4,24 +4,24 @@
     <div class="container">
         <div class="card">
             <div class="card-header  text-white">
-                <h1 class="mb-0">Cuestionario</h1>
+                <h1 class="mb-0">{{ __('vendedor.cuestionario') }}</h1>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('venedors.store') }}">
                     @csrf
                     <div class="mb-3">
-                        <label for="nombreVendedor" class="form-label">Nombre del Vendedor</label>
+                        <label for="nombreVendedor" class="form-label">{{ __('vendedor.nombreVendedor') }}</label>
                         <input type="text" class="form-control" id="nombreVendedor" name="nombreVendedor">
                     </div>
                     <div class="mb-3">
-                        <label for="Direccion" class="form-label">Dirección</label>
+                        <label for="Direccion" class="form-label">{{ __('vendedor.Direccion') }}</label>
                         <input type="text" class="form-control" id="Direccion" name="Direccion">
                     </div>
                     <div class="mb-3">
-                        <label for="Telefono" class="form-label">Teléfono</label>
+                        <label for="Telefono" class="form-label">{{ __('vendedor.telefono') }}</label>
                         <input type="text" class="form-control" id="Telefono" name="Telefono">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    <button type="submit" class="btn btn-primary btn-block">{{ __('vendedor.enviar') }}</button>
                 </form>
             </div>
         </div>
