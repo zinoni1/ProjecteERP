@@ -9,6 +9,7 @@ return [
     'StockDesc' => 'Stock Descendent',
     'less_than_10' => '10 or less',
     'between_10_and_50' => 'Between 10 and 50',
+    'above_50' => 'Above 50',
     'ordenar' => 'Order',
     'categorias' => 'Categories',
     'llistaproductes' => 'List of products',
@@ -50,4 +51,5 @@ return [
     'No hi ha productes' => 'No products available',
     'Sin categoría'=>'Uncategorized',
     'GraficaProductos/Serveis' => 'Products/Services Chart',
+    'quantitat' => 'Quantity of Products',
 ];

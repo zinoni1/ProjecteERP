@@ -216,24 +216,25 @@ class ProducteController extends Controller
         return redirect()->route('compras.create')->with('success', 'Compra de producto creada exitosamente.');
     }
     public function graficoProductos()
-    {
-        // Obtener la cantidad de productos por rango de stock
-        $productosCount = Producte::select(
-            DB::raw('CASE 
-                WHEN Stock > 50 THEN "Above 50"
-                WHEN Stock >= 10 AND Stock <= 50 THEN "Between 10 and 50"
-                ELSE "Less than 10" 
-                END AS StockRange'),
-            DB::raw('COUNT(*) as total')
-        )
-            ->groupBy('StockRange')
-            ->get();
+{
+    // Obtener la cantidad de productos por rango de stock
+    $productosCount = Producte::select(
+        DB::raw('CASE 
+            WHEN Stock > 50 THEN "'.__('productes.above_50').'"
+            WHEN Stock >= 10 AND Stock <= 50 THEN "'.__('productes.between_10_and_50').'"
+            ELSE "'.__('productes.less_than_10').'"
+            END AS StockRange'),
+        DB::raw('COUNT(*) as total')
+    )
+        ->groupBy('StockRange')
+        ->get();
 
-        // Preparar los datos para el gráfico
-        $labels = $productosCount->pluck('StockRange')->toArray();
-        $data = $productosCount->pluck('total')->toArray();
+    // Preparar los datos para el gráfico
+    $labels = $productosCount->pluck('StockRange')->toArray();
+    $data = $productosCount->pluck('total')->toArray();
 
-        return view('graficoProductos', compact('labels', 'data'));
-    }
+    return view('graficoProductos', compact('labels', 'data'));
+}
+
     
 }

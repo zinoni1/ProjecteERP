@@ -11,7 +11,7 @@ return[
     "date" => "Fecha",
     "details" => "Detalle",
     "add" => "Agregar",
-    "graph" => "Gráfico",
+    "graph" => "Gráfico estado de las propuestas",
     "create_proposal" => "Crear propuesta",
     "back" => "Atrás",
     "continue" => "Continuar",
@@ -25,4 +25,6 @@ return[
     "of_customer" => "del cliente",
     "print_invoice" => "Imprimir factura",
     "sell_of" => "Venta de",
+    "estadistiques" => "Estadísticas del estado de propuestas",
+    "quantity" => "Cantidad de propuestas",
 ];
