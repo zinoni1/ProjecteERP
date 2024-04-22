@@ -58,47 +58,47 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Formulario de Ventas
+        {{ __('ventas.formulari') }}
         </div>
         <div class="card-body">
             <form action="{{ route('ventas.store') }}" method="post" >
                 @csrf
 
                 <div class="mb-3">
-                    <label for="Nombre" class="form-label">Estat:</label>
+                    <label for="Nombre" class="form-label">   {{ __('ventas.status') }}</label>
                     <select type="select" name="estat" id="estat" class="form-control" required>
-                        <option>Rechazada</option>
-                        <option>Pendiente</option>
-                        <option>Aceptada</option>
+                        <option>{{ __('ventas.rejected') }}</option>
+                        <option>{{ __('ventas.pending') }}</option>
+                        <option>{{ __('ventas.accepted') }}</option>
                     </select>
                     <div class="invalid-feedback">
-                        Si us plau, introdueix un nom.
+                       {{ __('ventas.introdueix_nom')}}
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="Detalls" class="form-label">Detalls:</label>
+                    <label for="Detalls" class="form-label"> {{ __('ventas.details')}}</label>
                     <textarea name="Detalls" id="Detalls" class="form-control" required></textarea>
                     <div class="invalid-feedback">
-                        Si us plau, introdueix una descripció.
+                    {{ __('ventas.introdueix_descripcio')}}
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="Client" class="form-label">Client:</label>
+                    <label for="Client" class="form-label">  {{ __('ventas.customer')}}</label>
                     <select type="select" name="client_id" id="client_id" class="form-control" required>
                         @foreach ($clients as $client)
                             <option value="{{ $client->id }}">{{ $client->Nombre }}</option>
                         @endforeach
                     </select>
                     <div class="invalid-feedback">
-                        Si us plau, selecciona un client.
+                       {{ __('ventas.selecciona_client')}}
                     </div>
                 </div>
 
-                <a href="{{ route('ventas.index') }}" class="btn btn-secondary mt-3">Tornar</a>
+                <a href="{{ route('ventas.index') }}" class="btn btn-secondary mt-3">  {{ __('ventas.back')}}</a>
 
-                <button type="submit" class="btn btn-primary btn-block" id="submitButton">Seguent</button>
+                <button type="submit" class="btn btn-primary btn-block" id="submitButton">  {{ __('ventas.continue')}}</button>
             </form>
         </div>
     </div>

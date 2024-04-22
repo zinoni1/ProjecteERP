@@ -17,6 +17,7 @@ return [
   'editar' => 'EDITAR',
   'accions' => 'ACCIONES',
   'llistaclients' => 'LISTA DE CLIENTES',
+  'guardar_canvis' => 'GUARDAR CAMBIOS',
    //Grafic Client
    'distribucio' => 'DISTRIBUCION DE POBLACION DE CLIENTES',
     'quantitat' => 'CANTIDAD DE CLIENTES POR POBLACION',

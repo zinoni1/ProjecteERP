@@ -17,6 +17,7 @@ return [
      'editar' => 'EDIT',
     'accions' => 'ACTIONS',
     'llistaclients' => 'CLIENT LIST',
+    'guardar_canvis' => 'SAVE CHANGES',
      //Grafic Client
      'distribucio' => 'DISTRIBUTION OF CLIENT POPULATION',
      'quantitat' => 'QUANTITY OF CLIENTS PER POPULATION',
