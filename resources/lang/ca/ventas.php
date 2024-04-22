@@ -27,5 +27,15 @@ return[
     "sell_of" => "Venda de",
     "estadistiques" => "Estadistíques de l'estat de propostes",
     "quantity" => "Quantitat de propostes",
+    "introdueix_nom" => " Sisplau, introdueix el nom",
+    "introdueix_descripcio" => " Sisplau, introdueix la descripció",
+    "selecciona_client" => "Selecciona un client",
+    "formulari" => "Formulari de vendes",
+    "nom_producte" => "Nom del producte:",
+    "selecciona_producte" => "Selecciona un producte",
+    "introdueix_nom_producte" => "Sisplau, introdueix el nom del producte",
+    "introdueix_quantitat_producte" => "Sisplau, introdueix la quantitat del producte",
+    "afegir_producte" => "Afegir producte",
+    "afegir_tots_productes" => "Afegir tots els productes",
 
 ];

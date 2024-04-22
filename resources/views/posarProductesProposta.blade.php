@@ -10,23 +10,23 @@
                 <!-- Campos existentes para la venta propuesta -->
                 <div id="productos">
                     <div class="mb-3">
-                        <label for="nombre_producto" class="form-label">Nombre del Producto:</label>
+                        <label for="nombre_producto" class="form-label"> {{ __('ventas.nom_producte') }}</label>
                         <select name="nombre_producto[]" class="form-control" required>
-                            <option value="">Seleccione un producto</option>
+                            <option value="">{{ __('ventas.selecciona_producte') }}</option>
                             @foreach($productos as $producto)
                             <option value="{{ $producto->id }}">{{ $producto->Nombre }}</option>
                             @endforeach
                         </select>
                         <div class="invalid-feedback">
-                            Por favor, ingrese el nombre del producto.
+                        {{ __('ventas.introdueix_nom_producte') }}
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="cantidad" class="form-label">Cantidad:</label>
+                        <label for="cantidad" class="form-label"> {{ __('ventas.quantity') }}</label>
                         <input type="number" name="cantidad[]" class="form-control" required>
                         <div class="invalid-feedback">
-                            Por favor, ingrese la cantidad del producto.
+                        {{ __('ventas.introdueix_quantitat_producte') }}
                         </div>
                     </div>
 
@@ -35,8 +35,8 @@
                 </div>
                 <input type="hidden" name="venta_propuesta_id" value="{{ $venta->id }}">
 
-                <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="agregarProducto()">Agregar Producto</button>
-                <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Afegir tots els productes</button>
+                <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="agregarProducto()">{{ __('ventas.afegir_producte') }}</button>
+                <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ __('ventas.afegir_tots_productes') }}</button>
             </form>
         </div>
     </div>
